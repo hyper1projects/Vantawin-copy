@@ -2,7 +2,7 @@ import React from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import GameListing from './GameListing';
-import { Ball, Basketball, Tennis, AmericanFootball, Golf } from 'lucide-react'; // Using generic Ball for some, specific for others
+import { Ball, Basketball, Tennis, Gamepad2, Golf } from 'lucide-react'; // Changed AmericanFootball to Gamepad2
 
 const TopGamesSection: React.FC = () => {
   // Placeholder data for game listings
@@ -73,7 +73,7 @@ const TopGamesSection: React.FC = () => {
             <Tennis className="h-5 w-5 text-vanta-text-muted" />
           </div>
           <div className="p-2 rounded-full bg-vanta-blue-medium border border-vanta-border">
-            <AmericanFootball className="h-5 w-5 text-vanta-text-muted" />
+            <Gamepad2 className="h-5 w-5 text-vanta-text-muted" /> {/* Changed to Gamepad2 */}
           </div>
           <div className="p-2 rounded-full bg-vanta-blue-medium border border-vanta-border">
             <Golf className="h-5 w-5 text-vanta-text-muted" />
