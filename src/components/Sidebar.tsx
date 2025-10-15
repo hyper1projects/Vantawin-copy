@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Gamepad, Wallet, Trophy, Users, Settings, FileText, HelpCircle, Mail } from 'lucide-react';
+import { Home, Gamepad, Wallet, Trophy, Users, Settings, FileText, HelpCircle, Mail, Gift } from 'lucide-react';
 
 const Sidebar = () => {
   const primaryLinks = [
@@ -14,6 +14,7 @@ const Sidebar = () => {
   ];
 
   const secondaryLinks = [
+    { name: 'Rewards Hub', icon: Gift, path: '/rewards', isGold: true },
     { name: 'User Settings', icon: Settings, path: '/settings' },
     { name: 'Terms of Use', icon: FileText, path: '/terms' },
     { name: 'Help & Information', icon: HelpCircle, path: '/help' },
@@ -41,14 +42,14 @@ const Sidebar = () => {
           ))}
         </ul>
 
-        <div className="border-t border-vanta-border my-6"></div>
+        {/* Removed the horizontal line here */}
 
         <ul className="space-y-2">
           {secondaryLinks.map((link) => (
             <li key={link.name}>
               <Link
                 to={link.path}
-                className="flex items-center p-2 text-vanta-text-light hover:bg-vanta-blue-light rounded-md transition-colors text-sm"
+                className={`flex items-center p-2 hover:bg-vanta-blue-light rounded-md transition-colors text-sm ${link.isGold ? 'text-yellow-400' : 'text-vanta-text-light'}`}
               >
                 <link.icon className="mr-3 h-4 w-4" />
                 {link.name}
