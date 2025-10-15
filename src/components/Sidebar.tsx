@@ -13,7 +13,7 @@ const Sidebar = () => {
     { name: 'Wallet', icon: Wallet, path: '/wallet' },
   ];
 
-  const bumbleBHubItems = [
+  const rewardsHubItems = [ // Renamed from bumbleBHubItems
     { name: 'User Settings', icon: Settings, path: '/settings' },
     { name: 'Terms of Use', icon: FileText, path: '/terms' },
     { name: 'Help & Information', icon: HelpCircle, path: '/help' },
@@ -47,11 +47,11 @@ const Sidebar = () => {
       {/* Separator */}
       <hr className="my-4 border-t border-vanta-border" />
 
-      {/* Bumble B Hub Section */}
+      {/* Rewards Hub Section */}
       <div className="mt-4">
-        <h2 className="text-vanta-text-muted text-xs font-semibold uppercase tracking-wider mb-4">Bumble B Hub</h2>
+        <h2 className="text-vanta-text-muted text-xs font-semibold uppercase tracking-wider mb-4">Rewards Hub</h2> {/* Changed title */}
         <ul className="space-y-2">
-          {bumbleBHubItems.map((item) => (
+          {rewardsHubItems.map((item) => (
             <li key={item.name}>
               <Link
                 to={item.path}
