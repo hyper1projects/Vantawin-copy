@@ -2,7 +2,7 @@ import React from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import GameListing from './GameListing';
-import { Ball, Basketball, Tennis, Gamepad2, Golf } from 'lucide-react'; // Changed AmericanFootball to Gamepad2
+import { Football, Basketball, Tennis, Gamepad2, Golf } from 'lucide-react'; // Corrected: Changed Ball to Football
 
 const TopGamesSection: React.FC = () => {
   // Placeholder data for game listings
@@ -64,7 +64,7 @@ const TopGamesSection: React.FC = () => {
         </Tabs>
         <div className="flex gap-3">
           <div className="p-2 rounded-full bg-vanta-active-bg border border-vanta-accent-blue">
-            <Ball className="h-5 w-5 text-vanta-accent-blue" />
+            <Football className="h-5 w-5 text-vanta-accent-blue" />
           </div>
           <div className="p-2 rounded-full bg-vanta-blue-medium border border-vanta-border">
             <Basketball className="h-5 w-5 text-vanta-text-muted" />
@@ -73,7 +73,7 @@ const TopGamesSection: React.FC = () => {
             <Tennis className="h-5 w-5 text-vanta-text-muted" />
           </div>
           <div className="p-2 rounded-full bg-vanta-blue-medium border border-vanta-border">
-            <Gamepad2 className="h-5 w-5 text-vanta-text-muted" /> {/* Changed to Gamepad2 */}
+            <Gamepad2 className="h-5 w-5 text-vanta-text-muted" />
           </div>
           <div className="p-2 rounded-full bg-vanta-blue-medium border border-vanta-border">
             <Golf className="h-5 w-5 text-vanta-text-muted" />
