@@ -20,7 +20,7 @@ const Navbar = () => {
       {/* Left Section: Sports Categories */}
       <div className="flex items-center space-x-6">
         {sportsCategories.map((category) => (
-          <Link key={category.name} to={category.path} className="text-vanta-text-light hover:text-vanta-text-medium transition-colors text-sm">
+          <Link key={category.name} to={category.path} className="text-vanta-text-light hover:text-vanta-text-muted transition-colors text-sm">
             {category.name}
           </Link>
         ))}
@@ -28,15 +28,15 @@ const Navbar = () => {
 
       {/* Center Section: How it works & Search Bar */}
       <div className="flex items-center space-x-6">
-        <Link to="/how-it-works" className="text-vanta-text-light hover:text-vanta-text-medium transition-colors text-sm">
+        <Link to="/how-it-works" className="text-vanta-text-light hover:text-vanta-text-muted transition-colors text-sm">
           How it works
         </Link>
         <div className="relative flex items-center">
-          <Search className="absolute left-3 h-4 w-4 text-vanta-text-medium" />
+          <Search className="absolute left-3 h-4 w-4 text-vanta-text-muted" />
           <Input
             type="text"
             placeholder="Search..."
-            className="pl-9 pr-3 py-2 rounded-md bg-vanta-blue-light border border-vanta-border text-vanta-text-light placeholder-vanta-text-medium focus:outline-none focus:ring-1 focus:ring-vanta-blue-accent w-48"
+            className="pl-9 pr-3 py-2 rounded-md bg-vanta-blue-medium border border-vanta-border text-vanta-text-light placeholder:text-vanta-text-muted focus:outline-none focus:ring-1 focus:ring-vanta-accent-blue w-48"
           />
         </div>
       </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
         <Button variant="ghost" className="text-vanta-text-light hover:bg-vanta-blue-light">
           Login
         </Button>
-        <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
+        <Button className="bg-[#00eeee] hover:bg-[#00eeee]/90 text-white rounded-lg px-4 py-2">
           Register
         </Button>
       </div>
