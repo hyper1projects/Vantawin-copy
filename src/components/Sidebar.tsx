@@ -2,36 +2,35 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Trophy, Wallet, Settings, HelpCircle, FileText, Mail, Gift, Calendar } from 'lucide-react';
+import { Home, Wallet, Calendar, Settings, HelpCircle, FileText, Mail, Gamepad2, Award } from 'lucide-react';
 
 const Sidebar = () => {
-  const navItems = [
+  const primaryNavItems = [
     { name: 'Home', icon: Home, path: '/' },
-    { name: 'My Bets', icon: Trophy, path: '/my-bets' },
+    { name: 'Games', icon: Gamepad2, path: '/games' },
+    { name: 'Pools', icon: Calendar, path: '/pools' },
+    { name: 'Leaderboard', icon: Award, path: '/leaderboard' },
     { name: 'Wallet', icon: Wallet, path: '/wallet' },
-    { name: 'Pools', icon: Calendar, path: '/pools' }, // Added Pools section
   ];
 
-  const legalItems = [
-    { name: 'Terms', icon: FileText, path: '/terms' },
-    { name: 'Help', icon: HelpCircle, path: '/help' },
-    { name: 'Contact', icon: Mail, path: '/contact' },
-  ];
-
-  const bottomItems = [
-    { name: 'Rewards', icon: Gift, path: '/rewards' },
-    { name: 'Settings', icon: Settings, path: '/settings' },
+  const bumbleBHubItems = [
+    { name: 'User Settings', icon: Settings, path: '/settings' },
+    { name: 'Terms of Use', icon: FileText, path: '/terms' },
+    { name: 'Help & Information', icon: HelpCircle, path: '/help' },
+    { name: 'Contact Us', icon: Mail, path: '/contact' },
   ];
 
   return (
-    <div className="fixed top-0 left-0 h-screen w-64 flex-col border-r border-vanta-border bg-vanta-blue-dark p-4 z-50">
+    <div className="fixed top-0 left-0 h-screen w-64 flex flex-col border-r border-vanta-border bg-vanta-blue-dark p-4 z-50">
+      {/* Logo */}
       <div className="flex items-center justify-center h-16 mb-6">
         <h1 className="text-2xl font-bold text-vanta-text-light">VANTA WIN</h1>
       </div>
 
-      <nav className="flex-grow">
+      {/* Primary Navigation */}
+      <nav className="mb-8">
         <ul className="space-y-2">
-          {navItems.map((item) => (
+          {primaryNavItems.map((item) => (
             <li key={item.name}>
               <Link
                 to={item.path}
@@ -43,28 +42,16 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
-
-        <div className="mt-8 pt-8 border-t border-vanta-border">
-          <h2 className="text-vanta-text-muted text-xs font-semibold uppercase tracking-wider mb-4">Legal</h2>
-          <ul className="space-y-2">
-            {legalItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  to={item.path}
-                  className="flex items-center space-x-3 p-3 rounded-lg text-vanta-text-light hover:bg-vanta-blue-light transition-colors"
-                >
-                  <item.icon className="h-5 w-5" />
-                  <span>{item.name}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
       </nav>
 
-      <div className="mt-auto pt-8 border-t border-vanta-border">
+      {/* Separator */}
+      <hr className="my-4 border-t border-vanta-border" />
+
+      {/* Bumble B Hub Section */}
+      <div className="mt-4">
+        <h2 className="text-vanta-text-muted text-xs font-semibold uppercase tracking-wider mb-4">Bumble B Hub</h2>
         <ul className="space-y-2">
-          {bottomItems.map((item) => (
+          {bumbleBHubItems.map((item) => (
             <li key={item.name}>
               <Link
                 to={item.path}
