@@ -62,6 +62,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom colors for the new design
+        'vanta-blue-dark': '#0A0E26',
+        'vanta-blue-medium': '#1A1F3D',
+        'vanta-blue-light': '#2A3052',
+        'vanta-accent-blue': '#00C2FF',
+        'vanta-accent-purple': '#8A2BE2',
+        'vanta-text-light': '#E0E0E0',
+        'vanta-text-muted': '#A0A0A0',
+        'vanta-active-bg': '#14284A',
+        'vanta-border': '#3A4060',
       },
       borderRadius: {
         lg: "var(--radius)",
