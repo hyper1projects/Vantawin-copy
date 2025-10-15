@@ -8,7 +8,7 @@ const Sidebar = () => {
   const primaryLinks = [
     { name: 'Home', icon: Home, path: '/' },
     { name: 'Games', icon: Gamepad, path: '/games' },
-    { name: 'Pools', icon: Wallet, path: '/pools' },
+    // { name: 'Pools', icon: Wallet, path: '/pools' }, // Removed Pools link
     { name: 'Leaderboard', icon: Trophy, path: '/leaderboard' },
     { name: 'Wallet', icon: Wallet, path: '/wallet' },
   ];
@@ -41,8 +41,6 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
-
-        {/* Removed the horizontal line here */}
 
         <ul className="space-y-2">
           {secondaryLinks.map((link) => (
