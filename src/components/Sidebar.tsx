@@ -2,78 +2,73 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Gamepad2, Wallet, Trophy, Users, BookText, HelpCircle, Mail, ChevronRight } from 'lucide-react'; // Import ChevronRight
+import { Home, BarChart2, Settings, LogOut, Users, Zap, Trophy, MessageSquare } from 'lucide-react';
 
 const Sidebar = () => {
   const location = useLocation();
 
-  const primaryNavItems = [
-    { name: "Home", icon: Home, path: "/" },
-    { name: "Games", icon: Gamepad2, path: "/games" },
-    { name: "Pools", icon: Trophy, path: "/pools" },
-    { name: "Leaderboard", icon: Users, path: "/leaderboard" },
-    { name: "Wallet", icon: Wallet, path: "/wallet" },
-  ];
-
-  const secondaryNavItems = [
-    { name: "Terms of Use", icon: BookText, path: "/terms" },
-    { name: "Help and Information", icon: HelpCircle, path: "/help" },
-    { name: "Contact Us", icon: Mail, path: "/contact" },
+  const navItems = [
+    { name: 'Home', icon: Home, path: '/' },
+    { name: 'Leaderboard', icon: BarChart2, path: '/leaderboard' },
+    { name: 'Predictions', icon: Zap, path: '/predictions' },
+    { name: 'Community', icon: Users, path: '/community' },
+    { name: 'Tournaments', icon: Trophy, path: '/tournaments' },
+    { name: 'Chat', icon: MessageSquare, path: '/chat' },
   ];
 
   return (
     <div className="fixed left-0 top-0 h-screen w-60 bg-vanta-blue-dark text-vanta-text-light flex flex-col z-50 rounded-r-2xl">
-      <div className="bg-vanta-blue-medium rounded-r-2xl flex flex-col gap-2 flex-grow">
+      <div className="bg-vanta-blue-medium rounded-r-2xl flex flex-col gap-2 flex-grow font-outfit"> {/* Added font-outfit class */}
         <div className="flex items-center justify-center p-4 mb-4">
           <span className="text-xl font-bold text-vanta-text-light">VANTA</span>
           <span className="text-xl font-bold text-vanta-neon-blue">WIN</span>
         </div>
 
-        {/* Primary Navigation Items */}
-        <div className="px-4 flex flex-col gap-y-3">
-          {primaryNavItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`relative flex items-center gap-4 py-2 pr-3 rounded-md text-vanta-text-light transition-colors overflow-hidden
-                  ${isActive ? 'bg-vanta-accent-dark-blue pl-4' : 'hover:bg-vanta-accent-dark-blue pl-3'}
-                `}
-              >
-                {isActive && (
-                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-full"></div>
-                )}
-                <item.icon size={18} />
-                <span className="text-base font-medium">{item.name}</span>
-              </Link>
-            );
-          })}
-        </div>
+        <nav className="flex-grow">
+          <ul>
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className={`flex items-center gap-3 p-3 mx-3 rounded-lg transition-colors duration-200
+                    ${location.pathname === item.path
+                      ? 'bg-vanta-neon-blue text-vanta-blue-dark font-semibold'
+                      : 'text-vanta-text-light hover:bg-gray-700'
+                    }`}
+                >
+                  <item.icon size={20} />
+                  <span>{item.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        {/* Secondary Navigation Items pushed to the bottom */}
-        <div className="mt-auto flex flex-col gap-y-3 px-4 pb-4">
-          {secondaryNavItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
+        <div className="mt-auto p-4 border-t border-gray-700">
+          <ul>
+            <li>
               <Link
-                key={item.name}
-                to={item.path}
-                className={`relative flex items-center justify-between py-2 pr-3 rounded-md text-vanta-text-light transition-colors overflow-hidden
-                  ${isActive ? 'bg-vanta-accent-dark-blue pl-4' : 'hover:bg-vanta-accent-dark-blue pl-3'}
-                `}
+                to="/settings"
+                className={`flex items-center gap-3 p-3 mx-3 rounded-lg transition-colors duration-200
+                  ${location.pathname === '/settings'
+                    ? 'bg-vanta-neon-blue text-vanta-blue-dark font-semibold'
+                    : 'text-vanta-text-light hover:bg-gray-700'
+                  }`}
               >
-                {isActive && (
-                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-full"></div>
-                )}
-                <div className="flex items-center gap-3"> {/* Group icon and text */}
-                  <item.icon size={18} />
-                  <span className="text-sm font-normal">{item.name}</span> {/* Smaller font */}
-                </div>
-                <ChevronRight size={16} className="text-vanta-text-light" /> {/* Forward arrow */}
+                <Settings size={20} />
+                <span>Settings</span>
               </Link>
-            );
-          })}
+            </li>
+            <li>
+              <button
+                onClick={() => console.log('Logout')}
+                className="flex items-center gap-3 p-3 mx-3 rounded-lg text-vanta-text-light hover:bg-gray-700 w-full text-left transition-colors duration-200"
+              >
+                <LogOut size={20} />
+                <span>Logout</span>
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
