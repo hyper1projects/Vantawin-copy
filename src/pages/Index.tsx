@@ -51,16 +51,16 @@ const Index = () => {
       </section>
 
       {/* Images Section */}
-      <div className="absolute top-1/2 right-8 transform -translate-y-1/2 flex flex-col gap-4">
+      <div className="absolute top-24 right-8 flex flex-col gap-4"> {/* Adjusted top and removed vertical centering */}
         <img
           src="/images/Group 1000005755.png"
           alt="Leaderboard"
-          className="w-full max-w-xs rounded-xl"
+          className="w-64 rounded-xl" {/* Made image smaller */}
         />
         <img
           src="/images/Group 1000005762.png"
           alt="Prediction Card"
-          className="w-full max-w-xs rounded-xl"
+          className="w-64 rounded-xl" {/* Made image smaller */}
         />
       </div>
     </div>
