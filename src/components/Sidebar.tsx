@@ -9,7 +9,6 @@ const Sidebar = () => {
     { name: "Pools", icon: Trophy, path: "/pools" },
     { name: "Leaderboard", icon: Users, path: "/leaderboard" },
     { name: "Wallet", icon: Wallet, path: "/wallet" },
-    // Separator will be added here
     { name: "Terms of Use", icon: BookText, path: "/terms" },
     { name: "Help and Information", icon: HelpCircle, path: "/help" },
     { name: "Contact Us", icon: Mail, path: "/contact" },
@@ -17,7 +16,8 @@ const Sidebar = () => {
 
   return (
     <div className="fixed left-0 top-0 h-screen w-72 bg-vanta-blue-dark text-vanta-text-light p-6 flex flex-col z-50">
-      <div className="bg-vanta-blue-medium rounded-lg p-4 mb-6 flex flex-col gap-2">
+      {/* Added flex-grow and removed mb-6 to make it extend */}
+      <div className="bg-vanta-blue-medium rounded-lg p-4 flex flex-col gap-2 flex-grow">
         <div className="flex items-center mb-4">
           <span className="text-2xl font-bold text-vanta-text-light">VANTA</span>
           <span className="text-2xl font-bold text-vanta-accent-blue">WIN</span>
@@ -31,7 +31,7 @@ const Sidebar = () => {
               <item.icon size={20} />
               <span className="text-lg font-medium">{item.name}</span>
             </Link>
-            {item.name === "Wallet" && ( // Conditionally render the separator after "Wallet"
+            {item.name === "Wallet" && (
               <div className="border-t border-vanta-blue-dark my-2"></div>
             )}
           </React.Fragment>
