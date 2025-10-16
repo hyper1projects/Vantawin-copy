@@ -1,16 +1,9 @@
 "use client";
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Index = () => {
-  return (
-    <div className="relative h-full bg-gradient-to-br from-gray-900 to-black text-white rounded-xl p-8">
-      {/* All content has been removed from this section */}
-    </div>
-  );
+  return null; // Returning null to render nothing on the homepage
 };
 
 export default Index;
