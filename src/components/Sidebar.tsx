@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 import { Home, Gamepad2, Wallet, Trophy, Users, BookText, HelpCircle, Mail } from 'lucide-react';
 
 const Sidebar = () => {
+  const location = useLocation(); // Get current location to determine active link
+
   const primaryNavItems = [
     { name: "Home", icon: Home, path: "/" },
     { name: "Games", icon: Gamepad2, path: "/games" },
@@ -27,30 +29,46 @@ const Sidebar = () => {
 
         {/* Primary Navigation Items */}
         <div className="px-4">
-          {primaryNavItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="flex items-center gap-4 py-2 px-3 rounded-md text-vanta-text-light hover:bg-vanta-accent-blue hover:text-white transition-colors" // Changed p-2 to py-2 px-3
-            >
-              <item.icon size={18} />
-              <span className="text-base font-medium">{item.name}</span>
-            </Link>
-          ))}
+          {primaryNavItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`relative flex items-center gap-4 py-2 pr-3 rounded-md text-vanta-text-light transition-colors overflow-hidden
+                  ${isActive ? 'bg-vanta-blue-medium pl-4' : 'hover:bg-vanta-blue-medium pl-3'}
+                `}
+              >
+                {isActive && (
+                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-accent-blue rounded-full"></div>
+                )}
+                <item.icon size={18} />
+                <span className="text-base font-medium">{item.name}</span>
+              </Link>
+            );
+          })}
         </div>
 
         {/* Secondary Navigation Items pushed to the bottom */}
         <div className="mt-auto flex flex-col gap-2 px-4 pb-4">
-          {secondaryNavItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="flex items-center gap-3 py-2 px-3 rounded-md text-vanta-text-light hover:bg-vanta-accent-blue hover:text-white transition-colors" // Changed p-2 to py-2 px-3
-            >
-              <item.icon size={18} />
-              <span className="text-base font-medium">{item.name}</span>
-            </Link>
-          ))}
+          {secondaryNavItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`relative flex items-center gap-3 py-2 pr-3 rounded-md text-vanta-text-light transition-colors overflow-hidden
+                  ${isActive ? 'bg-vanta-blue-medium pl-4' : 'hover:bg-vanta-blue-medium pl-3'}
+                `}
+              >
+                {isActive && (
+                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-accent-blue rounded-full"></div>
+                )}
+                <item.icon size={18} />
+                <span className="text-base font-medium">{item.name}</span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
