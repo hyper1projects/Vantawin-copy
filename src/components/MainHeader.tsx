@@ -44,7 +44,7 @@ const MainHeader = () => {
         </Link>
         <Link
           to="/register"
-          className="px-3 py-1 rounded-md bg-[#00eeee] text-[#081028] hover:opacity-90 transition-opacity font-outfit text-base"
+          className="px-4 py-2 rounded-md bg-[#00eeee] text-[#081028] hover:opacity-90 transition-opacity font-outfit text-base"
         >
           Register
         </Link>
