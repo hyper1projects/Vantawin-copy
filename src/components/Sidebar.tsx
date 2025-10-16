@@ -42,7 +42,7 @@ const Sidebar = () => {
                 `}
               >
                 {isActive && (
-                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-lg"></div>
+                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-[8px]"></div>
                 )}
                 <item.icon size={18} />
                 <span className="text-base font-medium">{item.name}</span>
@@ -64,7 +64,7 @@ const Sidebar = () => {
                 `}
               >
                 {isActive && (
-                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-lg"></div>
+                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-[8px]"></div>
                 )}
                 <div className="flex items-center gap-3">
                   <item.icon size={18} />
