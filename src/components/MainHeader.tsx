@@ -1,18 +1,16 @@
+"use client";
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Info } from 'lucide-react';
-import SearchInput from './SearchInput';
-import Button from './Button';
+import SearchInput from './SearchInput'; // Assuming SearchInput is a component
 
 const MainHeader = () => {
-  const location = useLocation();
-
   const sportsCategories = [
-    { name: "Football", path: "/sports/football" },
-    { name: "Basketball", path: "/sports/basketball" },
-    { name: "Tennis", path: "/sports/tennis" },
-    { name: "A.Football", path: "/sports/afootball" },
-    { name: "Golf", path: "/sports/golf" },
+    { name: 'Football', path: '/football' },
+    { name: 'Basketball', path: '/basketball' },
+    { name: 'Tennis', path: '/tennis' },
+    { name: 'Esports', path: '/esports' },
   ];
 
   return (
@@ -23,24 +21,20 @@ const MainHeader = () => {
           <Link
             key={category.name}
             to={category.path}
-            className={`relative transition-colors font-outfit text-base
-              ${location.pathname === category.path ? 'text-vanta-neon-blue' : 'text-vanta-text-light hover:text-vanta-neon-blue'}
-            `}
+            className="text-vanta-text-light hover:text-vanta-neon-blue transition-colors font-outfit text-base"
           >
             {category.name}
           </Link>
         ))}
       </div>
 
-      {/* Right Section: How it works, Search, Login, Register */}
+      {/* Right Section: How to Play Link and Search */}
       <div className="flex items-center space-x-4">
-        <Link to="/how-it-works" className="flex items-center gap-1 text-vanta-neon-blue hover:text-vanta-text-light transition-colors font-outfit text-base">
+        <Link to="/how-to-play" className="flex items-center gap-1 text-vanta-neon-blue hover:text-vanta-text-light transition-colors font-outfit text-base">
           <Info size={18} />
-          How it works
+          How to Play
         </Link>
         <SearchInput />
-        <Button variant="outline">Login</Button>
-        <Button variant="primary">Register</Button>
       </div>
     </div>
   );
