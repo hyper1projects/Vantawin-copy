@@ -18,7 +18,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-60 bg-vanta-blue-dark text-vanta-text-light flex flex-col z-50 rounded-r-2xl"> {/* Changed w-72 to w-60 and added rounded-r-2xl */}
+    <div className="fixed left-0 top-0 h-screen w-60 bg-vanta-blue-dark text-vanta-text-light flex flex-col z-50 rounded-r-2xl">
       <div className="bg-vanta-blue-medium rounded-r-2xl flex flex-col gap-2 flex-grow">
         <div className="flex items-center justify-center p-4 mb-4">
           <span className="text-xl font-bold text-vanta-text-light">VANTA</span>
@@ -31,7 +31,7 @@ const Sidebar = () => {
             <Link
               key={item.name}
               to={item.path}
-              className="flex items-center gap-3 p-2 rounded-md text-vanta-text-light hover:bg-vanta-accent-blue hover:text-white transition-colors"
+              className="flex items-center gap-4 p-2 rounded-md text-vanta-text-light hover:bg-vanta-accent-blue hover:text-white transition-colors" // Changed gap-3 to gap-4
             >
               <item.icon size={18} />
               <span className="text-base font-medium">{item.name}</span>
