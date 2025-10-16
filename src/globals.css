@@ -1,5 +1,11 @@
 
 
+body{
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: ;
+  font-style: normal;
+}
 
 
 /* Keep the Tailwind directives below the @font-face rules */
