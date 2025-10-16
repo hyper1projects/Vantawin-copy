@@ -8,29 +8,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
-      {/* Left Sidebar */}
-      <div className="fixed left-0 top-0 h-full w-64 bg-gray-800 p-4 shadow-lg flex flex-col justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-blue-400 mb-8">Dyad</h1>
-          <nav className="space-y-4">
-            <Link to="/" className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
-              <span className="text-xl">Home</span>
-            </Link>
-            <Link to="/dashboard" className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
-              <span className="text-xl">Dashboard</span>
-            </Link>
-            <Link to="/settings" className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
-              <span className="text-xl">Settings</span>
-            </Link>
-          </nav>
-        </div>
-        <div className="text-gray-500 text-sm">
-          &copy; 2023 Dyad. All rights reserved.
-        </div>
-      </div>
-
       {/* Main Content Area */}
-      <div className="ml-64 p-8">
+      <div className="p-8">
         {/* Top Navigation Bar (Placeholder) */}
         <div className="h-16 bg-gray-800 rounded-lg mb-8 flex items-center justify-end px-6 shadow-md">
           <Button variant="ghost" className="text-gray-300 hover:text-blue-400">Sign In</Button>
