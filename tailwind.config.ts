@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import { fontFamily } from "tailwindcss/defaultTheme"
+
 export default {
   content: [
     "./index.html",
@@ -6,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        outfit: ['Outfit', ...fontFamily.sans],
+      },
       colors: {
         'vanta-blue-dark': '#06002E',
         'vanta-accent-blue': '#007BFF',
