@@ -18,27 +18,29 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-72 bg-vanta-blue-dark text-vanta-text-light p-6 flex flex-col z-50">
-      <div className="bg-vanta-blue-medium rounded-lg p-4 flex flex-col gap-2 flex-grow">
-        <div className="flex items-center mb-4">
+    <div className="fixed left-0 top-0 h-screen w-72 bg-vanta-blue-dark text-vanta-text-light flex flex-col z-50"> {/* Removed p-6 */}
+      <div className="bg-vanta-blue-medium flex flex-col gap-2 flex-grow"> {/* Removed rounded-lg and p-4 */}
+        <div className="flex items-center p-4 mb-4"> {/* Added p-4 here for internal padding */}
           <span className="text-2xl font-bold text-vanta-text-light">VANTA</span>
           <span className="text-2xl font-bold text-vanta-accent-blue">WIN</span>
         </div>
 
         {/* Primary Navigation Items */}
-        {primaryNavItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className="flex items-center gap-3 p-2 rounded-md text-vanta-text-light hover:bg-vanta-accent-blue hover:text-white transition-colors"
-          >
-            <item.icon size={20} />
-            <span className="text-lg font-medium">{item.name}</span>
-          </Link>
-        ))}
+        <div className="px-4"> {/* Added px-4 for horizontal padding */}
+          {primaryNavItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="flex items-center gap-3 p-2 rounded-md text-vanta-text-light hover:bg-vanta-accent-blue hover:text-white transition-colors"
+            >
+              <item.icon size={20} />
+              <span className="text-lg font-medium">{item.name}</span>
+            </Link>
+          ))}
+        </div>
 
         {/* Secondary Navigation Items pushed to the bottom */}
-        <div className="mt-auto flex flex-col gap-2">
+        <div className="mt-auto flex flex-col gap-2 px-4 pb-4"> {/* Added px-4 and pb-4 for padding */}
           {secondaryNavItems.map((item) => (
             <Link
               key={item.name}
