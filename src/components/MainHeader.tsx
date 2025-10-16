@@ -16,7 +16,7 @@ const MainHeader = () => {
   ];
 
   return (
-    <div className="w-full h-16 flex items-center justify-between px-8 border-b border-gray-700">
+    <div className="w-full h-16 flex items-center justify-between pl-0 pr-8 border-b border-gray-700">
       {/* Left Section: Sports Categories */}
       <div className="flex items-center space-x-8">
         {sportsCategories.map((category) => (
