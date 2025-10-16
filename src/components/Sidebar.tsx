@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Gamepad2, BarChart3, Wallet, FileText, HelpCircle, Mail, CalendarDays } from 'lucide-react';
+import { Home, Gamepad2, BarChart3, Wallet, FileText, HelpCircle, Mail, CalendarDays, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils'; // Import cn for conditional class names
 
 const Sidebar = () => {
