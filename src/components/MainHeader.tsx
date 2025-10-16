@@ -42,7 +42,10 @@ const MainHeader = () => {
         <Link to="/login" className="text-vanta-neon-blue hover:text-vanta-text-light transition-colors font-outfit text-base">
           Login
         </Link>
-        <Link to="/register" className="text-vanta-neon-blue hover:text-vanta-text-light transition-colors font-outfit text-base">
+        <Link
+          to="/register"
+          className="px-3 py-1 rounded-md bg-[#00eeee] text-[#081028] hover:opacity-90 transition-opacity font-outfit text-base"
+        >
           Register
         </Link>
       </div>
