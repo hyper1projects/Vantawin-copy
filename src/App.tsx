@@ -3,43 +3,47 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import MainHeader from './components/MainHeader'; // Renamed from Navbar
+import MainHeader from './components/MainHeader';
 import Index from './pages/Index';
 import Games from './pages/Games';
-import Pools from './pages/Pools'; // Added Pools import
+import Pools from './pages/Pools';
 import Leaderboard from './pages/Leaderboard';
 import Wallet from './pages/Wallet';
-import NotFound from './pages/NotFound'; // Import NotFound page
-import Terms from './pages/Terms'; // Renamed from Terms of Use
-import Help from './pages/Help'; // Renamed from Help & Information
+import Rewards from './pages/Rewards'; // New import
+import UserSettings from './pages/UserSettings'; // New import
+import NotFound from './pages/NotFound';
+import Terms from './pages/Terms';
+import Help from './pages/Help';
 import Contact from './pages/Contact';
-import Users from './pages/Users'; // Added Users import
-import PrivacyPolicy from './pages/PrivacyPolicy'; // Added PrivacyPolicy import
-import Support from './pages/Support'; // Added Support import
+import Users from './pages/Users';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Support from './pages/Support';
 
 function App() {
   return (
     <Router>
       <div className="flex min-h-screen bg-vanta-blue-dark text-vanta-text-light">
         <Sidebar />
-        <div className="flex-1 ml-72"> {/* Adjusted margin-left for wider sidebar */}
-          <MainHeader /> {/* Render MainHeader here */}
-          <div className="p-4"> {/* Added padding to the main content area */}
+        <div className="flex-1 ml-[19rem] mt-4 mr-4 mb-4 rounded-xl overflow-hidden"> {/* Adjusted margin-left for wider sidebar + its margin, added margin and rounded-xl to main content */}
+          <MainHeader />
+          <div className="p-4">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/games" element={<Games />} />
               <Route path="/pools" element={<Pools />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/wallet" element={<Wallet />} />
-              <Route path="/users" element={<Users />} /> {/* New route */}
-              <Route path="/terms-of-use" element={<Terms />} /> {/* Updated route */}
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* New route */}
-              <Route path="/help" element={<Help />} /> {/* Updated route */}
-              <Route path="/contact" element={<Contact />} /> {/* Updated route */}
-              <Route path="/support" element={<Support />} /> {/* New route */}
+              <Route path="/rewards" element={<Rewards />} /> {/* New route */}
+              <Route path="/user-settings" element={<UserSettings />} /> {/* New route */}
+              <Route path="/users" element={<Users />} />
+              <Route path="/terms-of-use" element={<Terms />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/support" element={<Support />} />
               <Route path="/sports/:category" element={<div>Sport Category Page</div>} />
               <Route path="/how-it-works" element={<div>How It Works Page</div>} />
-              <Route path="*" element={<NotFound />} /> {/* Catch-all for 404 */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
         </div>
