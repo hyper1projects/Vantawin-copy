@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 
 const PredictionSlipCard: React.FC = () => {
   const [activeTab, setActiveTab] = React.useState("predict");
-  // Removed selectedTeam state as the team selection buttons are being removed
   const [selectedAmount, setSelectedAmount] = React.useState<number>(0);
 
   const handleAmountSelect = (amount: number) => {
@@ -17,13 +16,13 @@ const PredictionSlipCard: React.FC = () => {
   return (
     <div className="w-[300px] bg-vanta-blue-medium rounded-2xl p-6 font-outfit text-vanta-text-light">
       <Tabs defaultValue="predict" className="w-full" onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-2 bg-vanta-blue-dark rounded-xl mb-4">
+        <TabsList className="grid w-full grid-cols-2 mb-4"> {/* Removed bg-vanta-blue-dark and rounded-xl */}
           <TabsTrigger
             value="predict"
             className={cn(
               "text-base font-medium py-2",
               activeTab === "predict"
-                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue"
+                ? "text-vanta-neon-blue border-b-2 border-vanta-neon-blue" // Removed background and rounded-t-xl
                 : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
@@ -34,7 +33,7 @@ const PredictionSlipCard: React.FC = () => {
             className={cn(
               "text-base font-medium py-2",
               activeTab === "redeem"
-                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue"
+                ? "text-vanta-neon-blue border-b-2 border-vanta-neon-blue" // Removed background and rounded-t-xl
                 : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
@@ -52,8 +51,6 @@ const PredictionSlipCard: React.FC = () => {
                 <img src="/placeholder.svg" alt="Team 2 Logo" className="w-6 h-6 rounded-full" />
               </div>
             </div>
-
-            {/* Team Selection section removed */}
 
             {/* Amount Section */}
             <div className="flex items-center justify-between mt-2">
