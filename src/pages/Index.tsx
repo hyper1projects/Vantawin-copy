@@ -6,47 +6,16 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 const Index = () => {
   return (
     <div className="relative h-full bg-gradient-to-br from-gray-900 to-black text-white rounded-xl p-8">
-      {/* Features Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        <Card className="bg-gray-800 border-gray-700 text-white">
-          <CardHeader>
-            <CardTitle className="text-blue-400">Real-time Predictions</CardTitle>
-            <CardDescription className="text-gray-400">Engage with live events.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Make predictions on various events and see results instantly.</p>
-          </CardContent>
-          <CardFooter>
-            <Button variant="link" className="text-blue-400">Learn More</Button>
-          </CardFooter>
-        </Card>
-
-        <Card className="bg-gray-800 border-gray-700 text-white">
-          <CardHeader>
-            <CardTitle className="text-blue-400">Community Leaderboards</CardTitle>
-            <CardDescription className="text-gray-400">Compete with friends.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Climb the ranks and show off your prediction skills.</p>
-          </CardContent>
-          <CardFooter>
-            <Button variant="link" className="text-blue-400">Explore Leaderboards</Button>
-          </CardFooter>
-        </Card>
-
-        <Card className="bg-gray-800 border-gray-700 text-white">
-          <CardHeader>
-            <CardTitle className="text-blue-400">Customizable Dashboards</CardTitle>
-            <CardDescription className="text-gray-400">Personalize your experience.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Track your performance and favorite events with ease.</p>
-          </CardContent>
-          <CardFooter>
-            <Button variant="link" className="text-blue-400">Customize Now</Button>
-          </CardFooter>
-        </Card>
-      </section>
+      {/* The content of the Index page will go here */}
+      <h1 className="text-3xl font-bold mb-6 text-center">Welcome to Vantawin!</h1>
+      <p className="text-lg text-center text-gray-300">Your platform for exciting predictions and games.</p>
+      <div className="mt-8 text-center">
+        <Link to="/game">
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+            Start Playing
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };
