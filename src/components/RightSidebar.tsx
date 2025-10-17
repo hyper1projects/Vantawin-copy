@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Slider } from '@/components/ui/slider';
-import { toast } from 'sonner'; // Changed from react-hot-toast to sonner
+import { toast } from 'sonner';
 
 const RightSidebar = () => {
   const [activeTab, setActiveTab] = useState('predict');
@@ -33,7 +33,7 @@ const RightSidebar = () => {
   const quickAmountButtons = [10, 25, 50, 100, 250, 500];
 
   return (
-    <div className="fixed right-0 top-16 h-[calc(100vh-4rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-50 rounded-l-2xl font-outfit p-6">
+    <div className="fixed right-0 top-16 h-[calc(100vh-4rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6">
       {/* Tabs for Predict and Redeem */}
       <div className="flex justify-around mb-6 border-b border-vanta-accent-dark-blue">
         <button
