@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const PredictionSlipCard: React.FC = () => {
   const [activeTab, setActiveTab] = React.useState("predict");
-  const [selectedTeam, setSelectedTeam] = React.useState<string | null>("Aston Villa"); // Default selected team
+  // Removed selectedTeam state as the team selection buttons are being removed
   const [selectedAmount, setSelectedAmount] = React.useState<number>(0);
 
   const handleAmountSelect = (amount: number) => {
@@ -21,9 +21,9 @@ const PredictionSlipCard: React.FC = () => {
           <TabsTrigger
             value="predict"
             className={cn(
-              "text-base font-medium py-2", // Removed rounded-xl from base
+              "text-base font-medium py-2",
               activeTab === "predict"
-                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue" // Added rounded-t-xl and bottom border
+                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue"
                 : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
@@ -32,9 +32,9 @@ const PredictionSlipCard: React.FC = () => {
           <TabsTrigger
             value="redeem"
             className={cn(
-              "text-base font-medium py-2", // Removed rounded-xl from base
+              "text-base font-medium py-2",
               activeTab === "redeem"
-                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue" // Added rounded-t-xl and bottom border
+                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue"
                 : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
@@ -53,23 +53,7 @@ const PredictionSlipCard: React.FC = () => {
               </div>
             </div>
 
-            {/* Team Selection */}
-            <div className="flex gap-2">
-              <Button
-                variant={selectedTeam === "Aston Villa" ? "primary" : "outline"}
-                onClick={() => setSelectedTeam("Aston Villa")}
-                className="px-4 py-2 text-sm" // Override default padding for smaller button
-              >
-                Aston Villa
-              </Button>
-              <Button
-                variant={selectedTeam === "Crystal Palace" ? "primary" : "outline"}
-                onClick={() => setSelectedTeam("Crystal Palace")}
-                className="px-4 py-2 text-sm" // Override default padding for smaller button
-              >
-                Crystal Palace
-              </Button>
-            </div>
+            {/* Team Selection section removed */}
 
             {/* Amount Section */}
             <div className="flex items-center justify-between mt-2">
@@ -84,7 +68,7 @@ const PredictionSlipCard: React.FC = () => {
                   key={amount}
                   variant={selectedAmount === amount ? "primary" : "outline"}
                   onClick={() => handleAmountSelect(amount)}
-                  className="px-4 py-2 text-sm" // Override default padding for smaller button
+                  className="px-4 py-2 text-sm"
                 >
                   ₦ {amount}
                 </Button>
