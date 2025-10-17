@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Slider } from '@/components/ui/slider';
-import { showSuccess, showError } from '@/utils/toast'; // Import from your existing toast utility
+import { toast } from 'react-hot-toast';
 
 const RightSidebar = () => {
   const [activeTab, setActiveTab] = useState('predict');
@@ -14,19 +14,19 @@ const RightSidebar = () => {
 
   const handlePredict = () => {
     if (!selectedOutcome) {
-      showError("Please select an outcome to predict.");
+      toast.error("Please select an outcome to predict.");
       return;
     }
     if (predictionAmount <= 0) {
-      showError("Prediction amount must be greater than 0.");
+      toast.error("Prediction amount must be greater than 0.");
       return;
     }
-    showSuccess(`Predicted ${predictionAmount} on ${selectedOutcome}`);
+    toast.success(`Predicted ${predictionAmount} on ${selectedOutcome}`);
     // Here you would typically send the prediction to a backend
   };
 
   const handleRedeem = () => {
-    showSuccess("Redeem functionality not yet implemented.");
+    toast.success("Redeem functionality not yet implemented.");
     // Here you would typically handle redemption logic
   };
 
