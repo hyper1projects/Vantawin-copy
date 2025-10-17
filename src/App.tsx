@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import MainHeader from './components/MainHeader';
-import RightSidebar from './components/RightSidebar'; // Import the new RightSidebar
+import RightSidebar from './components/RightSidebar';
 import Index from './pages/Index';
 import Games from './pages/Games';
 import Pools from './pages/Pools';
@@ -23,9 +23,8 @@ function App() {
     <Router>
       <div className="flex min-h-screen bg-vanta-blue-dark text-vanta-text-light">
         <Sidebar />
-        {/* Adjusted margin-right to accommodate the new RightSidebar */}
-        <div className="flex-1 ml-[19rem] mt-4 mr-[21rem] mb-4 rounded-xl overflow-hidden">
-          <MainHeader />
+        <MainHeader /> {/* MainHeader is now a sibling to sidebars */}
+        <div className="flex-1 ml-60 mt-16 mr-80 mb-4 rounded-xl overflow-hidden"> {/* Adjusted margins */}
           <div className="p-4">
             <Routes>
               <Route path="/" element={<Index />} />
@@ -45,7 +44,7 @@ function App() {
             </Routes>
           </div>
         </div>
-        <RightSidebar /> {/* Add the RightSidebar component */}
+        <RightSidebar />
       </div>
     </Router>
   );
