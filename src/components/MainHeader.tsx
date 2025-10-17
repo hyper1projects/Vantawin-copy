@@ -6,7 +6,7 @@ import { Search, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-const MainHeader = () => {
+const MainHeader: React.FC = () => {
   const sportsCategories = ['Football', 'Basketball', 'Tennis', 'A.Football', 'Golf'];
   const location = useLocation();
   const currentPath = location.pathname;
@@ -41,12 +41,12 @@ const MainHeader = () => {
       </div>
 
       {/* Middle Section: Search Bar */}
-      <div className="flex-grow max-w-lg mx-8 relative bg-[#053256] rounded-full h-10 flex items-center"> {/* Search bar background color changed */}
-        <Search className="absolute left-3 text-[#00EEEE]" size={18} /> {/* Icon color changed */}
+      <div className="flex-grow max-w-lg mx-8 relative bg-[#053256] rounded-full h-10 flex items-center">
+        <Search className="absolute left-3 text-[#00EEEE]" size={18} />
         <Input
           type="text"
-          placeholder="Search..." {/* Placeholder text changed */}
-          className="w-full pl-10 pr-4 py-2 rounded-full bg-transparent border-none text-white placeholder-white/70 focus:ring-0" {/* Input text and placeholder color changed */}
+          placeholder="Search..."
+          className="w-full pl-10 pr-4 py-2 rounded-full bg-transparent border-none text-white placeholder-white/70 focus:ring-0"
         />
       </div>
 
