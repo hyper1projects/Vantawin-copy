@@ -41,24 +41,24 @@ const MainHeader: React.FC = () => {
       </div>
 
       {/* Middle Section: Search Bar */}
-      <div className="flex-grow max-w-lg mx-8 relative bg-[#053256] rounded-full h-10 flex items-center">
+      <div className="flex-grow max-w-lg mx-8 relative bg-[#053256] rounded-[14px] h-10 flex items-center">
         <Search className="absolute left-3 text-[#00EEEE]" size={18} />
         <Input
           type="text"
           placeholder="Search..."
-          className="w-full pl-10 pr-4 py-2 rounded-full bg-transparent border-none text-white placeholder-white/70 focus:ring-0"
+          className="w-full pl-10 pr-4 py-2 rounded-[14px] bg-transparent border-none text-white placeholder-white/70 focus:ring-0"
         />
       </div>
 
       {/* Right Section: Login, Register */}
       <div className="flex items-center space-x-4">
         <Link to="/login">
-          <Button className="bg-black text-white border border-vanta-accent-blue rounded-full px-6 py-2 font-bold text-sm hover:bg-vanta-blue-medium">
+          <Button className="bg-black text-white border border-vanta-accent-blue rounded-[14px] px-6 py-2 font-bold text-sm hover:bg-vanta-blue-medium">
             Login
           </Button>
         </Link>
         <Link to="/register">
-          <Button className="bg-vanta-accent-blue text-black rounded-full px-6 py-2 font-bold text-sm hover:bg-vanta-accent-blue/80">
+          <Button className="bg-vanta-accent-blue text-black rounded-[14px] px-6 py-2 font-bold text-sm hover:bg-vanta-accent-blue/80">
             Register
           </Button>
         </Link>
