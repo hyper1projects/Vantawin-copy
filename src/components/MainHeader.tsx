@@ -2,16 +2,15 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Search, AlertCircle } from 'lucide-react'; // Import AlertCircle for 'How it works' icon
+import { Search, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 const MainHeader = () => {
-  // Updated sports categories to match the image
   const sportsCategories = ['Football', 'Basketball', 'Tennis', 'A.Football', 'Golf'];
 
   return (
-    <div className="fixed top-0 left-60 right-80 h-16 flex items-center justify-between px-8 bg-black z-50">
+    <div className="fixed top-0 left-60 right-80 h-16 flex items-center justify-between px-8 z-50"> {/* Removed bg-black */}
       {/* Left Section: Sports Categories and How It Works */}
       <div className="flex items-center space-x-6">
         {sportsCategories.map((category) => (
