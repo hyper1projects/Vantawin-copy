@@ -33,7 +33,7 @@ const RightSidebar = () => {
   const quickAmountButtons = [10, 25, 50, 100, 250, 500];
 
   return (
-    <div className="fixed right-0 top-16 h-[calc(100vh-4rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6">
+    <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6"> {/* Changed top-16 to top-20 and adjusted height */}
       {/* Tabs for Predict and Redeem */}
       <div className="flex justify-around mb-6 border-b border-vanta-accent-dark-blue">
         <button
