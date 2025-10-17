@@ -21,8 +21,10 @@ const PredictionSlipCard: React.FC = () => {
           <TabsTrigger
             value="predict"
             className={cn(
-              "text-base font-medium py-2 rounded-xl",
-              activeTab === "predict" ? "bg-vanta-accent-dark-blue text-vanta-neon-blue" : "text-vanta-text-light hover:text-vanta-neon-blue"
+              "text-base font-medium py-2", // Removed rounded-xl from base
+              activeTab === "predict"
+                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue" // Added rounded-t-xl and bottom border
+                : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
             Predict
@@ -30,8 +32,10 @@ const PredictionSlipCard: React.FC = () => {
           <TabsTrigger
             value="redeem"
             className={cn(
-              "text-base font-medium py-2 rounded-xl",
-              activeTab === "redeem" ? "bg-vanta-accent-dark-blue text-vanta-neon-blue" : "text-vanta-text-light hover:text-vanta-neon-blue"
+              "text-base font-medium py-2", // Removed rounded-xl from base
+              activeTab === "redeem"
+                ? "bg-vanta-accent-dark-blue text-vanta-neon-blue rounded-t-xl border-b-2 border-vanta-neon-blue" // Added rounded-t-xl and bottom border
+                : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
             Redeem
