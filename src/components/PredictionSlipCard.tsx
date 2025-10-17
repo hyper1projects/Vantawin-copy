@@ -16,13 +16,13 @@ const PredictionSlipCard: React.FC = () => {
   return (
     <div className="w-[300px] bg-vanta-blue-medium rounded-2xl p-6 font-outfit text-vanta-text-light">
       <Tabs defaultValue="predict" className="w-full" onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-2 mb-4"> {/* Removed bg-vanta-blue-dark and rounded-xl */}
+        <TabsList className="grid w-full grid-cols-2 mb-4">
           <TabsTrigger
             value="predict"
             className={cn(
-              "text-base font-medium py-2",
+              "text-base font-medium py-2 transition-all duration-300 ease-in-out", // Added transition classes
               activeTab === "predict"
-                ? "text-vanta-neon-blue border-b-2 border-vanta-neon-blue" // Removed background and rounded-t-xl
+                ? "text-vanta-neon-blue border-b-2 border-vanta-neon-blue"
                 : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
@@ -31,9 +31,9 @@ const PredictionSlipCard: React.FC = () => {
           <TabsTrigger
             value="redeem"
             className={cn(
-              "text-base font-medium py-2",
+              "text-base font-medium py-2 transition-all duration-300 ease-in-out", // Added transition classes
               activeTab === "redeem"
-                ? "text-vanta-neon-blue border-b-2 border-vanta-neon-blue" // Removed background and rounded-t-xl
+                ? "text-vanta-neon-blue border-b-2 border-vanta-neon-blue"
                 : "text-vanta-text-light hover:text-vanta-neon-blue"
             )}
           >
