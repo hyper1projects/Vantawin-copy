@@ -9,8 +9,8 @@ const LeaderboardCard: React.FC = () => {
       to="/leaderboard"
       className="block w-[300px] h-[180px] bg-vanta-blue-medium rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-transform duration-200 hover:scale-105"
     >
-      <h2 className="text-2xl font-bold text-vanta-text-light mb-4">Leaderboard</h2>
-      <p className="text-lg text-vanta-text-light opacity-80">Login to view leaderboard</p>
+      <h2 className="text-2xl font-bold text-vanta-text-light mb-4 font-outlift">Leaderboard</h2>
+      <p className="text-lg text-vanta-text-light opacity-80 font-outlift">Login to view leaderboard</p>
     </Link>
   );
 };
