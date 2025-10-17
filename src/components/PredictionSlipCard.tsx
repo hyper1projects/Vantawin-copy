@@ -66,7 +66,7 @@ const PredictionSlipCard: React.FC = () => {
                     key={amount}
                     variant={selectedAmount === amount ? "primary" : "outline"}
                     onClick={() => handleAmountSelect(amount)}
-                    className="px-2 py-1 text-xs" {/* Changed text-sm to text-xs */}
+                    className="px-2 py-1 text-xs"
                   >
                     ₦ {amount}
                   </Button>
