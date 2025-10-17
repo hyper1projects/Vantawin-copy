@@ -44,11 +44,11 @@ const PredictionSlipCard: React.FC = () => {
           <div className="flex flex-col gap-4">
             {/* Match Info */}
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold">Aston Villa Vs Crystal Palace</h3>
+              <h3 className="text-base font-semibold">Aston Villa Vs Crystal Palace</h3> {/* Changed text-lg to text-base */}
               <div className="flex items-center gap-2">
                 {/* Placeholder images for team logos. Replace with actual logos when available. */}
-                <img src="/placeholder.svg" alt="Team 1 Logo" className="w-6 h-6 rounded-full" />
-                <img src="/placeholder.svg" alt="Team 2 Logo" className="w-6 h-6 rounded-full" />
+                <img src="https://picsum.photos/48/48?random=1" alt="Team 1 Logo" className="w-6 h-6 rounded-full" /> {/* Updated src */}
+                <img src="https://picsum.photos/48/48?random=2" alt="Team 2 Logo" className="w-6 h-6 rounded-full" /> {/* Updated src */}
               </div>
             </div>
 
