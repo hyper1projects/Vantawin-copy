@@ -27,7 +27,7 @@ const RightSidebar = () => {
   const quickAmountButtons = [10, 25, 50, 100, 250, 500];
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6"> {/* Changed rounded-l-[27px] to rounded-[27px] */}
+    <div className="fixed right-4 top-20 bottom-4 w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6">
       {/* Logo and Match Code */}
       <div className="flex items-start mb-6 mt-4">
         <img
@@ -37,9 +37,8 @@ const RightSidebar = () => {
         />
         <div className="flex flex-col">
           <span className="text-lg font-bold text-vanta-text-light">CRY vs ASV</span>
-          <div className="bg-[#00EEEE] bg-opacity-30 px-2 py-1 rounded mt-1 inline-block">
-            <span className="text-[#00EEEE] opacity-60 font-semibold text-sm">ASV</span>
-          </div>
+          {/* Removed the div surrounding the ASV span */}
+          <span className="text-[#00EEEE] opacity-60 font-semibold text-sm mt-1">ASV</span>
         </div>
       </div>
 
