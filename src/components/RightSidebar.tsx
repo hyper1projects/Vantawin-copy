@@ -47,7 +47,6 @@ const RightSidebar = () => {
       <div className="flex flex-col flex-grow">
         {/* Match Details */}
         <div className="mb-6">
-          <p className="text-sm text-vanta-text-dark text-center">Team A vs Team B</p>
           <p className="text-xs text-vanta-text-dark text-center">Starts in: 01:23:45</p>
         </div>
 
