@@ -27,14 +27,16 @@ const RightSidebar = () => {
 
   return (
     <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6">
-      {/* Removed the Predict Slip header and its border */}
-
       <div className="flex flex-col flex-grow">
         {/* Match Details */}
         <div className="mb-6">
-          <h3 className="text-xl font-bold mb-2">Match Details</h3>
-          <p className="text-sm text-vanta-text-dark">Team A vs Team B</p>
-          <p className="text-xs text-vanta-text-dark">Starts in: 01:23:45</p>
+          <div className="flex items-center justify-center mb-2">
+            <div className="w-2 h-2 rounded-full bg-vanta-accent-blue mr-2"></div>
+            <h3 className="text-xl font-bold">Aston Villa Vs Crystal Palace</h3>
+            <div className="w-2 h-2 rounded-full bg-vanta-accent-blue ml-2"></div>
+          </div>
+          <p className="text-sm text-vanta-text-dark text-center">Team A vs Team B</p>
+          <p className="text-xs text-vanta-text-dark text-center">Starts in: 01:23:45</p>
         </div>
 
         {/* Prediction Buttons */}
