@@ -24,7 +24,6 @@ const RightSidebar = () => {
     // Here you would typically send the prediction to a backend
   };
 
-  // Updated to include 200
   const quickAddAmountButtons = [100, 200, 500, 1000];
 
   return (
@@ -82,7 +81,7 @@ const RightSidebar = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 justify-start">
+          <div className="flex flex-wrap gap-2 justify-end"> {/* Changed justify-start to justify-end */}
             {quickAddAmountButtons.map((amount) => (
               <Button
                 key={amount}
