@@ -27,17 +27,17 @@ const RightSidebar = () => {
   const quickAmountButtons = [10, 25, 50, 100, 250, 500];
 
   return (
-    <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6 relative"> {/* Added relative for absolute positioning of image */}
+    <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6 relative">
       {/* Image at top-left */}
       <img
-        src={LeicesterCityLogo} // Corrected: removed .src
+        src={LeicesterCityLogo}
         alt="Leicester City Logo"
-        className="absolute top-4 left-4 w-12 h-12 rounded-full object-cover"
+        className="absolute top-4 left-4 w-16 h-16 rounded-full object-cover" // Increased size to w-16 h-16
       />
 
       <div className="flex flex-col flex-grow">
         {/* Match Details */}
-        <div className="mb-6 mt-10"> {/* Added mt-10 to push content down below the image */}
+        <div className="mb-6 mt-10">
           <div className="flex items-center justify-center mb-2">
             <h3 className="text-xl font-bold">Aston Villa Vs Crystal Palace</h3>
           </div>
