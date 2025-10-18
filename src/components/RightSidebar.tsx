@@ -27,7 +27,7 @@ const RightSidebar = () => {
   const quickAmountButtons = [10, 25, 50, 100, 250, 500];
 
   return (
-    <div className="fixed right-4 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6"> {/* Removed min-h-[600px] */}
+    <div className="fixed right-4 top-20 bottom-4 w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6"> {/* Removed h-[calc(100vh-5rem)] and added bottom-4 */}
       {/* Logo and Match Code */}
       <div className="flex items-start mb-6 mt-4">
         <img
