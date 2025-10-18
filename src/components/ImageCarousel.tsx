@@ -1,26 +1,24 @@
-"use client";
-
-import React from 'react';
+import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Assuming you have a Button component
+import { Button } from '@/components/ui/button';
 
 const images = [
-  "/images/Group 1000005755.png", // Existing image
-  "/images/Group 1000005762.png", // Existing image
-  "/public/placeholder.svg", // Generic placeholder
+  "/images/Group 1000005755.png",
+  "/images/Group 1000005762.png",
+  "/public/placeholder.svg",
   "https://via.placeholder.com/800x400/007BFF/FFFFFF?text=Image+4",
   "https://via.placeholder.com/800x400/011B47/E0E0E0?text=Image+5",
 ];
 
-const ImageCarousel: React.FC = () => {
+const ImageCarousel = () => { // Removed React.FC type annotation
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
-  const scrollPrev = React.useCallback(() => {
+  const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
 
-  const scrollNext = React.useCallback(() => {
+  const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
@@ -34,7 +32,7 @@ const ImageCarousel: React.FC = () => {
                 src={src}
                 alt={`Carousel image ${index + 1}`}
                 className="block w-full h-auto object-cover rounded-xl"
-                style={{ aspectRatio: '21/9' }} {/* Changed aspect ratio from 16/9 to 21/9 */}
+                style={{ aspectRatio: '21/9' }}
               />
             </div>
           ))}
