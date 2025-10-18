@@ -24,7 +24,8 @@ const RightSidebar = () => {
     // Here you would typically send the prediction to a backend
   };
 
-  const quickAmountButtons = [10, 25, 50, 100, 250, 500];
+  // Changed to additive amounts
+  const quickAddAmountButtons = [100, 500, 1000];
 
   return (
     <div className="fixed right-4 top-20 bottom-4 w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6">
@@ -82,14 +83,14 @@ const RightSidebar = () => {
             </div>
           </div>
           <div className="flex flex-wrap gap-2 justify-start">
-            {quickAmountButtons.map((amount) => (
+            {quickAddAmountButtons.map((amount) => (
               <Button
                 key={amount}
                 variant="outline"
                 className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-xs px-3 py-1 h-auto"
-                onClick={() => setPredictionAmount(amount)}
+                onClick={() => setPredictionAmount(prevAmount => prevAmount + amount)}
               >
-                {amount}
+                +{amount}
               </Button>
             ))}
           </div>
