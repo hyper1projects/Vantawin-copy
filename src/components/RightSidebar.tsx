@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Slider } from '@/components/ui/slider'; // Slider is not used in the current version, but keeping it for potential future use.
+import { Slider } from '@/components/ui/slider';
 import { toast } from 'sonner';
 
 const RightSidebar = () => {
@@ -27,10 +27,7 @@ const RightSidebar = () => {
 
   return (
     <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6">
-      {/* Static Header for Predict Slip */}
-      <div className="mb-6 pb-4 border-b border-vanta-accent-dark-blue">
-        <h2 className="text-2xl font-bold text-vanta-accent-blue text-center">Predict Slip</h2>
-      </div>
+      {/* Removed the Predict Slip header and its border */}
 
       <div className="flex flex-col flex-grow">
         {/* Match Details */}
