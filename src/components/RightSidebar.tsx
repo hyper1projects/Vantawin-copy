@@ -35,9 +35,9 @@ const RightSidebar = () => {
           alt="Leicester City Logo"
           className="w-16 h-16 rounded-full object-cover mr-4"
         />
-        <div className="flex flex-col"> {/* New div to stack CRY vs ASV and ASV rectangle */}
+        <div className="flex flex-col">
           <span className="text-lg font-bold text-vanta-text-light">CRY vs ASV</span>
-          <div className="bg-[#00EEEE] bg-opacity-30 px-2 py-1 rounded mt-1"> {/* Rectangle for ASV */}
+          <div className="bg-[#00EEEE] bg-opacity-30 px-2 py-1 rounded mt-1 inline-block"> {/* Added inline-block */}
             <span className="text-[#00EEEE] opacity-60 font-semibold text-sm">ASV</span>
           </div>
         </div>
