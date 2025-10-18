@@ -53,12 +53,12 @@ const MainHeader: React.FC = () => {
       {/* Right Section: Login, Register */}
       <div className="flex items-center space-x-4">
         <Link to="/login">
-          <Button className="bg-black text-white border border-vanta-accent-blue rounded-[14px] px-6 py-2 font-bold text-sm hover:bg-vanta-blue-medium">
+          <Button className="bg-transparent text-white border border-[#00EEEE] rounded-[14px] px-6 py-2 font-bold text-sm hover:bg-[#00EEEE]/10">
             Login
           </Button>
         </Link>
         <Link to="/register">
-          <Button className="bg-vanta-accent-blue text-black rounded-[14px] px-6 py-2 font-bold text-sm hover:bg-vanta-accent-blue/80">
+          <Button className="bg-[#00EEEE] text-[#081028] rounded-[14px] px-6 py-2 font-bold text-sm hover:bg-[#00EEEE]/80">
             Register
           </Button>
         </Link>
