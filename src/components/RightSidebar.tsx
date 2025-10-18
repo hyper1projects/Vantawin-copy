@@ -69,7 +69,10 @@ const RightSidebar = () => {
 
         {/* Amount Selection */}
         <div className="mb-6">
-          <h4 className="text-lg font-semibold mb-2">Amount</h4>
+          <div className="flex justify-between items-center mb-2">
+            <h4 className="text-lg font-semibold">Amount</h4>
+            <span className="text-gray-400 text-2xl font-bold">₦0</span>
+          </div>
           <Input
             type="number"
             value={predictionAmount}
