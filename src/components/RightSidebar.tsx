@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import LeicesterCityLogo from '@/assets/images/leicester-city-logo.png'; // Import the image
 
 const RightSidebar = () => {
-  const [predictionAmount, setPredictionAmount] = useState(10);
+  const [predictionAmount, setPredictionAmount] = useState(0); // Changed initial amount to 0
   const [selectedOutcome, setSelectedOutcome] = useState<string | null>(null);
   const [selectedMultiplier, setSelectedMultiplier] = useState(1); // New state for multiplier
 
