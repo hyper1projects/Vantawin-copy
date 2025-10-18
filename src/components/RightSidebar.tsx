@@ -38,7 +38,7 @@ const RightSidebar = () => {
         <div className="flex flex-col">
           <span className="text-lg font-bold text-vanta-text-light">CRY vs ASV</span>
           <div className="flex items-center mt-1">
-            <span className="bg-vanta-blue-dark text-[#00EEEE] opacity-60 font-semibold text-xs px-2 py-1 rounded-md">ASV</span>
+            <span className="bg-[rgba(0,238,238,0.5)] text-[#00EEEE] opacity-70 font-semibold text-xs px-2 py-1 rounded-md">ASV</span>
             <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">Full-Time</span>
           </div>
         </div>
