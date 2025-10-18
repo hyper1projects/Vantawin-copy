@@ -37,9 +37,9 @@ const RightSidebar = () => {
         />
         <div className="flex flex-col">
           <span className="text-lg font-bold text-vanta-text-light">CRY vs ASV</span>
-          <div className="flex items-center mt-1"> {/* Added a flex container for ASV and prediction type */}
-            <span className="text-[#00EEEE] opacity-60 font-semibold text-sm">ASV</span>
-            <span className="text-vanta-text-dark text-sm ml-2">Full-Time</span> {/* Changed text to 'Full-Time' */}
+          <div className="flex items-center mt-1">
+            <span className="bg-vanta-blue-dark text-[#00EEEE] opacity-60 font-semibold text-xs px-2 py-1 rounded-md">ASV</span> {/* Added styling for rectangle */}
+            <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">Full-Time</span> {/* Added styling for rectangle */}
           </div>
         </div>
       </div>
