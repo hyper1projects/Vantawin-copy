@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { toast } from 'sonner';
+import LeicesterCityLogo from '@/assets/images/leicester-city-logo.png'; // Import the image
 
 const RightSidebar = () => {
   const [predictionAmount, setPredictionAmount] = useState(10);
@@ -26,10 +27,17 @@ const RightSidebar = () => {
   const quickAmountButtons = [10, 25, 50, 100, 250, 500];
 
   return (
-    <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6">
+    <div className="fixed right-0 top-20 h-[calc(100vh-5rem)] w-80 bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 rounded-l-2xl font-outfit p-6 relative"> {/* Added relative for absolute positioning of image */}
+      {/* Image at top-left */}
+      <img
+        src={LeicesterCityLogo.src} // Use .src for Next.js image imports
+        alt="Leicester City Logo"
+        className="absolute top-4 left-4 w-12 h-12 rounded-full object-cover"
+      />
+
       <div className="flex flex-col flex-grow">
         {/* Match Details */}
-        <div className="mb-6">
+        <div className="mb-6 mt-10"> {/* Added mt-10 to push content down below the image */}
           <div className="flex items-center justify-center mb-2">
             <h3 className="text-xl font-bold">Aston Villa Vs Crystal Palace</h3>
           </div>
