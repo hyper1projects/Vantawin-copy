@@ -45,11 +45,6 @@ const RightSidebar = () => {
       </div>
 
       <div className="flex flex-col flex-grow">
-        {/* Match Details */}
-        <div className="mb-6">
-          <p className="text-xs text-vanta-text-dark text-center">Starts in: 01:23:45</p>
-        </div>
-
         {/* Amount Selection */}
         <div className="mb-6">
           <h4 className="text-lg font-semibold mb-2">Amount</h4>
