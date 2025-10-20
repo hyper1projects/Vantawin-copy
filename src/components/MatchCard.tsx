@@ -23,8 +23,8 @@ const MatchCard: React.FC<MatchCardProps> = ({
   option3,
 }) => {
   return (
-    <div className="relative p-[2px] rounded-xl bg-gradient-to-br from-vanta-neon-blue to-vanta-purple w-full max-w-[280px] mx-auto">
-      <div className="bg-[#011B47] rounded-xl h-full w-full p-3 flex flex-col items-center text-white">
+    <div className="relative p-[2px] rounded-[27px] bg-gradient-to-br from-vanta-neon-blue to-vanta-purple w-[230px] h-[230px] flex-shrink-0">
+      <div className="bg-[#011B47] rounded-[27px] h-full w-full p-3 flex flex-col items-center justify-center text-white">
         <p className="text-base font-semibold mb-3">{date}</p>
         <div className="flex items-center justify-around w-full mb-5">
           <div className="flex flex-col items-center">
