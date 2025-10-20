@@ -24,7 +24,7 @@ const MatchCard: React.FC<MatchCardProps> = ({
 }) => {
   return (
     <div className="relative p-[2px] rounded-xl bg-gradient-to-br from-vanta-neon-blue to-vanta-purple w-full max-w-xs mx-auto">
-      <div className="bg-vanta-dark-blue rounded-xl h-full w-full p-4 flex flex-col items-center text-white">
+      <div className="bg-[#011B47] rounded-xl h-full w-full p-4 flex flex-col items-center text-white">
         <p className="text-lg font-semibold mb-4">{date}</p>
         <div className="flex items-center justify-around w-full mb-6">
           <div className="flex flex-col items-center">
