@@ -28,7 +28,7 @@ const MatchCard: React.FC<MatchCardProps> = ({
   // onOptionSelect, // uncomment if using active selection
 }) => {
   return (
-    <div className="relative p-[2px] rounded-[27px] bg-gradient-to-br from-vanta-neon-blue to-vanta-purple w-[230px] h-[230px] flex-shrink-0">
+    <div className="relative p-[2px] rounded-[27px] bg-gradient-to-t from-[#9A3FFE] to-[#00EEEE] w-[230px] h-[230px] flex-shrink-0">
       <div className="bg-[#011B47] rounded-[27px] h-full w-full p-4 flex flex-col justify-between text-white"> {/* Changed p-3 to p-4, added justify-between */}
         <p className="text-base font-semibold text-center mt-2">{date}</p> {/* Added mt-2 for top spacing */}
         <div className="flex items-center justify-between w-full px-2"> {/* Added px-2 for horizontal spacing */}
