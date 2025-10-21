@@ -61,7 +61,7 @@ const TopGamesSection = () => {
   ];
 
   return (
-    <div className="w-full py-8 px-4 bg-[#011B47] rounded-xl mt-8">
+    <div className="w-full py-8 px-4 bg-[#011B47] rounded-[27px] mt-8">
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-left tracking-tight pl-4">Top Games</h2>
 
       {/* Filter Buttons and Sport Icons */}
