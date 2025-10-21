@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 
 interface MatchCardProps {
   date: string;
@@ -28,12 +27,12 @@ const MatchCard: React.FC<MatchCardProps> = ({
         <p className="text-base font-semibold text-center mt-2">{date}</p>
         <div className="flex items-center justify-between w-full px-2">
           <div className="flex flex-col items-center w-1/3">
-            <Image src={team1Logo} alt={team1Name} width={40} height={40} className="mb-1" />
+            <img src={team1Logo} alt={team1Name} width={40} height={40} className="mb-1" />
             <span className="text-sm font-medium text-center">{team1Name}</span>
           </div>
           <span className="text-lg font-bold">VS</span>
           <div className="flex flex-col items-center w-1/3">
-            <Image src={team2Logo} alt={team2Name} width={40} height={40} className="mb-1" />
+            <img src={team2Logo} alt={team2Name} width={40} height={40} className="mb-1" />
             <span className="text-sm font-medium text-center">{team2Name}</span>
           </div>
         </div>
