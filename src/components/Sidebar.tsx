@@ -37,13 +37,14 @@ const Sidebar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative flex items-center gap-4 py-2 pr-3 rounded-md text-vanta-text-light transition-colors overflow-hidden
+                // FIX 1: Changed rounded-md to rounded-xl for corner smoothing on the whole tab
+                className={`relative flex items-center gap-4 py-2 pr-3 rounded-xl text-vanta-text-light transition-colors overflow-hidden
                   ${isActive ? 'bg-vanta-accent-dark-blue pl-4' : 'hover:bg-vanta-accent-dark-blue pl-3'}
                 `}
               >
                 {isActive && (
-                  // ACCENT BAR MODIFIED HERE: rounded-full changed to rounded-lg
-                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-lg"></div>
+                  // FIX 2: Added w-[2px] and rounded-[8px] for visible rounding on the accent bar
+                  <div className="absolute left-0 top-1 bottom-1 w-[2px] bg-vanta-neon-blue rounded-[8px]"></div>
                 )}
                 <item.icon size={18} />
                 <span className="text-base font-medium">{item.name}</span>
@@ -60,13 +61,14 @@ const Sidebar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative flex items-center justify-between py-2 pr-3 rounded-md text-vanta-text-light transition-colors overflow-hidden
+                // FIX 1: Changed rounded-md to rounded-xl for corner smoothing on the whole tab
+                className={`relative flex items-center justify-between py-2 pr-3 rounded-xl text-vanta-text-light transition-colors overflow-hidden
                   ${isActive ? 'bg-vanta-accent-dark-blue pl-4' : 'hover:bg-vanta-accent-dark-blue pl-3'}
                 `}
               >
                 {isActive && (
-                  // ACCENT BAR MODIFIED HERE: rounded-full changed to rounded-lg
-                  <div className="absolute left-0 top-1 bottom-1 w-1 bg-vanta-neon-blue rounded-lg"></div>
+                  // FIX 2: Added w-[2px] and rounded-[8px] for visible rounding on the accent bar
+                  <div className="absolute left-0 top-1 bottom-1 w-[2px] bg-vanta-neon-blue rounded-[8px]"></div>
                 )}
                 <div className="flex items-center gap-3"> {/* Group icon and text */}
                   <item.icon size={18} />
