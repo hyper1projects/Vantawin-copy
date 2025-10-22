@@ -2,39 +2,38 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { TeamLogos } from '@/assets/logos'; // Import the centralized TeamLogos map
+// Updated import path to the new internal asset file
+import { TeamLogos, FootballIcon, BasketballIcon, TennisIcon, AmericanFootballIcon } from '@/assets/assets'; 
 
-// Placeholder images for sports icons
-import FootballIcon from '@/assets/images/icons/football.svg';
-import BasketballIcon from '@/assets/images/icons/basketball.svg';
-import TennisIcon from '@/assets/images/icons/tennis.svg';
-import AmericanFootballIcon from '@/assets/images/icons/american-football.svg';
-
-import StarIcon from '@/assets/images/icons/star_icon.svg'; // Assuming a star icon for 'Favorite'
+// NOTE: All previous problematic imports have been replaced by the structured import above.
 
 // --- Game Row Card Component (Placeholder to match Top Games image) ---
-// This component simulates the row layout seen in Group 1000005759.jpg
+// UPDATED: Added background color #0B295B and rounded-xl for visual separation.
 const GameRowCard = ({ status, team1Logo, team1Name, team2Logo, team2Name, option1, option2, option3 }) => {
     const isLive = status === 'Live';
     return (
-        <div className="flex items-center justify-between p-4 bg-transparent border-b border-vanta-blue-medium last:border-b-0">
+        // The new required background color is applied here, along with rounded corners.
+        <div className="flex items-center justify-between p-4 bg-[#0B295B] rounded-xl">
             <div className="flex flex-col gap-1 w-2/3">
                 <div className="flex items-center text-sm font-semibold text-white">
                     {isLive ? (
                         <span className="w-2 h-2 rounded-full bg-red-500 mr-2 flex-shrink-0"></span>
                     ) : (
-                        <span className="text-gray-400 mr-2 text-xs w-20 flex-shrink-0">{status}</span>
+                        // Adjusted status width for better mobile layout
+                        <span className="text-gray-400 mr-2 text-xs w-16 flex-shrink-0 truncate">{status}</span> 
                     )}
                     <span className="text-gray-400 text-xs mr-2">{!isLive && status.length > 10 ? status.substring(0, 10) + '...' : status}</span>
                 </div>
                 
                 {/* Team 1 */}
                 <div className="flex items-center gap-2 text-sm text-white font-medium">
+                    {/* Logo source uses base64 string */}
                     <img src={team1Logo} alt={team1Name} className="w-4 h-4 object-contain" />
                     <span>{team1Name}</span>
                 </div>
                 {/* Team 2 */}
                 <div className="flex items-center gap-2 text-sm text-white font-medium">
+                    {/* Logo source uses base64 string */}
                     <img src={team2Logo} alt={team2Name} className="w-4 h-4 object-contain" />
                     <span>{team2Name}</span>
                 </div>
@@ -42,7 +41,7 @@ const GameRowCard = ({ status, team1Logo, team1Name, team2Logo, team2Name, optio
             
             <div className="flex items-center gap-2 text-sm w-1/3 justify-end">
                 <span className="text-xs text-gray-400">Game View</span>
-                <img src={StarIcon} alt="Favorite" className="w-4 h-4 opacity-70 cursor-pointer" />
+                {/* Star icon removed */}
                 <span className="text-sm font-semibold text-gray-400"> &gt; </span>
             </div>
 
@@ -64,6 +63,7 @@ const TopGamesSection = () => {
 
     const filters = ['All', 'Live', 'Up Next'];
     const sports = [
+        // Icon sources are now using base64 data URIs
         { name: 'Football', icon: FootballIcon },
         { name: 'Basketball', icon: BasketballIcon },
         { name: 'Tennis', icon: TennisIcon },
@@ -160,7 +160,8 @@ const TopGamesSection = () => {
             <div className="border-t border-vanta-blue-medium my-6"></div> {/* Separator line */}
 
             {/* Game Cards (Using the new GameRowCard component) */}
-            <div className="flex flex-col gap-0 px-4"> {/* Removed gap-6, as the rows are nearly flush */}
+            {/* UPDATED: gap-3 added to visually separate the new rectangular cards */}
+            <div className="flex flex-col gap-3 px-4"> 
                 {games.map((game, index) => (
                     <GameRowCard
                         key={index}
