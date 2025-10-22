@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import LeicesterCityLogo from '@/assets/images/leicester-city-logo.png'; // Import the image
+import LeicesterCityLogo from '@/assets/images/leicester_city_logo.png'; // Updated import path
 
 const RightSidebar = () => {
   const [predictionAmount, setPredictionAmount] = useState(0);
