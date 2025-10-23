@@ -49,11 +49,11 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
         {/* Teams display */}
         <div className="flex flex-col">
           <div className="flex items-center">
-            <img src={team1.logo} alt={team1.name} className="w-6 h-6 mr-2" />
+            <img src="https://via.placeholder.com/24" alt={team1.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Placeholder image */}
             <span className="text-white font-semibold">{team1.name}</span>
           </div>
           <div className="flex items-center mt-2">
-            <img src={team2.logo} alt={team2.name} className="w-6 h-6 mr-2" />
+            <img src="https://via.placeholder.com/24" alt={team2.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Placeholder image */}
             <span className="text-white font-semibold">{team2.name}</span>
           </div>
         </div>
