@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Star } from 'lucide-react';
 
@@ -11,14 +11,14 @@ interface OddscardProps {
   time: string;
   date: string;
   league: string;
+  isLive: boolean; // New prop to indicate if the match is live
 }
 
-const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, league }) => {
-  const [isFavorited, setIsFavorited] = useState(false); // New state for favorite status
+const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, league, isLive }) => {
+  const [isFavorited, setIsFavorited] = useState(false);
 
   const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited); // Toggle favorite status
-    // In a real app, you would also save this to a backend or local storage
+    setIsFavorited(!isFavorited);
     console.log(`Game ${isFavorited ? 'unfavorited' : 'favorited'}!`);
   };
 
@@ -27,21 +27,23 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
       {/* Top section: Favorite, Live, Time, Date, League */}
       <div className="flex justify-between items-center text-gray-400 text-xs mb-4">
         <div className="flex items-center space-x-2"> {/* Left side: Favorite & Live */}
-          <button onClick={handleFavoriteClick} className="p-0.5 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400"> {/* Button for accessibility */}
+          <button onClick={handleFavoriteClick} className="p-0.5 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400">
             <Star
               className={`w-4 h-4 ${isFavorited ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'} cursor-pointer hover:text-yellow-400`}
             />
           </button>
-          <span className="flex items-center text-red-500 font-bold">
-            <span className="relative flex h-2 w-2 mr-1">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+          {isLive && ( // Conditionally render LIVE indicator
+            <span className="flex items-center text-red-500 font-bold">
+              <span className="relative flex h-2 w-2 mr-1">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              </span>
+              LIVE
             </span>
-            LIVE
-          </span>
+          )}
         </div>
         <div className="flex items-center space-x-2"> {/* Right side: Time, Date, League */}
-          <span>{time}</span>
+          <span>{isLive ? 'LIVE' : time}</span> {/* Display 'LIVE' or actual time */}
           <span>{date}</span>
           <span>{league}</span>
         </div>
