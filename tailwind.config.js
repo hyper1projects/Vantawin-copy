@@ -19,7 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],
-        outfit: ['Outfit', 'sans-serif'], // Keep Outfit font
+        outfit: ['Outfit', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,6 +55,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom colors
+        'sidebar-bg': "hsl(var(--sidebar-bg))",
+        'right-sidebar-bg': "hsl(var(--right-sidebar-bg))",
       },
       borderRadius: {
         lg: "var(--radius)",
