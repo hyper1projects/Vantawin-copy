@@ -1,5 +1,4 @@
-import teamALogoPath from '../components/assets/logos/teamA';
-import teamBLogoPath from '../components/assets/logos/teamB';
+import { teamALogoPath, teamBLogoPath } from '../components/assets/logos'; // Import from the centralized index
 
 // This map should be updated with your actual logo files.
 // For example, if you have 'src/components/assets/logos/myTeam.png',
