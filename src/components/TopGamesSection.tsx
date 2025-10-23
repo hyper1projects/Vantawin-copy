@@ -2,7 +2,7 @@
 
 import React from 'react';
 import MatchCard from '@/components/MatchCard';
-import SectionHeader from './SectionHeader'; // Ensuring the relative import path is correct
+import SectionHeader from './SectionHeader'; // Now this import should resolve correctly
 import { TeamLogos } from '@/assets/logos';
 
 const TopGamesSection: React.FC = () => {
