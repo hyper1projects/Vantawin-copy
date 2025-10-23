@@ -24,10 +24,11 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
 
   return (
     <div className="flex flex-col bg-[#0D2C60] rounded-xl p-4 w-full max-w-sm">
-      {/* Top section: Time/Live, Date, League */}
+      {/* Top section: Time/Live & Date (left), League (right) */}
       <div className="flex justify-between items-center text-gray-400 text-xs mb-4">
-        <div className="flex items-center space-x-2"> {/* Left side: Time/Live & Live indicator */}
+        <div className="flex items-center space-x-2"> {/* Left side: Time/Live, Date & Live indicator */}
           <span>{isLive ? 'LIVE' : time}</span> {/* Display 'LIVE' or actual time */}
+          <span>{date}</span> {/* Moved date here */}
           {isLive && ( // Conditionally render LIVE indicator
             <span className="flex items-center text-red-500 font-bold">
               <span className="relative flex h-2 w-2 mr-1">
@@ -38,8 +39,7 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
             </span>
           )}
         </div>
-        <div className="flex items-center space-x-2"> {/* Right side: Date, League */}
-          <span>{date}</span>
+        <div className="flex items-center space-x-2"> {/* Right side: League */}
           <span>{league}</span>
         </div>
       </div>
@@ -67,7 +67,7 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
       </div>
 
       {/* Bottom section: Favorite icon and Game View link */}
-      <div className="flex justify-between items-center"> {/* Changed to justify-between */}
+      <div className="flex justify-between items-center">
         <button onClick={handleFavoriteClick} className="p-0.5 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400">
           <Star
             className={`w-4 h-4 ${isFavorited ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'} cursor-pointer hover:text-yellow-400`}
