@@ -49,7 +49,7 @@ const Oddscard: React.FC<OddsDataProps> = ({ time, date, teams, gameView, odds }
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 text-center">
+        <div className="grid grid-cols-3 gap-2 text-center mb-4"> {/* Added mb-4 for spacing */}
           <div className="p-2 bg-gray-50 rounded-md">
             <div className="text-xs text-gray-600 mb-1">{teamA ? teamA.name : 'Team A'} Win</div>
             <div className="font-bold text-lg">{odds.teamAWin.toFixed(2)}</div>
@@ -62,6 +62,12 @@ const Oddscard: React.FC<OddsDataProps> = ({ time, date, teams, gameView, odds }
             <div className="text-xs text-gray-600 mb-1">{teamB ? teamB.name : 'Team B'} Win</div>
             <div className="font-bold text-lg">{odds.teamBWin.toFixed(2)}</div>
           </div>
+        </div>
+
+        {/* Re-adding the Points Multiplier section */}
+        <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
+          <div className="text-sm text-gray-600">Points Multiplier:</div>
+          <div className="font-bold text-lg text-green-600">x2.5</div>
         </div>
       </CardContent>
     </Card>
