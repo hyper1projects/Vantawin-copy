@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Star } from 'lucide-react'; // For the star icon
-import { cn } from '@/lib/utils'; // Assuming cn utility is available for class merging
+import { Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface OddscardProps {
   matchTime: string;
@@ -43,7 +43,7 @@ const Oddscard: React.FC<OddscardProps> = ({
   );
 
   return (
-    <div className="w-[723px] h-[126px] bg-[#0D2C60] rounded-xl p-4 flex items-center justify-between text-white shadow-lg">
+    <div className="w-[723px] h-[126px] bg-[#0B295B] rounded-xl p-4 flex items-center justify-between text-white shadow-lg">
       {/* Left Section: Live/Time & Teams */}
       <div className="flex flex-col justify-between h-full w-1/2">
         {/* Top Row: Live/Time & Game View */}
