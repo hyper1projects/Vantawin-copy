@@ -78,7 +78,7 @@ const Oddscard: React.FC<OddscardProps> = ({
       <div className="flex flex-col justify-between h-full items-end">
         {/* Game View */}
         <div className="flex items-center space-x-2">
-          <span className="text-gray-300 text-sm">Game View &gt;</span>
+          <a href="#" className="text-gray-300 text-sm hover:underline">Game View &gt;</a>
           <div className="relative w-6 h-6 flex items-center justify-center rounded-full bg-gray-700">
             <Star className="w-4 h-4 text-yellow-400" fill="currentColor" />
           </div>
