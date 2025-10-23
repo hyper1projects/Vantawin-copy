@@ -2,14 +2,14 @@
 
 import React from 'react';
 import MatchCard from '@/components/MatchCard';
-import SectionHeader from '@/components/SectionHeader';
+import SectionHeader from './SectionHeader'; // Changed to relative import path
 import { TeamLogos } from '@/assets/logos';
 
 const TopGamesSection: React.FC = () => {
   return (
     <div className="w-full py-8 px-4">
       <SectionHeader title="Top Games" bgColor="#0D2C60" className="mb-6" />
-      <div className="flex flex-wrap justify-center gap-6 bg-[#0B295B] p-6 rounded-b-xl"> {/* Added background color, padding, and rounded corners */}
+      <div className="flex flex-wrap justify-center gap-6 bg-[#0B295B] p-6 rounded-b-xl">
         <MatchCard
           date="Today"
           team1Logo={TeamLogos.CRY}
