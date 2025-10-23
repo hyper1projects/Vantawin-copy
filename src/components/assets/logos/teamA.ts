@@ -1,0 +1,1 @@
+export default '/src/components/assets/logos/teamA.png';

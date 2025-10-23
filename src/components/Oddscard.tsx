@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Star } from 'lucide-react';
+import { getLogoSrc } from '../utils/logoMap'; // Import the logo utility
 
 interface OddscardProps {
-  team1: { name: string; logo: string };
-  team2: { name: string; logo: string };
+  team1: { name: string; logo: string }; // 'logo' is now an identifier string (e.g., "teamA")
+  team2: { name: string; logo: string }; // 'logo' is now an identifier string (e.g., "teamB")
   odds: { team1: number; draw: number; team2: number };
   time: string;
   date: string;
@@ -49,11 +50,11 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
         {/* Teams display */}
         <div className="flex flex-col">
           <div className="flex items-center">
-            <img src="https://via.placeholder.com/24" alt={team1.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Placeholder image */}
+            <img src={getLogoSrc(team1.logo)} alt={team1.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Using local logo */}
             <span className="text-white font-semibold">{team1.name}</span>
           </div>
           <div className="flex items-center mt-2">
-            <img src="https://via.placeholder.com/24" alt={team2.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Placeholder image */}
+            <img src={getLogoSrc(team2.logo)} alt={team2.name} className="w-6 h-6 mr-2 rounded-full" /> {/* Using local logo */}
             <span className="text-white font-semibold">{team2.name}</span>
           </div>
         </div>
