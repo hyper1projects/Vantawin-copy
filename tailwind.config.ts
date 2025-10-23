@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-import { fontFamily } from "tailwindcss/defaultTheme"
+// FIX: Changed ES Module 'import' to CommonJS 'require()' for compatibility
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 export default {
   content: [
@@ -84,8 +85,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      // Note: Removed the redundant `fontFamily` definition from here
-      // as it is now in the main `theme` block.
     },
   },
   plugins: [],
+}
