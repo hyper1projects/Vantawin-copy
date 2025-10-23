@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Oddscard from './Oddscard'; // Importing the new Oddscard component
+import Oddscard from './Oddscard';
 import SectionHeader from './SectionHeader';
 import { TeamLogos } from '@/assets/logos';
 
@@ -9,7 +9,7 @@ const TopGamesSection: React.FC = () => {
   return (
     <div className="w-full py-8 px-4">
       <SectionHeader title="Top Games" bgColor="#0D2C60" className="mb-6" />
-      <div className="flex flex-wrap justify-center gap-6 bg-[#0B295B] p-6 rounded-b-xl">
+      <div className="flex flex-wrap justify-center gap-6 bg-[#011B47] p-6 rounded-b-xl">
         <Oddscard
           matchDate="Today"
           matchTime="19:00"
