@@ -3,6 +3,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom'; // Import Link
 
 interface OddscardProps {
   matchTime: string;
@@ -18,6 +19,7 @@ interface OddscardProps {
   option2Value: string;
   option3Label: string;
   option3Value: string;
+  matchId: string; // Add matchId prop
 }
 
 const Oddscard: React.FC<OddscardProps> = ({
@@ -34,6 +36,7 @@ const Oddscard: React.FC<OddscardProps> = ({
   option2Value,
   option3Label,
   option3Value,
+  matchId, // Destructure matchId
 }) => {
   const OddButton: React.FC<{ label: string; value: string }> = ({ label, value }) => (
     <button className="bg-[#0D2C60] hover:bg-[#1a4280] text-white font-semibold py-2 px-4 rounded-md w-[80px] h-[40px] flex flex-col items-center justify-center text-sm">
@@ -76,13 +79,13 @@ const Oddscard: React.FC<OddscardProps> = ({
 
       {/* Right Content: Game View & Odds Buttons */}
       <div className="flex flex-col justify-between h-full items-end">
-        {/* Game View */}
-        <div className="flex items-center space-x-2">
-          <span className="text-gray-300 text-sm">Game View &gt;</span>
+        {/* Game View - now a clickable link */}
+        <Link to={`/match/${matchId}`} className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+          <span className="text-sm">Game View &gt;</span>
           <div className="relative w-6 h-6 flex items-center justify-center rounded-full bg-gray-700">
             <Star className="w-4 h-4 text-yellow-400" fill="currentColor" />
           </div>
-        </div>
+        </Link>
         {/* Odds Buttons */}
         <div className="flex space-x-4">
           <OddButton label={option1Label} value={option1Value} />

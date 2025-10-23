@@ -24,6 +24,7 @@ const TopGamesSection: React.FC = () => {
           option2Value="3.20"
           option3Label="2"
           option3Value="2.80"
+          matchId="match-123" // Placeholder matchId
         />
         <Oddscard
           matchDate="Tomorrow"
@@ -39,6 +40,7 @@ const TopGamesSection: React.FC = () => {
           option2Value="3.00"
           option3Label="2"
           option3Value="2.50"
+          matchId="match-456" // Placeholder matchId
         />
         <Oddscard
           matchDate="Upcoming"
@@ -54,6 +56,7 @@ const TopGamesSection: React.FC = () => {
           option2Value="3.10"
           option3Label="2"
           option3Value="2.20"
+          matchId="match-789" // Placeholder matchId
         />
       </div>
     </div>
