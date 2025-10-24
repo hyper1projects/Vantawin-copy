@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react';
-import MatchCard from './MatchCard'; // Changed from Oddscard to MatchCard
+import MatchCard from './MatchCard';
 import SectionHeader from './SectionHeader';
 import { Game } from '../types/game';
-import { logoMap } from './logoMap'; // Import logoMap to get image URLs
+import { logoMap } from '../utils/logoMap'; // Corrected import path to utils/logoMap
 
 const PointsMultiplierSection: React.FC = () => {
   // Define an array of game data, using the logo identifiers from logoMap.ts
@@ -94,12 +94,12 @@ const PointsMultiplierSection: React.FC = () => {
       {/* Horizontal scroll container */}
       <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-hide">
         {gamesWithBestOdds.map((game) => (
-          <MatchCard // Using MatchCard here
+          <MatchCard
             key={game.id}
-            date={`${game.date} - ${game.time}`} // Combine date and time for the MatchCard's date prop
-            team1Logo={logoMap[game.team1.logoIdentifier] || '/path/to/default-logo.png'} // Fallback for missing logo
+            date={`${game.date} - ${game.time}`}
+            team1Logo={logoMap[game.team1.logoIdentifier] || '/path/to/default-logo.png'}
             team1Name={game.team1.name}
-            team2Logo={logoMap[game.team2.logoIdentifier] || '/path/to/default-logo.png'} // Fallback for missing logo
+            team2Logo={logoMap[game.team2.logoIdentifier] || '/path/to/default-logo.png'}
             team2Name={game.team2.name}
             option1={game.odds.team1.toString()}
             option2={game.odds.draw.toString()}
