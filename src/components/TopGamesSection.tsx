@@ -74,13 +74,13 @@ const TopGamesSection: React.FC = () => {
   };
 
   return (
-    <div className="p-4 flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm">
-      {/* New wrapper div for the header */}
+    <div className="py-4 flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm"> {/* Changed p-4 to py-4 */}
+      {/* Header wrapper div now extends full width */}
       <div className="w-full bg-[#0D2C60] rounded-t-lg">
-        <SectionHeader title="Top Games" className="w-full" textColor="text-white" /> {/* Added textColor prop */}
+        <SectionHeader title="Top Games" className="w-full" textColor="text-white" />
       </div>
       
-      <div className="flex space-x-2 w-full justify-start px-4 -mt-4 mb-2">
+      <div className="flex space-x-2 w-full justify-start px-4 -mt-4 mb-2"> {/* This div already has px-4 */}
         <Button 
           onClick={() => setSelectedFilter('All')}
           className={getButtonClasses('All')}
@@ -101,19 +101,22 @@ const TopGamesSection: React.FC = () => {
         </Button>
       </div>
 
-      {filteredGames.map((game) => (
-        <Oddscard
-          key={game.id}
-          time={game.time}
-          date={game.date}
-          team1={game.team1}
-          team2={game.team2}
-          odds={game.odds}
-          league={game.league}
-          isLive={game.isLive}
-          gameView={game.gameView}
-        />
-      ))}
+      {/* New wrapper div for Oddscards to apply horizontal padding */}
+      <div className="w-full px-4 space-y-6"> {/* Added px-4 and space-y-6 for consistent spacing */}
+        {filteredGames.map((game) => (
+          <Oddscard
+            key={game.id}
+            time={game.time}
+            date={game.date}
+            team1={game.team1}
+            team2={game.team2}
+            odds={game.odds}
+            league={game.league}
+            isLive={game.isLive}
+            gameView={game.gameView}
+          />
+        ))}
+      </div>
     </div>
   );
 };
