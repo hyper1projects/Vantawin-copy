@@ -1,19 +1,16 @@
-// src/utils/logoMap.ts
+import { teamALogoPath, teamBLogoPath } from '../components/assets/logos'; // Import from the centralized index
 
-// Import your logo images here
-import teamALogo from '../assets/logos/teamA.png';
-import teamBLogo from '../assets/logos/teamB.png';
-import chelseaLogo from '../assets/logos/chelsea.png'; // Assuming you have this image
-import liverpoolLogo from '../assets/logos/liverpool.png'; // Assuming you have this image
-
-const logoMap: { [key: string]: string } = {
-  teamA: teamALogo,
-  teamB: teamBLogo,
-  chelsea: chelseaLogo,
-  liverpool: liverpoolLogo,
-  // Add more team logos here as needed
+// This map should be updated with your actual logo files.
+// For example, if you have 'src/components/assets/logos/myTeam.png',
+// you would add: import myTeamLogoPath from '../components/assets/logos/myTeam.png';
+// and then: 'myTeam': myTeamLogoPath,
+export const logoMap: { [key: string]: string } = {
+  'teamA': teamALogoPath,
+  'teamB': teamBLogoPath,
+  // Add more mappings here for your actual team logos
 };
 
 export const getLogoSrc = (logoIdentifier: string): string => {
-  return logoMap[logoIdentifier] || ''; // Return empty string or a default logo if not found
+  // Returns the mapped logo path or a generic placeholder if not found
+  return logoMap[logoIdentifier] || 'https://via.placeholder.com/24';
 };
