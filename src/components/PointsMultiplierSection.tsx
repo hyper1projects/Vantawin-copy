@@ -4,7 +4,7 @@ import React from 'react';
 import MatchCard from './MatchCard';
 import SectionHeader from './SectionHeader';
 import { Game } from '../types/game';
-import { logoMap } from '../utils/logoMap'; // Corrected import path to utils/logoMap
+import { logoMap } from '../utils/logoMap';
 
 const PointsMultiplierSection: React.FC = () => {
   // Define an array of game data, using the logo identifiers from logoMap.ts
@@ -87,7 +87,8 @@ const PointsMultiplierSection: React.FC = () => {
     .sort((a, b) => getMaxOdd(b) - getMaxOdd(a));
 
   return (
-    <div className="flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm pb-12">
+    // Removed bg-vanta-blue-medium, rounded-lg, shadow-sm, and pb-12 from this div
+    <div className="flex flex-col items-center space-y-6"> 
       <div className="w-full bg-[#0D2C60] rounded-t-lg">
         <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
       </div>
