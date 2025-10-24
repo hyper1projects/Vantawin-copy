@@ -13,6 +13,7 @@ const TopGamesSection: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<GameFilter>('All');
 
   // Define an array of game data, using the logo identifiers from logoMap.ts
+  // Removed the game with date: 'Yesterday'
   const games: Game[] = [
     {
       id: 'game-1',
@@ -35,17 +36,6 @@ const TopGamesSection: React.FC = () => {
       league: 'La Liga',
       isLive: true,
       gameView: 'View Matchup',
-    },
-    {
-      id: 'game-3',
-      time: '9:00 PM',
-      date: 'Yesterday',
-      team1: { name: 'Aston Villa', logoIdentifier: 'ASTON' },
-      team2: { name: 'Crystal Palace', logoIdentifier: 'CRY' },
-      odds: { team1: 1.8, draw: 3.5, team2: 2.2 },
-      league: 'NBA',
-      isLive: false,
-      gameView: 'Game Recap',
     },
   ];
 
