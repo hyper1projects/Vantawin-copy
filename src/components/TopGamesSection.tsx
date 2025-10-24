@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react';
 import Oddscard from './Oddscard';
 import { Game } from '../types/game';
 import SectionHeader from './SectionHeader';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils'; // Import cn for conditional class merging
+import { cn } from '@/lib/utils';
 
 type GameFilter = 'All' | 'Live' | 'Upcoming';
 
 const TopGamesSection: React.FC = () => {
-  const [selectedFilter, setSelectedFilter] = useState<GameFilter>('All'); // State to manage selected filter
+  const [selectedFilter, setSelectedFilter] = useState<GameFilter>('All');
 
   // Define an array of game data, using the logo identifiers from logoMap.ts
   const games: Game[] = [
@@ -52,10 +52,10 @@ const TopGamesSection: React.FC = () => {
   const getButtonClasses = (filter: GameFilter) => {
     const isSelected = selectedFilter === filter;
     return cn(
-      "size-sm rounded-md",
+      "size-sm rounded-[12px]", // Changed from rounded-md to rounded-[12px]
       isSelected
-        ? "bg-[#00EEEE] text-[#081028]" // Selected state
-        : "bg-[#0B295B] text-white hover:text-[#00EEEE] hover:bg-[#0B295B]" // Not selected state
+        ? "bg-[#00EEEE] text-[#081028]"
+        : "bg-[#0B295B] text-white hover:text-[#00EEEE] hover:bg-[#0B295B]"
     );
   };
 
