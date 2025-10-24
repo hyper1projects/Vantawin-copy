@@ -1,9 +1,10 @@
 "use client";
 
 import React from 'react';
-import Oddscard from './Oddscard';
+import MatchCard from './MatchCard'; // Changed from Oddscard to MatchCard
 import SectionHeader from './SectionHeader';
 import { Game } from '../types/game';
+import { logoMap } from './logoMap'; // Import logoMap to get image URLs
 
 const PointsMultiplierSection: React.FC = () => {
   // Define an array of game data, using the logo identifiers from logoMap.ts
@@ -64,7 +65,7 @@ const PointsMultiplierSection: React.FC = () => {
       gameView: 'El Clásico',
     },
     {
-      id: 'game-6', // Added another game to demonstrate scrolling
+      id: 'game-6',
       time: '5:00 PM',
       date: 'Yesterday',
       team1: { name: 'Bayern Munich', logoIdentifier: 'BAY' },
@@ -81,7 +82,7 @@ const PointsMultiplierSection: React.FC = () => {
     return Math.max(game.odds.team1, game.odds.draw, game.odds.team2);
   };
 
-  // Sort games by the highest odd in descending order (no slice limit)
+  // Sort games by the highest odd in descending order
   const gamesWithBestOdds = [...allGames]
     .sort((a, b) => getMaxOdd(b) - getMaxOdd(a));
 
@@ -91,20 +92,19 @@ const PointsMultiplierSection: React.FC = () => {
         <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
       </div>
       {/* Horizontal scroll container */}
-      <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-hide"> {/* Added scrollbar-hide for cleaner look */}
+      <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-hide">
         {gamesWithBestOdds.map((game) => (
-          <div key={game.id} className="flex-shrink-0 w-[300px]"> {/* Fixed width for each card */}
-            <Oddscard
-              time={game.time}
-              date={game.date}
-              team1={game.team1}
-              team2={game.team2}
-              odds={game.odds}
-              league={game.league}
-              isLive={game.isLive}
-              gameView={game.gameView}
-            />
-          </div>
+          <MatchCard // Using MatchCard here
+            key={game.id}
+            date={`${game.date} - ${game.time}`} // Combine date and time for the MatchCard's date prop
+            team1Logo={logoMap[game.team1.logoIdentifier] || '/path/to/default-logo.png'} // Fallback for missing logo
+            team1Name={game.team1.name}
+            team2Logo={logoMap[game.team2.logoIdentifier] || '/path/to/default-logo.png'} // Fallback for missing logo
+            team2Name={game.team2.name}
+            option1={game.odds.team1.toString()}
+            option2={game.odds.draw.toString()}
+            option3={game.odds.team2.toString()}
+          />
         ))}
       </div>
     </div>

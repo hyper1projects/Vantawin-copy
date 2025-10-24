@@ -1,10 +1,12 @@
+"use client";
+
 import React from 'react';
 import { Button } from '@/components/ui/button'; 
 
 interface MatchCardProps {
   date: string;
-  time?: string;
-  multiplier?: string; 
+  time?: string; // Optional, not used in current render but kept for flexibility
+  multiplier?: string; // Optional, not used in current render but kept for flexibility
   team1Logo: string;
   team1Name: string;
   team2Logo: string;
@@ -34,12 +36,12 @@ const MatchCard: React.FC<MatchCardProps> = ({
         {/* Team Logos and Names Row */}
         <div className="flex items-center justify-between w-full px-2"> 
           <div className="flex flex-col items-center w-1/3"> 
-            <img src={team1Logo} alt={team1Name} className="w-12 h-12 object-contain mb-1" /> {/* Increased size to w-12 h-12 */}
+            <img src={team1Logo} alt={team1Name} className="w-12 h-12 object-contain mb-1" /> 
             <span className="text-[10px] font-medium text-center">{team1Name}</span>
           </div>
           <span className="text-lg font-bold text-gray-400">VS</span>
           <div className="flex flex-col items-center w-1/3"> 
-            <img src={team2Logo} alt={team2Name} className="w-12 h-12 object-contain mb-1" /> {/* Increased size to w-12 h-12 */}
+            <img src={team2Logo} alt={team2Name} className="w-12 h-12 object-contain mb-1" /> 
             <span className="text-[10px] font-medium text-center">{team2Name}</span>
           </div>
         </div>
