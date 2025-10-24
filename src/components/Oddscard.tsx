@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
+// Removed: import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { logoMap } from '../lib/logoMap';
 
@@ -52,13 +52,13 @@ const Oddscard: React.FC<OddscardProps> = ({
 
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
-          <Image src={getLogoPath(team1.logoIdentifier)} alt={team1.name} width={32} height={32} className="rounded-full" />
+          <img src={getLogoPath(team1.logoIdentifier)} alt={team1.name} width={32} height={32} className="rounded-full" />
           <span className="text-white font-semibold">{team1.name}</span>
         </div>
         <span className="text-gray-400 text-sm">vs</span>
         <div className="flex items-center space-x-2">
           <span className="text-white font-semibold">{team2.name}</span>
-          <Image src={getLogoPath(team2.logoIdentifier)} alt={team2.name} width={32} height={32} className="rounded-full" />
+          <img src={getLogoPath(team2.logoIdentifier)} alt={team2.name} width={32} height={32} className="rounded-full" />
         </div>
       </div>
 
