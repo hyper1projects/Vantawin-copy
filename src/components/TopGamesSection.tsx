@@ -75,7 +75,10 @@ const TopGamesSection: React.FC = () => {
 
   return (
     <div className="p-4 flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm">
-      <SectionHeader title="Top Games" bgColor="vanta-blue-medium" className="w-full" /> 
+      {/* New wrapper div for the header */}
+      <div className="w-full bg-[#0D2C60] rounded-t-lg">
+        <SectionHeader title="Top Games" className="w-full" /> {/* Removed bgColor prop */}
+      </div>
       
       <div className="flex space-x-2 w-full justify-start px-4 -mt-4 mb-2">
         <Button 
@@ -98,7 +101,7 @@ const TopGamesSection: React.FC = () => {
         </Button>
       </div>
 
-      {filteredGames.map((game) => ( // Render filteredGames instead of games
+      {filteredGames.map((game) => (
         <Oddscard
           key={game.id}
           time={game.time}
