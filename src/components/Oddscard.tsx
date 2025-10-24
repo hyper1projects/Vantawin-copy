@@ -3,9 +3,17 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { getLogoSrc } from '../utils/logoMap.ts';
-import { Team, Odds } from '../types/game'; // Import shared types
 
-// --- Type Definitions ---
+// NOTE: Assuming these types are correctly defined in '../types/game'
+interface Team {
+    name: string;
+    logoIdentifier: string; // Used by getLogoSrc
+}
+interface Odds {
+    team1: number;
+    team2: number;
+    draw: number;
+}
 interface OddscardProps {
     team1: Team;
     team2: Team;
@@ -14,10 +22,10 @@ interface OddscardProps {
     date: string;
     league: string;
     isLive: boolean;
-    gameView: string; // Added gameView prop
+    gameView: string;
 }
 
-// Minimal Odds Button (replaces non-existent custom Button component)
+// Minimal Odds Button
 const OddsButton: React.FC<{ value: number }> = ({ value }) => (
     <button className="bg-[#0B295B] text-white border border-gray-600 hover:bg-gray-700 h-8 px-3 text-sm rounded-md transition-colors shadow-inner font-semibold">
         {value.toFixed(2)}
@@ -34,7 +42,6 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
 
     const renderTeam = (team: Team) => (
         <div className="flex items-center">
-            {/* Using getLogoSrc with the team's logoIdentifier */}
             <img 
                 src={getLogoSrc(team.logoIdentifier)} 
                 alt={team.name} 
@@ -45,7 +52,10 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
     );
 
     return (
-        <div className="flex flex-col bg-[#0D2C60] rounded-xl p-4 w-full max-w-sm shadow-xl font-sans transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] border border-transparent hover:border-indigo-600/50">
+        // *****************************************************************
+        // ** CHANGE: Removed 'max-w-sm' to allow the card to expand fully **
+        // *****************************************************************
+        <div className="flex flex-col bg-[#0D2C60] rounded-xl p-4 w-full shadow-xl font-sans transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] border border-transparent hover:border-indigo-600/50">
             
             {/* Top section: Time/Live & Date (left), League (right) */}
             <div className="flex justify-between items-center text-gray-400 text-xs mb-4 border-b border-gray-700/50 pb-2">
@@ -80,7 +90,6 @@ const Oddscard: React.FC<OddscardProps> = ({ team1, team2, odds, time, date, lea
                 {/* Odds buttons */}
                 <div className="flex flex-col items-end space-y-2">
                     <div className='flex space-x-2'>
-                        {/* Using the OddsButton component with fixed float display */}
                         <OddsButton value={odds.team1} /> 
                         <OddsButton value={odds.draw} />
                         <OddsButton value={odds.team2} />
