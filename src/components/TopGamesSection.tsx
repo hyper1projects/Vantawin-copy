@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Oddscard from './Oddscard';
-import { Game } from '../types/game'; // Import the Game interface
+import { Game } from '../types/game';
+import SectionHeader from './SectionHeader'; // Import SectionHeader
 
 const TopGamesSection: React.FC = () => {
   // Define an array of game data, using the logo identifiers from logoMap.ts
@@ -44,7 +45,7 @@ const TopGamesSection: React.FC = () => {
 
   return (
     <div className="p-4 flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm">
-      <h2 className="text-xl font-bold mb-2 text-vanta-gray">Top Games</h2>
+      <SectionHeader title="Top Games" bgColor="vanta-blue-medium" className="w-full" /> {/* Use SectionHeader here */}
       {games.map((game) => (
         <Oddscard
           key={game.id}
