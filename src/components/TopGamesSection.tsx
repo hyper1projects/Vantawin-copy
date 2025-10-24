@@ -80,7 +80,7 @@ const TopGamesSection: React.FC = () => {
         <SectionHeader title="Top Games" className="w-full" textColor="text-white" />
       </div>
       
-      <div className="flex space-x-2 w-full justify-start px-4 -mt-4 mb-4 border-b border-gray-700 pb-4"> {/* Added border-b, border-gray-700, pb-4, and changed mb-2 to mb-4 */}
+      <div className="flex space-x-2 w-full justify-start px-4 -mt-4 mb-4 border-b border-gray-700 pb-4">
         <Button 
           onClick={() => setSelectedFilter('All')}
           className={getButtonClasses('All')}
@@ -101,8 +101,8 @@ const TopGamesSection: React.FC = () => {
         </Button>
       </div>
 
-      {/* New wrapper div for Oddscards to apply horizontal padding */}
-      <div className="w-full px-4 space-y-6">
+      {/* Wrapper div for Oddscards - removed px-4 */}
+      <div className="w-full space-y-6"> {/* Removed px-4 */}
         {filteredGames.map((game) => (
           <Oddscard
             key={game.id}
