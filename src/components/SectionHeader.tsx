@@ -5,22 +5,14 @@ import { cn } from '@/lib/utils';
 
 interface SectionHeaderProps {
   title: string;
-  bgColor?: string;
   className?: string;
+  textColor?: string; // Added textColor prop
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ title, bgColor, className }) => {
+const SectionHeader: React.FC<SectionHeaderProps> = ({ title, className, textColor = "text-white" }) => { // Default to text-white
   return (
-    <div
-      className={cn(
-        "flex items-center p-4 rounded-t-xl", // Removed justify-between
-        bgColor ? `bg-[${bgColor}]` : "bg-vanta-blue-medium",
-        className
-      )}
-    >
-      <h2 className="text-white text-xl font-semibold">{title}</h2>
-      
-      {/* Buttons for All, Live, Upcoming removed from here */}
+    <div className={cn("flex items-center justify-between p-4", className)}>
+      <h2 className={cn("text-lg font-semibold", textColor)}>{title}</h2> {/* Applied textColor here */}
     </div>
   );
 };

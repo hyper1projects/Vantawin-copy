@@ -77,7 +77,7 @@ const TopGamesSection: React.FC = () => {
     <div className="p-4 flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm">
       {/* New wrapper div for the header */}
       <div className="w-full bg-[#0D2C60] rounded-t-lg">
-        <SectionHeader title="Top Games" className="w-full" /> {/* Removed bgColor prop */}
+        <SectionHeader title="Top Games" className="w-full" textColor="text-white" /> {/* Added textColor prop */}
       </div>
       
       <div className="flex space-x-2 w-full justify-start px-4 -mt-4 mb-2">
