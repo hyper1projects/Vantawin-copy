@@ -43,8 +43,8 @@ const TopGamesSection: React.FC = () => {
   ];
 
   return (
-    <div className="p-4 flex flex-col items-center space-y-6 bg-white rounded-lg shadow-sm">
-      <h2 className="text-xl font-bold mb-2 text-gray-800">Top Games</h2>
+    <div className="p-4 flex flex-col items-center space-y-6 bg-vanta-blue-medium rounded-lg shadow-sm">
+      <h2 className="text-xl font-bold mb-2 text-vanta-gray">Top Games</h2>
       {games.map((game) => (
         <Oddscard
           key={game.id}
@@ -55,7 +55,7 @@ const TopGamesSection: React.FC = () => {
           odds={game.odds}
           league={game.league}
           isLive={game.isLive}
-          gameView={game.gameView} // Pass the gameView prop
+          gameView={game.gameView}
         />
       ))}
     </div>
