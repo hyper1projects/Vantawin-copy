@@ -88,9 +88,8 @@ const PointsMultiplierSection: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center space-y-6"> 
-      {/* Removed bg-[#0D2C60] and rounded-t-lg from this div */}
       <div className="w-full"> 
-        <SectionHeader title="Points Multiplier" className="w-full" textColor="text-black" /> {/* Changed textColor to text-black */}
+        <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" /> {/* Changed textColor to text-white */}
       </div>
       {/* Horizontal scroll container */}
       <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-hide">
