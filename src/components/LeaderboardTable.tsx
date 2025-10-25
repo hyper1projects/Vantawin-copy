@@ -33,20 +33,12 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries, className 
             key={entry.rank}
             className={cn(
               "grid grid-cols-3 gap-4 items-center py-2 px-3 rounded-lg",
-              entry.isCurrentUser ? "bg-vanta-accent-dark-blue border border-vanta-neon-blue" : "hover:bg-[#012A5E]",
-              entry.rank <= 3 && "font-bold" // Highlight top 3 ranks
+              entry.isCurrentUser ? "bg-vanta-accent-dark-blue border border-vanta-neon-blue" : "hover:bg-[#012A5E]"
             )}
           >
             <div className="flex items-center">
-              {entry.rank === 1 && <Trophy size={18} className="text-yellow-400 mr-2" />}
-              {entry.rank === 2 && <Trophy size={18} className="text-gray-400 mr-2" />}
-              {entry.rank === 3 && <Trophy size={18} className="text-amber-700 mr-2" />}
-              <span className={cn(
-                "text-base",
-                entry.rank === 1 && "text-yellow-400",
-                entry.rank === 2 && "text-gray-400",
-                entry.rank === 3 && "text-amber-700"
-              )}>
+              {/* Removed Trophy icons and special text colors for top 3 */}
+              <span className="text-base">
                 {entry.rank}
               </span>
             </div>

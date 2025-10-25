@@ -2,7 +2,8 @@
 
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
-import LeaderboardTable from '../components/LeaderboardTable'; // Import the new component
+import LeaderboardTable from '../components/LeaderboardTable';
+import LeaderboardPodium from '../components/LeaderboardPodium'; // Import the new component
 
 const Leaderboard = () => {
   // Dummy data for the leaderboard
@@ -19,10 +20,14 @@ const Leaderboard = () => {
     { rank: 10, playerName: 'Fanatic', score: 60000, isCurrentUser: false },
   ];
 
+  const top3Players = leaderboardEntries.filter(entry => entry.rank <= 3);
+  const remainingPlayers = leaderboardEntries.filter(entry => entry.rank > 3);
+
   return (
     <div className="p-4">
       <SectionHeader title="Global Leaderboard" className="mb-6" textColor="text-vanta-text-light" />
-      <LeaderboardTable entries={leaderboardEntries} />
+      <LeaderboardPodium topPlayers={top3Players} className="mb-8" /> {/* Render the podium */}
+      <LeaderboardTable entries={remainingPlayers} /> {/* Render the table with remaining players */}
     </div>
   );
 };
