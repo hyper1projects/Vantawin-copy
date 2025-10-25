@@ -10,4 +10,5 @@ export interface Pool {
   endTime: string; // e.g., "2024-10-27T18:00:00Z"
   description: string;
   image?: string; // Optional image for the pool
+  tier: 'Bronze' | 'Silver' | 'Gold'; // New tier property
 }
