@@ -9,8 +9,8 @@ const Index = () => {
   return (
     <div className="p-4">
       <h1 className="text-xl font-bold text-vanta-text-light mb-4 text-left pl-4">Welcome to VantaWin!</h1>
-      <ImageCarousel />
-      <PointsMultiplierSection />
+      <ImageCarousel className="mb-8" /> {/* Added mb-8 here */}
+      <PointsMultiplierSection className="mb-8" /> {/* Added mb-8 here */}
       {/* Add the new TopGamesSection component here */}
       <TopGamesSection />
       <div className="mt-8 text-center text-vanta-text-light">
