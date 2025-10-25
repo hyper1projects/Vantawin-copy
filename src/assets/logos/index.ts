@@ -2,10 +2,19 @@
 
 // Import the specific image files using relative paths from this file.
 import manUnited from './England - Premier League/Manchester United.png';
-import leicesterCity from './England - Premier League/Leicester City.png'; // Corrected path after moving
+import leicesterCity from './England - Premier League/Leicester City.png';
 import crystalPalace from './England - Premier League/Crystal Palace.png';
 import westHamUnited from './England - Premier League/West Ham United.png';
 import astonVilla from './England - Premier League/Aston Villa.png';
+import arsenal from './England - Premier League/Arsenal FC.png';
+import chelsea from './England - Premier League/Chelsea FC.png';
+import liverpool from './England - Premier League/Liverpool FC.png';
+import everton from './England - Premier League/Everton FC.png';
+import realMadrid from './Spain - LaLiga/Real Madrid.png';
+import barcelona from './Spain - LaLiga/FC Barcelona.png';
+import bayernMunich from './Germany - Bundesliga/Bayern Munich.png';
+import borussiaDortmund from './Germany - Bundesliga/Borussia Dortmund.png';
+
 
 // Export them in a central map using short, standardized keys.
 export const TeamLogos: { [key: string]: string } = {
@@ -14,4 +23,12 @@ export const TeamLogos: { [key: string]: string } = {
     'CRY': crystalPalace,
     'WHU': westHamUnited,
     'ASTON': astonVilla,
+    'ARS': arsenal,
+    'CHE': chelsea,
+    'LIV': liverpool,
+    'EVE': everton,
+    'RMA': realMadrid,
+    'BAR': barcelona,
+    'BAY': bayernMunich,
+    'DOR': borussiaDortmund,
 };
