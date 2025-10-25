@@ -2,9 +2,9 @@
 
 import React from 'react';
 import MatchCard from '../components/MatchCard';
-import LiveGamesSection from '../components/LiveGamesSection'; // Import the new LiveGamesSection
+import LiveGamesSection from '../components/LiveGamesSection';
 import SectionHeader from '../components/SectionHeader';
-import TopGamesSection from '../components/TopGamesSection'; // Assuming TopGamesSection exists
+// TopGamesSection import removed
 
 const Games = () => {
   // Dummy data for demonstration. In a real app, this would come from an API.
@@ -15,10 +15,9 @@ const Games = () => {
 
   return (
     <div className="p-4">
-      {/* Top Games Section */}
-      <TopGamesSection /> {/* Use the existing TopGamesSection component */}
+      {/* Top Games Section - removed */}
 
-      {/* Live Games Section - now using the new component */}
+      {/* Live Games Section */}
       <div className="mt-8"> {/* Added margin-top for spacing */}
         <LiveGamesSection />
       </div>
