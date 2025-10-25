@@ -87,25 +87,25 @@ const PointsMultiplierSection: React.FC = () => {
     .sort((a, b) => getMaxOdd(b) - getMaxOdd(a));
 
   return (
-    <div className="flex flex-col items-center"> 
-      <div className="w-full bg-[#011B47] rounded-lg p-4 space-y-4"> {/* Updated background color to #011B47 */}
+    <div className="flex flex-col items-center space-y-6"> 
+      <div className="w-full"> 
         <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
-        {/* Horizontal scroll container */}
-        <div className="w-full flex overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-500 scrollbar-track-blue-100">
-          {gamesWithBestOdds.map((game) => (
-            <MatchCard
-              key={game.id}
-              date={`${game.date} - ${game.time}`}
-              team1Logo={logoMap[game.team1.logoIdentifier] || '/path/to/default-logo.png'}
-              team1Name={game.team1.name}
-              team2Logo={logoMap[game.team2.logoIdentifier] || '/path/to/default-logo.png'}
-              team2Name={game.team2.name}
-              option1={game.odds.team1.toString()}
-              option2={game.odds.draw.toString()}
-              option3={game.odds.team2.toString()}
-            />
-          ))}
-        </div>
+      </div>
+      {/* Horizontal scroll container */}
+      <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-500 scrollbar-track-blue-100">
+        {gamesWithBestOdds.map((game) => (
+          <MatchCard
+            key={game.id}
+            date={`${game.date} - ${game.time}`}
+            team1Logo={logoMap[game.team1.logoIdentifier] || '/path/to/default-logo.png'}
+            team1Name={game.team1.name}
+            team2Logo={logoMap[game.team2.logoIdentifier] || '/path/to/default-logo.png'}
+            team2Name={game.team2.name}
+            option1={game.odds.team1.toString()}
+            option2={game.odds.draw.toString()}
+            option3={game.odds.team2.toString()}
+          />
+        ))}
       </div>
     </div>
   );
