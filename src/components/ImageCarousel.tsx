@@ -12,13 +12,13 @@ import {
 
 const ImageCarousel: React.FC = () => {
   const images = [
-    '/images/carousel-1.png', // Replace with your actual image paths
-    '/images/carousel-2.png',
-    '/images/carousel-3.png',
+    'https://via.placeholder.com/1200x400?text=Carousel+Image+1', // Larger placeholder image
+    'https://via.placeholder.com/1200x400?text=Carousel+Image+2', // Larger placeholder image
+    'https://via.placeholder.com/1200x400?text=Carousel+Image+3', // Larger placeholder image
   ];
 
   return (
-    <div className="w-full h-64"> {/* Added h-64 here */}
+    <div className="w-full h-64">
       <Carousel className="w-full h-full">
         <CarouselContent className="h-full">
           {images.map((image, index) => (
