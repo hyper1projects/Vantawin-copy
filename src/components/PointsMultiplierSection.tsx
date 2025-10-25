@@ -89,10 +89,10 @@ const PointsMultiplierSection: React.FC = () => {
   return (
     <div className="flex flex-col items-center space-y-6"> 
       <div className="w-full"> 
-        <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" /> {/* Changed textColor to text-white */}
+        <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
       </div>
       {/* Horizontal scroll container */}
-      <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-hide">
+      <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-500 scrollbar-track-blue-100">
         {gamesWithBestOdds.map((game) => (
           <MatchCard
             key={game.id}
