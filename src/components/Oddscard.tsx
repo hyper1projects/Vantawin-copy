@@ -5,7 +5,7 @@ import { cn } from '../lib/utils'; // Assuming cn utility for tailwind-merge
 
 interface OddsCardProps {
   label: string; // e.g., "1", "X", "2"
-  oddValue: number;
+  oddValue: number | undefined; // Allow undefined for safety
   onClick?: () => void;
   isSelected?: boolean;
 }
@@ -21,7 +21,7 @@ const OddsCard: React.FC<OddsCardProps> = ({ label, oddValue, onClick, isSelecte
       )}
     >
       <span className="text-xs text-gray-500">{label}</span>
-      <span className="text-base font-semibold">{oddValue.toFixed(2)}</span>
+      <span className="text-base font-semibold">{(oddValue ?? 0).toFixed(2)}</span> {/* Safely call toFixed */}
     </button>
   );
 };
