@@ -1,54 +1,75 @@
 "use client";
 
 import React from 'react';
-import OddsCard from './OddsCard'; // Import OddsCard
+import { Button } from '@/components/ui/button'; 
 
 interface MatchCardProps {
-  id: string;
-  team1: string;
-  team2: string;
-  time: string;
   date: string;
-  odds1: number;
-  oddsX: number;
-  odds2: number;
-  onSelectOdd?: (matchId: string, oddType: '1' | 'X' | '2', oddValue: number) => void;
+  time?: string; // Optional, not used in current render but kept for flexibility
+  multiplier?: string; // Optional, not used in current render but kept for flexibility
+  team1Logo: string;
+  team1Name: string;
+  team2Logo: string;
+  team2Name: string;
+  option1: string;
+  option2: string;
+  option3: string;
 }
 
 const MatchCard: React.FC<MatchCardProps> = ({
-  id,
-  team1,
-  team2,
-  time,
   date,
-  odds1,
-  oddsX,
-  odds2,
-  onSelectOdd,
+  team1Logo,
+  team1Name,
+  team2Logo,
+  team2Name,
+  option1,
+  option2,
+  option3,
 }) => {
-  const handleOddClick = (oddType: '1' | 'X' | '2', oddValue: number) => {
-    if (onSelectOdd) {
-      onSelectOdd(id, oddType, oddValue);
-    }
-  };
-
   return (
-    <div className="bg-white shadow-sm rounded-lg p-4 border border-gray-200">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-xs text-gray-500">{date} - {time}</span>
-        {time === 'LIVE' && (
-          <span className="text-xs font-semibold text-red-600 bg-red-100 px-2 py-1 rounded-full">LIVE</span>
-        )}
-      </div>
-      <div className="text-lg font-semibold text-gray-900 mb-3">
-        <p>{team1}</p>
-        <p className="text-sm font-normal text-gray-600">vs</p>
-        <p>{team2}</p>
-      </div>
-      <div className="grid grid-cols-3 gap-2 mt-4">
-        <OddsCard label="1" oddValue={odds1} onClick={() => handleOddClick('1', odds1)} />
-        <OddsCard label="X" oddValue={oddsX} onClick={() => handleOddClick('X', oddsX)} />
-        <OddsCard label="2" oddValue={odds2} onClick={() => handleOddClick('2', odds2)} />
+    <div className="relative p-[2px] rounded-[27px] bg-gradient-to-t from-[#9A3FFE] to-[#00EEEE] w-[230px] h-[230px] flex-shrink-0">
+      <div className="bg-[#011B47] rounded-[27px] h-full w-full p-4 flex flex-col justify-between text-white">
+        
+        {/* Date/Time Row */}
+        <p className="text-base font-semibold text-center mt-2">{date}</p> 
+        
+        {/* Team Logos and Names Row */}
+        <div className="flex items-center justify-between w-full px-2"> 
+          <div className="flex flex-col items-center w-1/3"> 
+            <img src={team1Logo} alt={team1Name} className="w-12 h-12 object-contain mb-1" /> 
+            <span className="text-[10px] font-medium text-center">{team1Name}</span>
+          </div>
+          <span className="text-lg font-bold text-gray-400">VS</span>
+          <div className="flex flex-col items-center w-1/3"> 
+            <img src={team2Logo} alt={team2Name} className="w-12 h-12 object-contain mb-1" /> 
+            <span className="text-[10px] font-medium text-center">{team2Name}</span>
+          </div>
+        </div>
+        
+        {/* Prediction Buttons Row */}
+        <div className="flex justify-center space-x-2 w-full mb-2">
+          <Button
+            className={`flex-1 py-1.5 px-3 rounded-md transition-colors duration-300 text-xs font-semibold 
+              ${'bg-[#01112D] text-gray-300 hover:bg-[#012A5E]'} 
+            `}
+          >
+            {option1}
+          </Button>
+          <Button
+            className={`flex-1 py-1.5 px-3 rounded-md transition-colors duration-300 text-xs font-semibold 
+              ${'bg-[#01112D] text-gray-300 hover:bg-[#012A5E]'} 
+            `}
+          >
+            {option2}
+          </Button>
+          <Button
+            className={`flex-1 py-1.5 px-3 rounded-md transition-colors duration-300 text-xs font-semibold 
+              ${'bg-[#01112D] text-gray-300 hover:bg-[#012A5E]'} 
+            `}
+          >
+            {option3}
+          </Button>
+        </div>
       </div>
     </div>
   );
