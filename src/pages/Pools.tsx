@@ -100,7 +100,7 @@ const Pools = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-bold text-vanta-text-light mb-8 text-left">Pools</h1>
+      {/* Removed the h1 tag for "Pools" */}
 
       {/* Ongoing Pools Section */}
       <div className="mb-12">
