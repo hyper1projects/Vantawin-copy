@@ -10,14 +10,13 @@ const MainHeader: React.FC = () => {
   const sportsCategories = ['Football', 'Basketball', 'Tennis', 'Esports'];
   const location = useLocation();
   const currentPath = location.pathname;
+  const queryParams = new URLSearchParams(location.search);
+  const activeCategoryParam = queryParams.get('category') || 'football'; // Default to 'football' if no param
 
   // Function to determine if a category is active
   const isActive = (category: string) => {
-    if (category === 'Football') {
-      return currentPath === '/games'; // 'Football' is active if on /games route
-    }
     const categorySlug = category.toLowerCase().replace('.', '');
-    return currentPath.startsWith(`/sports/${categorySlug}`);
+    return currentPath === '/games' && activeCategoryParam === categorySlug;
   };
 
   return (
@@ -27,7 +26,7 @@ const MainHeader: React.FC = () => {
         {sportsCategories.map((category) => (
           <Link 
             key={category} 
-            to={category === 'Football' ? '/games' : `/sports/${category.toLowerCase().replace('.', '')}`} // Conditional path for Football
+            to={`/games?category=${category.toLowerCase().replace('.', '')}`} // All categories route to /games with a query param
           >
             <Button
               variant="ghost"

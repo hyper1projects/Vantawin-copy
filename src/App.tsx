@@ -15,7 +15,7 @@ import Contact from './pages/Contact';
 import Users from './pages/Users';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Support from './pages/Support';
-import SportCategoryPage from './pages/SportCategoryPage'; // Import the new SportCategoryPage
+// Removed SportCategoryPage import
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route path="help" element={<Help />} />
           <Route path="contact" element={<Contact />} />
           <Route path="support" element={<Support />} />
-          <Route path="sports/:category" element={<SportCategoryPage />} /> {/* Use the new SportCategoryPage */}
+          {/* Removed the route for SportCategoryPage */}
           <Route path="how-it-works" element={<div>How It Works Page</div>} />
           <Route path="*" element={<NotFound />} />
         </Route>

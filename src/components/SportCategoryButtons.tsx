@@ -13,14 +13,14 @@ const SportCategoryButtons: React.FC<SportCategoryButtonsProps> = ({ onSelectCat
   const categories = ['Football', 'Basketball', 'Tennis', 'Esports'];
 
   return (
-    <div className="flex justify-start space-x-4 p-2 mb-8 bg-[#011B47] rounded-[27px] w-fit"> {/* Added w-fit to make the rectangle hug the buttons */}
+    <div className="flex justify-start space-x-4 p-2 mb-8 bg-[#011B47] rounded-[27px] w-fit">
       {categories.map((category) => (
         <Button
           key={category}
           onClick={() => onSelectCategory && onSelectCategory(category)}
           className={cn(
             "px-6 py-3 rounded-[14px] font-semibold text-base transition-colors duration-200",
-            selectedCategory === category
+            selectedCategory?.toLowerCase() === category.toLowerCase() // Compare lowercase for robustness
               ? "bg-vanta-neon-blue text-vanta-blue-dark hover:bg-opacity-90"
               : "bg-transparent text-vanta-text-light hover:bg-vanta-accent-dark-blue"
           )}
