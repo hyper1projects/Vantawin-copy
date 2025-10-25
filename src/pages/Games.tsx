@@ -1,13 +1,32 @@
 "use client";
 
-import React, { useState } from 'react'; // Import useState
+import React, { useState, useEffect } from 'react';
 import MatchCard from '../components/MatchCard';
-import LiveGamesSection from '../components/LiveGamesSection';
 import SectionHeader from '../components/SectionHeader';
-import SportCategoryButtons from '../components/SportCategoryButtons'; // Import the new component
+import SportCategoryButtons from '../components/SportCategoryButtons';
+import LiveGamesSection from '../components/LiveGamesSection'; // Import LiveGamesSection
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Games = () => {
-  const [selectedSport, setSelectedSport] = useState<string>('Football'); // State to manage selected sport
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [selectedSport, setSelectedSport] = useState<string>('Football'); // Default to Football
+
+  useEffect(() => {
+    // When on the /games route, ensure 'Football' is selected
+    if (location.pathname === '/games') {
+      setSelectedSport('Football');
+    }
+  }, [location.pathname]);
+
+  const handleSelectCategory = (category: string) => {
+    if (category === 'Football') {
+      navigate('/games');
+      setSelectedSport('Football'); // Ensure state is updated
+    } else {
+      navigate(`/sports/${category.toLowerCase()}`);
+    }
+  };
 
   // Dummy data for demonstration. In a real app, this would come from an API.
   const premierLeagueGames = [
@@ -19,11 +38,11 @@ const Games = () => {
     <div className="p-4">
       {/* Sport Category Buttons Section */}
       <SportCategoryButtons 
-        onSelectCategory={setSelectedSport} 
+        onSelectCategory={handleSelectCategory} 
         selectedCategory={selectedSport} 
       />
 
-      {/* Live Games Section */}
+      {/* Live Games Section - now displayed on the /games page */}
       <div className="mt-8">
         <LiveGamesSection />
       </div>

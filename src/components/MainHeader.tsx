@@ -7,12 +7,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 const MainHeader: React.FC = () => {
-  const sportsCategories = ['Football', 'Basketball', 'Tennis', 'Esports',];
+  const sportsCategories = ['Football', 'Basketball', 'Tennis', 'Esports'];
   const location = useLocation();
   const currentPath = location.pathname;
 
   // Function to determine if a category is active
   const isActive = (category: string) => {
+    if (category === 'Football') {
+      return currentPath === '/games'; // 'Football' is active if on /games route
+    }
     const categorySlug = category.toLowerCase().replace('.', '');
     return currentPath.startsWith(`/sports/${categorySlug}`);
   };
@@ -22,7 +25,10 @@ const MainHeader: React.FC = () => {
       {/* Left Section: Sports Categories and How to play */}
       <div className="flex items-center space-x-6">
         {sportsCategories.map((category) => (
-          <Link key={category} to={`/sports/${category.toLowerCase().replace('.', '')}`}>
+          <Link 
+            key={category} 
+            to={category === 'Football' ? '/games' : `/sports/${category.toLowerCase().replace('.', '')}`} // Conditional path for Football
+          >
             <Button
               variant="ghost"
               className={`font-medium text-sm ${isActive(category) ? 'text-[#00EEEE]' : 'text-[#B4B2C0]'} hover:bg-transparent p-0 h-auto`}
