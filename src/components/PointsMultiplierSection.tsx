@@ -87,10 +87,10 @@ const PointsMultiplierSection: React.FC = () => {
     .sort((a, b) => getMaxOdd(b) - getMaxOdd(a));
 
   return (
-    // Removed bg-vanta-blue-medium, rounded-lg, shadow-sm, and pb-12 from this div
     <div className="flex flex-col items-center space-y-6"> 
-      <div className="w-full bg-[#0D2C60] rounded-t-lg">
-        <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
+      {/* Removed bg-[#0D2C60] and rounded-t-lg from this div */}
+      <div className="w-full"> 
+        <SectionHeader title="Points Multiplier" className="w-full" textColor="text-black" /> {/* Changed textColor to text-black */}
       </div>
       {/* Horizontal scroll container */}
       <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-hide">
