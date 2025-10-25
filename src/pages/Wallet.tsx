@@ -1,12 +1,17 @@
 "use client";
 
 import React from 'react';
+import SectionHeader from '../components/SectionHeader';
+import WalletOverviewCard from '../components/WalletOverviewCard'; // Import the new component
 
 const Wallet = () => {
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold text-vanta-text-light mb-4">Wallet</h1>
-      <p className="text-vanta-text-medium">Manage your funds here!</p>
+      <SectionHeader title="Wallet" className="mb-4" textColor="text-vanta-text-light" />
+      <p className="text-vanta-text-medium mb-8">Manage your funds here!</p>
+      
+      {/* Render the new WalletOverviewCard component */}
+      <WalletOverviewCard />
     </div>
   );
 };
