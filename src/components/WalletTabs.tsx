@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '../lib/utils';
+import RewardsHistory from './RewardsHistory'; // Import the new RewardsHistory component
 
 type WalletTab = 'transactions' | 'rewards';
 type TransactionFilter = 'all' | 'deposits' | 'withdrawals' | 'refunds'; // New type for sub-tabs
@@ -85,9 +86,7 @@ const WalletTabs: React.FC = () => {
       )}
 
       {activeTab === 'rewards' && (
-        <div className="bg-vanta-blue-medium p-6 rounded-[27px] shadow-sm text-vanta-text-light w-full">
-          <p className="text-center text-gray-400 text-lg mt-12">Rewards history will be displayed here.</p>
-        </div>
+        <RewardsHistory /> // Render the new RewardsHistory component here
       )}
     </div>
   );
