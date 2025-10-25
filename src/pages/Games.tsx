@@ -2,7 +2,8 @@
 
 import React from 'react';
 import MatchCard from '../components/MatchCard';
-import LiveGamesSection from '../components/LiveGamesSection'; // Import the new LiveGamesSection
+import LiveGamesSection from '../components/LiveGamesSection';
+import SectionHeader from '../components/SectionHeader'; // Import the new SectionHeader component
 
 const Games = () => {
   // Dummy data for demonstration. In a real app, this would come from an API.
@@ -31,9 +32,9 @@ const Games = () => {
         ))}
       </div>
 
-      {/* Live Section Header */}
-      <h2 className="text-2xl font-bold mb-4 mt-8">Live Section</h2>
-      {/* Live Games Section - now using the new component */}
+      {/* Live Section Header - now using SectionHeader component */}
+      <SectionHeader title="Live Games" className="mb-4 mt-8 p-0" textColor="text-gray-800" />
+      {/* Live Games Section */}
       <LiveGamesSection games={liveGames} />
 
       {/* Premier League Games Header */}
