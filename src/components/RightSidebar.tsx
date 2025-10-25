@@ -68,19 +68,19 @@ const RightSidebar = () => {
             {/* Outcome Selection Buttons */}
             <div className="mb-6 flex gap-2">
               <Button
-                className={`flex-1 py-3 text-base font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
+                className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                 onClick={() => setSelectedMatch(selectedGame, 'team1')}
               >
                 {selectedGame.team1.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team1.toFixed(2)})
               </Button>
               <Button
-                className={`flex-1 py-3 text-base font-semibold ${selectedOutcome === 'draw' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
+                className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'draw' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                 onClick={() => setSelectedMatch(selectedGame, 'draw')}
               >
                 DRAW ({selectedGame.odds.draw.toFixed(2)})
               </Button>
               <Button
-                className={`flex-1 py-3 text-base font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
+                className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                 onClick={() => setSelectedMatch(selectedGame, 'team2')}
               >
                 {selectedGame.team2.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team2.toFixed(2)})
