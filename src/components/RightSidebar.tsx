@@ -88,7 +88,7 @@ const RightSidebar = () => {
           selectedGame ? (
             <>
               {/* Match Info */}
-              <div className="flex items-start mb-6 mt-4">
+              <div className="flex items-center mb-6 mt-4">
                 <img
                   src={getLogoSrc(selectedGame.team1.logoIdentifier)}
                   alt={`${selectedGame.team1.name} Logo`}
