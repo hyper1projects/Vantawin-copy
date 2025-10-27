@@ -171,7 +171,7 @@ const RightSidebar = () => {
                 </div>
 
                 <Button
-                  className="w-full py-3 text-lg font-bold bg-[#00EEEE] hover:bg-[#00CCCC] text-[#081028] rounded-[12px] mt-auto"
+                  className="w-full py-3 text-lg font-bold bg-[#00EEEE] hover:bg-[#00CCCC] text-[#081028] rounded-[12px]"
                   onClick={handlePredict}
                 >
                   Predict Now
