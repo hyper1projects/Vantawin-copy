@@ -52,7 +52,6 @@ const Games = () => {
           <AccordionItem value="live-games" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
             <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none flex justify-between items-center [&>svg]:hidden">
               <div className="flex items-center space-x-2">
-                <ChevronRight size={20} className="text-vanta-neon-blue" />
                 <h2 className="text-xl font-semibold text-white">Live Predictions</h2>
                 <span className="bg-[#01112D] text-vanta-neon-blue text-sm font-bold px-3 py-1 rounded-full">
                   {liveCount}
@@ -63,7 +62,6 @@ const Games = () => {
                 <span className="bg-[#01112D] text-vanta-neon-blue text-sm font-bold px-3 py-1 rounded-full">
                   {liveCount}
                 </span>
-                <ChevronRight size={16} className="text-vanta-neon-blue" />
               </div>
             </AccordionTrigger>
             <AccordionContent className="p-4">
