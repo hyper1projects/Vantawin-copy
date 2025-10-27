@@ -6,7 +6,7 @@ import LiveGamesSection from '../components/LiveGamesSection';
 import PremierLeagueSection from '../components/PremierLeagueSection';
 import LaLigaSection from '../components/LaLigaSection';
 import SectionHeader from '../components/SectionHeader'; // Keep SectionHeader for general category titles
-import LivePredictionsHeader from '../components/LivePredictionsHeader'; // Import the new header
+// Removed LivePredictionsHeader import as it's no longer used directly
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Accordion,
@@ -47,35 +47,37 @@ const Games = () => {
 
       {/* Conditionally render content based on selectedSport */}
       {selectedSport === 'football' ? (
-        <>
-          {/* Live Predictions Section (standalone) */}
-          <div className="mb-4">
-            <LiveGamesSection />
-          </div>
+        <Accordion type="multiple" defaultValue={["live-games", "premier-league", "la-liga"]} className="w-full space-y-4">
+          {/* Live Games Accordion Item */}
+          <AccordionItem value="live-games" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
+            <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
+              Live Predictions
+            </AccordionTrigger>
+            <AccordionContent className="p-4">
+              <LiveGamesSection />
+            </AccordionContent>
+          </AccordionItem>
 
-          {/* Accordion for Leagues */}
-          <Accordion type="multiple" defaultValue={["premier-league", "la-liga"]} className="w-full space-y-4">
-            {/* Premier League Accordion Item */}
-            <AccordionItem value="premier-league" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
-              <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
-                England Premier League
-              </AccordionTrigger>
-              <AccordionContent className="p-4">
-                <PremierLeagueSection />
-              </AccordionContent>
-            </AccordionItem>
+          {/* Premier League Accordion Item */}
+          <AccordionItem value="premier-league" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
+            <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
+              England Premier League
+            </AccordionTrigger>
+            <AccordionContent className="p-4">
+              <PremierLeagueSection />
+            </AccordionContent>
+          </AccordionItem>
 
-            {/* La Liga Accordion Item */}
-            <AccordionItem value="la-liga" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
-              <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
-                Spain La Liga
-              </AccordionTrigger>
-              <AccordionContent className="p-4">
-                <LaLigaSection />
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </>
+          {/* La Liga Accordion Item */}
+          <AccordionItem value="la-liga" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
+            <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
+              Spain La Liga
+            </AccordionTrigger>
+            <AccordionContent className="p-4">
+              <LaLigaSection />
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       ) : (
         <div className="mt-8">
           <SectionHeader title={`${formattedSelectedSport} Games`} className="mb-4" textColor="text-vanta-text-light" />

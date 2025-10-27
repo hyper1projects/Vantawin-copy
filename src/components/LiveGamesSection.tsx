@@ -4,7 +4,7 @@ import React from 'react';
 import Oddscard from './Oddscard';
 import { Game } from '../types/game';
 import { Button } from '@/components/ui/button';
-import LivePredictionsHeader from './LivePredictionsHeader'; // Import the new header component
+// Removed LivePredictionsHeader import
 
 const LiveGamesSection: React.FC = () => {
   // Define an array of game data, using the logo identifiers from logoMap.ts
@@ -49,7 +49,7 @@ const LiveGamesSection: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center space-y-4">
-      <LivePredictionsHeader liveCount={filteredGames.length} />
+      {/* The LivePredictionsHeader component is removed from here */}
       
       {/* Wrapper div for Oddscards - now stacking vertically */}
       <div className="w-full flex flex-col space-y-4">
