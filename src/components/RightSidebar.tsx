@@ -100,6 +100,11 @@ const RightSidebar = () => {
                     <span className="bg-[#017890] text-[#00EEEE] opacity-70 font-semibold text-xs px-2 py-1 rounded-md">{selectedGame.team1.name.substring(0,3).toUpperCase()}</span>
                     <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">{selectedGame.isLive ? 'Live' : 'Full-Time'}</span>
                   </div>
+                    <img
+                  src={getLogoSrc(selectedGame.team2.logoIdentifier)}
+                  alt={`${selectedGame.team2.name} Logo`}
+                  className="w-16 h-16 rounded-full object-cover mr-4"
+                />
                 </div>
               </div>
 
