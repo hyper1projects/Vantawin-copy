@@ -23,7 +23,7 @@ const LivePredictionsHeader: React.FC<LivePredictionsHeaderProps> = ({ liveCount
         className="text-vanta-neon-blue hover:text-vanta-neon-blue/80 text-sm font-semibold p-0 h-auto"
         onClick={() => console.log('View All Live Predictions')}
       >
-        All Live {liveCount} <ChevronRight size={16} className="inline-block ml-1" />
+        All Live {liveCount} className="inline-block ml-1" />
       </Button>
     </div>
   );
