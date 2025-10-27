@@ -12,7 +12,7 @@ const LivePredictionsHeader: React.FC<LivePredictionsHeaderProps> = ({ liveCount
   return (
     <div className="bg-vanta-blue-medium rounded-[14px] p-4 flex items-center justify-between mb-4">
       <div className="flex items-center space-x-2">
-        <ChevronRight size={20} className="text-vanta-neon-blue" />
+       
         <h2 className="text-xl font-semibold text-white">Live Predictions</h2>
         <span className="bg-[#01112D] text-vanta-neon-blue text-sm font-bold px-3 py-1 rounded-full">
           {liveCount}
