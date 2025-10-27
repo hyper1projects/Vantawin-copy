@@ -106,7 +106,7 @@ const RightSidebar = () => {
                 <img
                   src={getLogoSrc(selectedGame.team2.logoIdentifier)}
                   alt={`${selectedGame.team2.name} Logo`}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
+                  className="w-16 h-16 mx-2 rounded-full object-cover mr-4"
                 />
                
               </div>
