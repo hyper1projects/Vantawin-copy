@@ -163,7 +163,7 @@ const RightSidebar = () => {
                 </div>
 
                 {/* Potential Win Section */}
-                <div className="mb-6">
+                <div className="mb-2">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="text-lg font-semibold">Potential Win</h4>
                     <span className="text-yellow-400 text-2xl font-bold">{potentialWinXP} XP</span>
