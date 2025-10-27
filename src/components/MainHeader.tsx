@@ -22,14 +22,13 @@ const MainHeader: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 right-0 h-16 flex items-center justify-between px-4 pr-20 border-b border-gray-700 z-50 font-outfit bg-vanta-blue-dark">
       {/* Left Section: Logo, Sports Categories and How to play */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-8">
         {/* VantaWin Logo */}
         <div className="flex items-center">
           <span className="text-xl font-bold text-vanta-text-light">VANTA</span>
           <span className="text-xl font-bold text-vanta-neon-blue">WIN</span>
         </div>
-      </div>
-      <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-6">
         {sportsCategories.map((category) => (
           <Link 
             key={category} 
@@ -50,6 +49,7 @@ const MainHeader: React.FC = () => {
             How to play
           </Button>
         </Link>
+      </div>
       </div>
 
       {/* Middle Section: Search Bar */}

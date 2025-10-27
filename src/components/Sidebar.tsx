@@ -37,7 +37,7 @@ const Sidebar = () => {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupContent>
+          <SidebarGroupContent className="pt-4">
             <SidebarMenu>
               {primaryNavItems.map((item) => {
                 const isActive = location.pathname === item.path;
@@ -49,8 +49,8 @@ const Sidebar = () => {
                       className={isActive ? 'bg-vanta-accent-dark-blue' : ''}
                     >
                       <Link to={item.path}>
-                        <item.icon />
-                        <span>{item.name}</span>
+                        <item.icon size={24} />
+                        <span className="text-lg">{item.name}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
