@@ -15,7 +15,7 @@ const Layout = () => {
     <div className="flex min-h-screen bg-vanta-blue-dark text-vanta-text-light">
       <Sidebar />
       <MainHeader />
-      <div className={`flex-1 ml-60 mt-16 ${showRightSidebar ? 'mr-80' : 'mr-4'} mb-4 rounded-xl overflow-hidden`}>
+      <div className={`flex-1 ml-60 mt-16 ${showRightSidebar ? 'mr-[400px]' : 'mr-4'} mb-4 rounded-xl overflow-hidden`}>
         <div className="p-4">
           <Outlet /> {/* This is where your route components will be rendered */}
         </div>

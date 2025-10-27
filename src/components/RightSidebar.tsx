@@ -68,12 +68,12 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-80 text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6">
+    <div className="fixed right-4 top-20 bottom-4 w-[400px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6">
       {/* Leaderboard Card */}
       <RightSidebarLeaderboardCard players={dummyLeaderboardPlayers} />
 
       {/* Predict/Redeem Card */}
-      <div className="bg-vanta-blue-medium rounded-[27px] p-4 shadow-sm flex flex-col flex-grow"> {/* Added flex-grow here */}
+      <div className="bg-vanta-blue-medium rounded-[27px] p-4 shadow-sm flex flex-col flex-grow">
         {/* Predict/Redeem Tabs */}
         <div className="flex space-x-6 mb-6 border-b border-gray-700 pb-4">
           <Button variant="ghost" className={getTabButtonClasses('predict')} onClick={() => setActiveTab('predict')}>
