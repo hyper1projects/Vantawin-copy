@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button'; // Assuming shadcn Button is available
 
 interface LivePredictionsHeaderProps {
