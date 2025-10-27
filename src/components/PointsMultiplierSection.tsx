@@ -101,7 +101,7 @@ const PointsMultiplierSection: React.FC<PointsMultiplierSectionProps> = ({ class
         <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#06002E] to-transparent z-10 pointer-events-none"></div>
         
         {/* Scrollable content */}
-        <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-blue-500 scrollbar-track-blue-100">
+        <div className="w-full flex overflow-x-auto space-x-4 px-4 pb-4 custom-scrollbar"> {/* Replaced scrollbar-thin with custom-scrollbar */}
           {gamesWithBestOdds.map((game) => (
             <MatchCard
               key={game.id}

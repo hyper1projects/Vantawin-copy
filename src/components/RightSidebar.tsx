@@ -68,7 +68,7 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-[400px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto"> {/* Added overflow-y-auto */}
+    <div className="fixed right-4 top-20 bottom-4 w-[400px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto custom-scrollbar"> {/* Added custom-scrollbar */}
       {/* Leaderboard Card */}
       <RightSidebarLeaderboardCard players={dummyLeaderboardPlayers} />
 
@@ -94,21 +94,13 @@ const RightSidebar = () => {
                   alt={`${selectedGame.team1.name} Logo`}
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
-                 <div className="flex flex-col">
+                <div className="flex flex-col">
                   <span className="text-lg font-bold text-vanta-text-light">{selectedGame.team1.name.substring(0,3).toUpperCase()} vs {selectedGame.team2.name.substring(0,3).toUpperCase()}</span>
                   <div className="flex items-center mt-1">
                     <span className="bg-[#017890] text-[#00EEEE] opacity-70 font-semibold text-xs px-2 py-1 rounded-md">{selectedGame.team1.name.substring(0,3).toUpperCase()}</span>
                     <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">{selectedGame.isLive ? 'Live' : 'Full-Time'}</span>
-                    
                   </div>
-                    
                 </div>
-                <img
-                  src={getLogoSrc(selectedGame.team2.logoIdentifier)}
-                  alt={`${selectedGame.team2.name} Logo`}
-                  className="w-16 h-16 mx-4 rounded-full object-cover mr-4"
-                />
-               
               </div>
 
               <div className="flex flex-col flex-grow">
@@ -118,7 +110,7 @@ const RightSidebar = () => {
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                     onClick={() => setSelectedMatch(selectedGame, 'team1')}
                   >
-                    ({selectedGame.odds.team1.toFixed(2)})
+                    {selectedGame.team1.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team1.toFixed(2)})
                   </Button>
                   <Button
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'draw' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
@@ -130,7 +122,7 @@ const RightSidebar = () => {
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                     onClick={() => setSelectedMatch(selectedGame, 'team2')}
                   >
-                  ({selectedGame.odds.team2.toFixed(2)})
+                    {selectedGame.team2.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team2.toFixed(2)})
                   </Button>
                 </div>
 
