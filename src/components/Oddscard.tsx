@@ -5,7 +5,7 @@ import { cn } from '../lib/utils';
 import { Game } from '../types/game';
 import { useMatchSelection } from '../context/MatchSelectionContext';
 import { Button } from '@/components/ui/button';
-import { Star } from 'lucide-react'; // Import Star icon
+import { Star, ChevronRight } from 'lucide-react'; // Import ChevronRight here
 
 interface OddscardProps {
   game: Game; // Pass the full game object
