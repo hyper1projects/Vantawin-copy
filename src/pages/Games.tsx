@@ -63,7 +63,6 @@ const Games = () => {
                 <span className="bg-[#01112D] text-vanta-neon-blue text-sm font-bold px-3 py-1 rounded-full">
                   {liveCount}
                 </span>
-                <ChevronRight size={16} className="text-vanta-neon-blue" />
               </div>
             </AccordionTrigger>
             <AccordionContent className="p-4">
