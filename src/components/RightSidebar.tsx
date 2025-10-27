@@ -122,7 +122,7 @@ const RightSidebar = () => {
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                     onClick={() => setSelectedMatch(selectedGame, 'team2')}
                   >
-                    {selectedGame.team2.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team2.toFixed(2)})
+                  ({selectedGame.odds.team2.toFixed(2)})
                   </Button>
                 </div>
 
