@@ -68,7 +68,7 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-[400px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6">
+    <div className="fixed right-4 top-20 bottom-4 w-[400px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto"> {/* Added overflow-y-auto */}
       {/* Leaderboard Card */}
       <RightSidebarLeaderboardCard players={dummyLeaderboardPlayers} />
 
