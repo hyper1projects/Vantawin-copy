@@ -5,8 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
   '/images/carousel/NG-1MCasinoTournament2610.jpeg',
-  '/images/carousel/NG-VARPAYOUT.jpg',
-  
+  '/images/carousel/NG-VARPAYOUT.jpg'  
 ];
 
 interface ImageCarouselProps {
