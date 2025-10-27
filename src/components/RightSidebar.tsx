@@ -101,6 +101,11 @@ const RightSidebar = () => {
                     <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">{selectedGame.isLive ? 'Live' : 'Full-Time'}</span>
                   </div>
                 </div>
+                 <img
+                  src={getLogoSrc(selectedGame.team1.logoIdentifier)}
+                  alt={`${selectedGame.team1.name} Logo`}
+                  className="w-16 h-16 rounded-full object-cover mr-4"
+                />
               </div>
 
               <div className="flex flex-col flex-grow">
