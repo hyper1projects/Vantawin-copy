@@ -68,7 +68,7 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-[400px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto custom-scrollbar">
+    <div className="fixed right-4 top-20 bottom-4 w-[400px]  h-[900px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto custom-scrollbar"> {/* Added custom-scrollbar */}
       {/* Leaderboard Card */}
       <RightSidebarLeaderboardCard players={dummyLeaderboardPlayers} />
 
@@ -101,6 +101,11 @@ const RightSidebar = () => {
                     <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">{selectedGame.isLive ? 'Live' : 'Full-Time'}</span>
                   </div>
                 </div>
+                 <img
+                  src={getLogoSrc(selectedGame.team2.logoIdentifier)}
+                  alt={`${selectedGame.team2.name} Logo`}
+                  className="w-16 mx-4 h-16 rounded-full object-cover mr-4"
+                />
               </div>
 
               <div className="flex flex-col flex-grow">
@@ -110,7 +115,7 @@ const RightSidebar = () => {
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                     onClick={() => setSelectedMatch(selectedGame, 'team1')}
                   >
-                    {selectedGame.team1.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team1.toFixed(2)})
+                    ({selectedGame.odds.team1.toFixed(2)})
                   </Button>
                   <Button
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'draw' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
@@ -122,7 +127,7 @@ const RightSidebar = () => {
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                     onClick={() => setSelectedMatch(selectedGame, 'team2')}
                   >
-                    {selectedGame.team2.name.substring(0,3).toUpperCase()} ({selectedGame.odds.team2.toFixed(2)})
+                   ({selectedGame.odds.team2.toFixed(2)})
                   </Button>
                 </div>
 
@@ -158,7 +163,7 @@ const RightSidebar = () => {
                 </div>
 
                 {/* Potential Win Section */}
-                <div className="mb-2"> {/* Changed mb-6 to mb-2 */}
+                <div className="mb-2">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="text-lg font-semibold">Potential Win</h4>
                     <span className="text-yellow-400 text-2xl font-bold">{potentialWinXP} XP</span>
@@ -166,7 +171,7 @@ const RightSidebar = () => {
                 </div>
 
                 <Button
-                  className="w-full py-3 text-lg font-bold bg-[#00EEEE] hover:bg-[#00CCCC] text-[#081028] rounded-[12px] mt-auto"
+                  className="w-full py-3 text-lg font-bold bg-[#00EEEE] hover:bg-[#00CCCC] text-[#081028] rounded-[12px]"
                   onClick={handlePredict}
                 >
                   Predict Now
