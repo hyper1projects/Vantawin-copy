@@ -5,7 +5,8 @@ import { cn } from '../lib/utils';
 import { Game } from '../types/game';
 import { useMatchSelection } from '../context/MatchSelectionContext';
 import { Button } from '@/components/ui/button';
-import { Star, ChevronRight } from 'lucide-react'; // Import ChevronRight here
+import { Star, ChevronRight } from 'lucide-react';
+import { getLogoSrc } from '../utils/logoMap'; // Import getLogoSrc
 
 interface OddscardProps {
   game: Game; // Pass the full game object
@@ -63,11 +64,11 @@ const Oddscard: React.FC<OddscardProps> = ({ game }) => {
         {/* Teams Column */}
         <div className="flex flex-col space-y-2 w-1/2">
           <div className="flex items-center">
-            <span className="w-2 h-2 rounded-full bg-white mr-2"></span>
+            <img src={getLogoSrc(game.team1.logoIdentifier)} alt={`${game.team1.name} Logo`} className="w-6 h-6 object-contain mr-2" />
             <span className="text-base font-medium text-white">{game.team1.name}</span>
           </div>
           <div className="flex items-center">
-            <span className="w-2 h-2 rounded-full bg-white mr-2"></span>
+            <img src={getLogoSrc(game.team2.logoIdentifier)} alt={`${game.team2.name} Logo`} className="w-6 h-6 object-contain mr-2" />
             <span className="text-base font-medium text-white">{game.team2.name}</span>
           </div>
         </div>
