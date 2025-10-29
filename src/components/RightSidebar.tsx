@@ -4,12 +4,25 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { getLogoSrc } from '../utils/logoMap'; // Import getLogoSrc
-import { useMatchSelection } from '../context/MatchSelectionContext'; // Import the context hook
+import { getLogoSrc } from '../utils/logoMap';
+import { useMatchSelection } from '../context/MatchSelectionContext';
+import RightSidebarLeaderboardCard from './RightSidebarLeaderboardCard';
+import { LeaderboardPlayer } from '../types/leaderboard';
+import { cn } from '../lib/utils';
+
+type RightSidebarTab = 'predict' | 'redeem';
 
 const RightSidebar = () => {
   const { selectedGame, selectedOutcome, setSelectedMatch } = useMatchSelection();
   const [predictionAmount, setPredictionAmount] = useState(0);
+  const [activeTab, setActiveTab] = useState<RightSidebarTab>('predict');
+
+  // Dummy data for the leaderboard
+  const dummyLeaderboardPlayers: LeaderboardPlayer[] = [
+    { id: 'p1', rank: 1, avatar: '/images/8.png', playerName: 'Enipsa876', winRate: 95, gamesPlayed: 127 },
+    { id: 'p2', rank: 2, avatar: '/images/Group 1000005755.png', playerName: 'Eliottrope98', winRate: 87, gamesPlayed: 98 },
+    { id: 'p3', rank: 3, avatar: '/images/Group 1000005762.png', playerName: 'CråtteDu16e', winRate: 82.5, gamesPlayed: 127 },
+  ];
 
   // Reset prediction amount when a new game is selected
   useEffect(() => {
@@ -44,73 +57,55 @@ const RightSidebar = () => {
   // Calculate potential win (simple example, could be more complex with actual odds)
   const potentialWinXP = predictionAmount > 0 ? predictionAmount : 0;
 
+  const getTabButtonClasses = (tab: RightSidebarTab) => {
+    const isActive = activeTab === tab;
+    return cn(
+      "relative text-base font-semibold pb-2",
+      isActive
+        ? "text-vanta-neon-blue after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-vanta-neon-blue"
+        : "text-gray-400 hover:text-white"
+    );
+  };
+
   return (
-    <div className="h-full w-full bg-vanta-blue-medium text-vanta-text-light flex flex-col z-40 font-outfit p-4">
-      {selectedGame ? (
-        <>
-          {/* Logo and Match Code */}
-          <div className="flex flex-col items-center mb-4">
-            <div className="flex items-center mb-1">
-              <img
-                src={getLogoSrc(selectedGame.team1.logoIdentifier)}
-                alt={`${selectedGame.team1.name} Logo`}
-                className="w-10 h-10  object-cover mr-5"
-              />
-              <span className="text-xs font-bold text-vanta-text-light">{selectedGame.team1.name.substring(0,2).toUpperCase()} vs {selectedGame.team2.name.substring(0,2).toUpperCase()}</span>
-              <img
-                src={getLogoSrc(selectedGame.team2.logoIdentifier)}
-                alt={`${selectedGame.team2.name} Logo`}
-                className="w-10 h-10  object-cover ml-5"
-              />
-            </div>
-            <div className="flex items-center">
-              <span className="bg-[#017890] text-[#00EEEE] opacity-70 font-semibold text-[0.6rem] px-1.5 py-0.5 rounded-sm">{selectedGame.team1.name.substring(0,2).toUpperCase()}</span>
-              <span className="bg-vanta-blue-dark text-vanta-text-dark text-[0.6rem] px-1.5 py-0.5 rounded-sm mx-1">{selectedGame.isLive ? 'Live' : 'FT'}</span>
-              <span className="bg-[#017890] text-[#00EEEE] opacity-70 font-semibold text-[0.6rem] px-1.5 py-0.5 rounded-sm">{selectedGame.team2.name.substring(0,2).toUpperCase()}</span>
-            </div>
-          </div>
+    <div className="fixed right-4 top-20 bottom-4 w-[400px]  h-[900px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto custom-scrollbar"> {/* Added custom-scrollbar */}
+      {/* Leaderboard Card */}
+      <RightSidebarLeaderboardCard players={dummyLeaderboardPlayers} />
 
-          <div className="flex flex-col flex-grow">
-            {/* Outcome Selection Buttons */}
-            <div className="mb-4">
-              <div className="flex gap-1">
-                <Button
-                  className={`flex-1 py-2 text-xs font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
-                  onClick={() => setSelectedMatch(selectedGame, 'team1')}
-                >
-                  {selectedGame.team1.name.substring(0,3).toUpperCase()}<br/>({selectedGame.odds.team1.toFixed(2)})
-                </Button>
-                <Button
-                  className={`flex-1 py-2 text-xs font-semibold ${selectedOutcome === 'draw' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
-                  onClick={() => setSelectedMatch(selectedGame, 'draw')}
-                >
-                  DRAW<br/>({selectedGame.odds.draw.toFixed(2)})
-                </Button>
-                <Button
-                  className={`flex-1 py-2 text-xs font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
-                  onClick={() => setSelectedMatch(selectedGame, 'team2')}
-                >
-                  {selectedGame.team2.name.substring(0,3).toUpperCase()}<br/>({selectedGame.odds.team2.toFixed(2)})
-                </Button>
-              </div>
-            </div>
+      {/* Predict/Redeem Card */}
+      <div className="bg-vanta-blue-medium rounded-[27px] p-4 shadow-sm flex flex-col flex-grow">
+        {/* Predict/Redeem Tabs */}
+        <div className="flex space-x-6 mb-6 border-b border-gray-700 pb-4">
+          <Button variant="ghost" className={getTabButtonClasses('predict')} onClick={() => setActiveTab('predict')}>
+            Predict
+          </Button>
+          <Button variant="ghost" className={getTabButtonClasses('redeem')} onClick={() => setActiveTab('redeem')}>
+            Redeem
+          </Button>
+        </div>
 
-            {/* Amount Selection */}
-            <div className="mb-4">
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="text-sm font-semibold">Amount</h4>
-                <div className="flex items-center bg-vanta-blue-dark rounded-md px-2 py-1">
-                  <span className="text-gray-400 text-lg font-bold mr-1">₦</span>
-                  <Input
-                    type="number"
-                    value={predictionAmount}
-                    onChange={(e) => {
-                      const newValue = Number(e.target.value);
-                      setPredictionAmount(newValue < 0 ? 0 : newValue); // Ensure amount doesn't go below 0
-                    }}
-                    className="w-16 text-right bg-transparent border-none text-gray-400 text-lg font-bold p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
-                  />
+        {activeTab === 'predict' && (
+          selectedGame ? (
+            <>
+              {/* Match Info */}
+              <div className="flex items-center mb-6 mt-4">
+                <img
+                  src={getLogoSrc(selectedGame.team1.logoIdentifier)}
+                  alt={`${selectedGame.team1.name} Logo`}
+                  className="w-16 h-16 rounded-full object-cover mr-4"
+                />
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-vanta-text-light">{selectedGame.team1.name.substring(0,3).toUpperCase()} vs {selectedGame.team2.name.substring(0,3).toUpperCase()}</span>
+                  <div className="flex items-center mt-1">
+                    <span className="bg-[#017890] text-[#00EEEE] opacity-70 font-semibold text-xs px-2 py-1 rounded-md">{selectedGame.team1.name.substring(0,3).toUpperCase()}</span>
+                    <span className="bg-vanta-blue-dark text-vanta-text-dark text-xs px-2 py-1 rounded-md ml-2">{selectedGame.isLive ? 'Live' : 'Full-Time'}</span>
+                  </div>
                 </div>
+                 <img
+                  src={getLogoSrc(selectedGame.team2.logoIdentifier)}
+                  alt={`${selectedGame.team2.name} Logo`}
+                  className="w-16 mx-4 h-16 rounded-full object-cover mr-4"
+                />
               </div>
               <div className="flex gap-1 justify-end">
                 {quickAddAmountButtons.map((amount) => (
@@ -120,11 +115,52 @@ const RightSidebar = () => {
                     className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-[0.6rem] px-1.5 py-0.5 h-8 flex-1 min-w-[0]"
                     onClick={() => setPredictionAmount(prevAmount => prevAmount + amount)}
                   >
-                    +{amount}
+                    ({selectedGame.odds.team1.toFixed(2)})
                   </Button>
-                ))}
-              </div>
-            </div>
+                  <Button
+                    className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'draw' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
+                    onClick={() => setSelectedMatch(selectedGame, 'draw')}
+                  >
+                    DRAW ({selectedGame.odds.draw.toFixed(2)})
+                  </Button>
+                  <Button
+                    className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team2' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
+                    onClick={() => setSelectedMatch(selectedGame, 'team2')}
+                  >
+                   ({selectedGame.odds.team2.toFixed(2)})
+                  </Button>
+                </div>
+
+                {/* Amount Selection */}
+                <div className="mb-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <h4 className="text-lg font-semibold">Amount</h4>
+                    <div className="flex items-center bg-vanta-blue-dark rounded-md px-3 py-2">
+                      <span className="text-gray-400 text-2xl font-bold mr-1">₦</span>
+                      <Input
+                        type="number"
+                        value={predictionAmount}
+                        onChange={(e) => {
+                          const newValue = Number(e.target.value);
+                          setPredictionAmount(newValue < 0 ? 0 : newValue); // Ensure amount doesn't go below 0
+                        }}
+                        className="w-24 text-right bg-transparent border-none text-gray-400 text-2xl font-bold p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 justify-end">
+                    {quickAddAmountButtons.map((amount) => (
+                      <Button
+                        key={amount}
+                        variant="outline"
+                        className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-xs px-3 py-1 h-auto"
+                        onClick={() => setPredictionAmount(prevAmount => prevAmount + amount)}
+                      >
+                        +{amount}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
 
             {/* Potential Win Section */}
             <div className="mb-6">
@@ -132,14 +168,19 @@ const RightSidebar = () => {
                 <h4 className="text-base font-semibold">Potential Win</h4>
                 <span className="text-yellow-400 text-xl font-bold">{potentialWinXP} XP</span>
               </div>
+            </>
+          ) : (
+            <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
+              <p className="text-lg font-semibold mb-2">No match selected</p>
+              <p className="text-sm">Click on any odds to start predicting!</p>
             </div>
+          )
+        )}
 
-            <Button
-              className="w-full py-3 text-lg font-bold bg-[#00EEEE] hover:bg-[#00CCCC] text-[#081028] rounded-[12px] mt-auto"
-              onClick={handlePredict}
-            >
-              Predict Now
-            </Button>
+        {activeTab === 'redeem' && (
+          <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
+            <p className="text-lg font-semibold mb-2">Redeem your rewards here!</p>
+            <p className="text-sm">This section is under construction.</p>
           </div>
         </>
       ) : (

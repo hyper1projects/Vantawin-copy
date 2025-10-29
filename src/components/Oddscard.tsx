@@ -1,35 +1,18 @@
 "use client";
 
 import React from 'react';
-import { cn } from '../lib/utils'; // Assuming cn utility for tailwind-merge
-import { Game } from '../types/game'; // Ensure Game type is imported
+import { cn } from '../lib/utils';
+import { Game } from '../types/game';
+import { useMatchSelection } from '../context/MatchSelectionContext';
+import { Button } from '@/components/ui/button';
+import { Star, ChevronRight } from 'lucide-react';
 import { getLogoSrc } from '../utils/logoMap'; // Import getLogoSrc
-import { useMatchSelection } from '../context/MatchSelectionContext'; // Import the context hook
-import { Button } from '@/components/ui/button'; // Import shadcn Button
 
 interface OddscardProps {
-  time: string;
-  date: string;
-  team1: { name: string; logoIdentifier: string; };
-  team2: { name: string; logoIdentifier: string; };
-  odds: { team1: number; draw: number; team2: number; };
-  league: string;
-  isLive: boolean;
-  gameView: string;
   game: Game; // Pass the full game object
 }
 
-const Oddscard: React.FC<OddscardProps> = ({
-  time,
-  date,
-  team1,
-  team2,
-  odds,
-  league,
-  isLive,
-  gameView,
-  game,
-}) => {
+const Oddscard: React.FC<OddscardProps> = ({ game }) => {
   const { selectedGame, selectedOutcome, setSelectedMatch } = useMatchSelection();
 
   const handleSelectOutcome = (outcome: 'team1' | 'draw' | 'team2') => {
@@ -37,74 +20,96 @@ const Oddscard: React.FC<OddscardProps> = ({
   };
 
   // Defensive checks for odds values
-  const team1Odd = odds?.team1 !== undefined ? odds.team1.toFixed(2) : '-';
-  const drawOdd = odds?.draw !== undefined ? odds.draw.toFixed(2) : '-';
-  const team2Odd = odds?.team2 !== undefined ? odds.team2.toFixed(2) : '-';
+  const team1Odd = game.odds?.team1 !== undefined ? game.odds.team1.toFixed(2) : '-';
+  const drawOdd = game.odds?.draw !== undefined ? game.odds.draw.toFixed(2) : '-';
+  const team2Odd = game.odds?.team2 !== undefined ? game.odds.team2.toFixed(2) : '-';
+
+  // Abbreviate team names for buttons
+  const team1Abbr = game.team1.name.substring(0, 3).toUpperCase();
+  const team2Abbr = game.team2.name.substring(0, 3).toUpperCase();
+
+  // Format date to "DD/MM DayOfWeek"
+  const formatDate = (dateString: string) => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const gameDate = new Date(dateString); // Assuming dateString is parsable, e.g., "YYYY-MM-DD" or "Today", "Tomorrow"
+    
+    if (dateString === 'Today') {
+      return new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', weekday: 'short' }).replace(',', '');
+    }
+    if (dateString === 'Tomorrow') {
+      return tomorrow.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', weekday: 'short' }).replace(',', '');
+    }
+    // Fallback for actual date strings if needed, or adjust dummy data
+    return dateString; // For now, just return as is if not 'Today'/'Tomorrow'
+  };
 
   return (
-    <div className="relative bg-[#011B47] rounded-[18px] p-2 shadow-sm flex flex-col text-vanta-text-light w-full">
-      {/* Header: Date, Time, Live/League */}
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-xs font-medium text-gray-400">{date} - {time}</span>
-        <span className={`text-[0.6rem] font-semibold px-1.5 py-0.5 rounded-md ${isLive ? 'bg-red-500 text-white' : 'bg-vanta-accent-dark-blue text-vanta-neon-blue'}`}>
-          {isLive ? 'LIVE' : league}
-        </span>
-      </div>
-
-      {/* Teams and Logos */}
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center space-x-1.5 w-5/12">
-          <img src={getLogoSrc(team1.logoIdentifier)} alt={team1.name} className="w-6 h-6 object-contain" />
-          <span className="text-sm font-semibold  max-w-[60px]">{team1.name}</span>
-        </div>
-        <span className="text-base font-bold text-gray-400 w-2/12 text-center">VS</span>
-        <div className="flex items-center justify-end space-x-1.5 w-5/12">
-          <span className="text-sm font-semibold text-right  max-w-[60px]">{team2.name}</span>
-          <img src={getLogoSrc(team2.logoIdentifier)} alt={team2.name} className="w-6 h-6 object-contain" />
+    <div className="bg-[#011B47] rounded-[14px] p-4 shadow-sm flex flex-col text-vanta-text-light w-full">
+      {/* Top Row: Time, Game View, Star */}
+      <div className="flex justify-between items-center mb-4">
+        <span className="text-sm font-medium text-white">{game.time}</span>
+        <div className="flex items-center space-x-2">
+          <a href="#" className="text-vanta-neon-blue text-sm font-medium flex items-center">
+            Game View <ChevronRight size={16} className="ml-1" />
+          </a>
+          <Star size={16} className="text-yellow-400 fill-yellow-400" />
         </div>
       </div>
 
-      {/* Odds Buttons */}
-      <div className="flex justify-between space-x-1 mb-1">
-        <Button
-          className={cn(
-            "flex-1 py-1 px-2 rounded-md transition-colors duration-300 text-xs font-semibold",
-            selectedGame?.id === game.id && selectedOutcome === 'team1'
-              ? "bg-vanta-neon-blue text-vanta-blue-dark"
-              : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
-          )}
-          onClick={() => handleSelectOutcome('team1')}
-        >
-          {team1Odd}
-        </Button>
-        <Button
-          className={cn(
-            "flex-1 py-1 px-2 rounded-md transition-colors duration-300 text-xs font-semibold",
-            selectedGame?.id === game.id && selectedOutcome === 'draw'
-              ? "bg-vanta-neon-blue text-vanta-blue-dark"
-              : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
-          )}
-          onClick={() => handleSelectOutcome('draw')}
-        >
-          {drawOdd}
-        </Button>
-        <Button
-          className={cn(
-            "flex-1 py-1 px-2 rounded-md transition-colors duration-300 text-xs font-semibold",
-            selectedGame?.id === game.id && selectedOutcome === 'team2'
-              ? "bg-vanta-neon-blue text-vanta-blue-dark"
-              : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
-          )}
-          onClick={() => handleSelectOutcome('team2')}
-        >
-          {team2Odd}
-        </Button>
-      </div>
+      {/* Middle Section: Teams and Odds Buttons */}
+      <div className="flex items-center justify-between">
+        {/* Teams Column */}
+        <div className="flex flex-col space-y-2 w-1/2">
+          <div className="flex items-center">
+            <img src={getLogoSrc(game.team1.logoIdentifier)} alt={`${game.team1.name} Logo`} className="w-6 h-6 object-contain mr-2" />
+            <span className="text-base font-medium text-white">{game.team1.name}</span>
+          </div>
+          <div className="flex items-center">
+            <img src={getLogoSrc(game.team2.logoIdentifier)} alt={`${game.team2.name} Logo`} className="w-6 h-6 object-contain mr-2" />
+            <span className="text-base font-medium text-white">{game.team2.name}</span>
+          </div>
+        </div>
 
-      {/* View Game Button */}
-      <Button className="w-full bg-[#0D2C60] text-vanta-neon-blue hover:bg-[#0D2C60]/80 rounded-[8px] py-1 text-xs font-semibold">
-        {gameView}
-      </Button>
+        {/* Odds Buttons Column */}
+        <div className="flex space-x-2 w-1/2 justify-end">
+          <Button
+            className={cn(
+              "py-2 px-3 rounded-md transition-colors duration-300 text-sm font-semibold",
+              selectedGame?.id === game.id && selectedOutcome === 'team1'
+                ? "bg-vanta-neon-blue text-vanta-blue-dark"
+                : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
+            )}
+            onClick={() => handleSelectOutcome('team1')}
+          >
+            {team1Abbr}
+          </Button>
+          <Button
+            className={cn(
+              "py-2 px-3 rounded-md transition-colors duration-300 text-sm font-semibold",
+              selectedGame?.id === game.id && selectedOutcome === 'draw'
+                ? "bg-vanta-neon-blue text-vanta-blue-dark"
+                : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
+            )}
+            onClick={() => handleSelectOutcome('draw')}
+          >
+            DRAW
+          </Button>
+          <Button
+            className={cn(
+              "py-2 px-3 rounded-md transition-colors duration-300 text-sm font-semibold",
+              selectedGame?.id === game.id && selectedOutcome === 'team2'
+                ? "bg-vanta-neon-blue text-vanta-blue-dark"
+                : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
+            )}
+            onClick={() => handleSelectOutcome('team2')}
+          >
+            {team2Abbr}
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

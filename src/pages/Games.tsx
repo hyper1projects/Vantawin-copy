@@ -1,38 +1,41 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-// import MatchCard from '../components/MatchCard'; // No longer needed for this section
-import SectionHeader from '../components/SectionHeader';
 import SportCategoryButtons from '../components/SportCategoryButtons';
 import LiveGamesSection from '../components/LiveGamesSection';
-import PremierLeagueSection from '../components/PremierLeagueSection'; // Import the new component
-import LaLigaSection from '../components/LaLigaSection'; // Import the new LaLigaSection
+import PremierLeagueSection from '../components/PremierLeagueSection';
+import LaLigaSection from '../components/LaLigaSection';
+import SectionHeader from '../components/SectionHeader';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { ChevronRight } from 'lucide-react'; // Import ChevronRight for the trigger
 
 const Games = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Get category from URL query parameter, default to 'football'
   const queryParams = new URLSearchParams(location.search);
   const urlCategory = queryParams.get('category') || 'football';
   
   const [selectedSport, setSelectedSport] = useState<string>(urlCategory);
 
   useEffect(() => {
-    // Update selectedSport state if URL category changes
     setSelectedSport(urlCategory);
   }, [urlCategory]);
 
   const handleSelectCategory = (category: string) => {
-    // Update URL with the new category query parameter
     navigate(`/games?category=${category.toLowerCase()}`);
   };
 
-  // Removed dummy data for premierLeagueGames as it's now handled by PremierLeagueSection
-  // const premierLeagueGames = [...];
-
   const formattedSelectedSport = selectedSport.charAt(0).toUpperCase() + selectedSport.slice(1);
+
+  // Dummy live count for the header
+  const liveCount = 2; // Based on the dummy data in LiveGamesSection
 
   return (
     <div className="p-4">
@@ -44,21 +47,48 @@ const Games = () => {
 
       {/* Conditionally render content based on selectedSport */}
       {selectedSport === 'football' ? (
-        <>
-          <div className="mt-8">
-            <LiveGamesSection />
-          </div>
+        <Accordion type="multiple" defaultValue={["live-games", "premier-league", "la-liga"]} className="w-full space-y-4">
+          {/* Live Games Accordion Item */}
+          <AccordionItem value="live-games" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
+            <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none flex justify-between items-center [&>svg]:hidden">
+              <div className="flex items-center space-x-2">
+                <h2 className="text-xl font-semibold text-white">Live Predictions</h2>
+                <span className="bg-[#01112D] text-vanta-neon-blue text-sm font-bold px-3 py-1 rounded-full">
+                  {liveCount}
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm font-semibold text-vanta-neon-blue">All Live</span>
+                <span className="bg-[#01112D] text-vanta-neon-blue text-sm font-bold px-3 py-1 rounded-full">
+                  {liveCount}
+                </span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="p-4">
+              <LiveGamesSection />
+            </AccordionContent>
+          </AccordionItem>
 
-          {/* Premier League Section */}
-          <div className="mt-8">
-            <PremierLeagueSection />
-          </div>
+          {/* Premier League Accordion Item */}
+          <AccordionItem value="premier-league" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
+            <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
+              England Premier League
+            </AccordionTrigger>
+            <AccordionContent className="p-4">
+              <PremierLeagueSection />
+            </AccordionContent>
+          </AccordionItem>
 
-          {/* New La Liga Section */}
-          <div className="mt-8">
-            <LaLigaSection />
-          </div>
-        </>
+          {/* La Liga Accordion Item */}
+          <AccordionItem value="la-liga" className="bg-vanta-blue-medium rounded-[14px] shadow-sm border-none">
+            <AccordionTrigger className="bg-[#0D2C60] rounded-[14px] px-6 py-4 text-white text-xl font-semibold hover:no-underline data-[state=open]:rounded-b-none">
+              Spain La Liga
+            </AccordionTrigger>
+            <AccordionContent className="p-4">
+              <LaLigaSection />
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       ) : (
         <div className="mt-8">
           <SectionHeader title={`${formattedSelectedSport} Games`} className="mb-4" textColor="text-vanta-text-light" />
