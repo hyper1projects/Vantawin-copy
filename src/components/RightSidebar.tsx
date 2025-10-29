@@ -107,13 +107,13 @@ const RightSidebar = () => {
                   className="w-16 mx-4 h-16 rounded-full object-cover mr-4"
                 />
               </div>
-
-              <div className="flex flex-col flex-grow">
-                {/* Outcome Selection Buttons */}
-                <div className="mb-6 flex gap-2">
+              <div className="flex gap-1 justify-end">
+                {quickAddAmountButtons.map((amount) => (
                   <Button
-                    className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
-                    onClick={() => setSelectedMatch(selectedGame, 'team1')}
+                    key={amount}
+                    variant="outline"
+                    className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-[0.6rem] px-1.5 py-0.5 h-8 flex-1 min-w-[0]"
+                    onClick={() => setPredictionAmount(prevAmount => prevAmount + amount)}
                   >
                     ({selectedGame.odds.team1.toFixed(2)})
                   </Button>
@@ -162,20 +162,11 @@ const RightSidebar = () => {
                   </div>
                 </div>
 
-                {/* Potential Win Section */}
-                <div className="mb-2">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-lg font-semibold">Potential Win</h4>
-                    <span className="text-yellow-400 text-2xl font-bold">{potentialWinXP} XP</span>
-                  </div>
-                </div>
-
-                <Button
-                  className="w-full py-3 text-lg font-bold bg-[#00EEEE] hover:bg-[#00CCCC] text-[#081028] rounded-[12px]"
-                  onClick={handlePredict}
-                >
-                  Predict Now
-                </Button>
+            {/* Potential Win Section */}
+            <div className="mb-6">
+              <div className="flex justify-between items-center mb-3">
+                <h4 className="text-base font-semibold">Potential Win</h4>
+                <span className="text-yellow-400 text-xl font-bold">{potentialWinXP} XP</span>
               </div>
             </>
           ) : (
@@ -191,8 +182,13 @@ const RightSidebar = () => {
             <p className="text-lg font-semibold mb-2">Redeem your rewards here!</p>
             <p className="text-sm">This section is under construction.</p>
           </div>
-        )}
-      </div>
+        </>
+      ) : (
+        <div className="flex flex-col items-center justify-center h-full text-center text-gray-400 p-6">
+          <p className="text-lg font-semibold mb-2">No match selected</p>
+          <p className="text-sm">Click on any odds to start predicting!</p>
+        </div>
+      )}
     </div>
   );
 };
