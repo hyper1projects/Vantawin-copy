@@ -68,7 +68,7 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-[400px]  h-[900px] text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto custom-scrollbar"> {/* Added custom-scrollbar */}
+    <div className="w-full h-full text-vanta-text-light flex flex-col z-40 rounded-[27px] font-outfit p-6 overflow-y-auto custom-scrollbar"> {/* Added custom-scrollbar */}
       {/* Leaderboard Card */}
       <RightSidebarLeaderboardCard players={dummyLeaderboardPlayers} />
 
@@ -108,12 +108,9 @@ const RightSidebar = () => {
                 />
               </div>
               <div className="flex gap-1 justify-end">
-                {quickAddAmountButtons.map((amount) => (
                   <Button
-                    key={amount}
-                    variant="outline"
-                    className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-[0.6rem] px-1.5 py-0.5 h-8 flex-1 min-w-[0]"
-                    onClick={() => setPredictionAmount(prevAmount => prevAmount + amount)}
+                    className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
+                    onClick={() => setSelectedMatch(selectedGame, 'team1')}
                   >
                     ({selectedGame.odds.team1.toFixed(2)})
                   </Button>
@@ -168,6 +165,7 @@ const RightSidebar = () => {
                 <h4 className="text-base font-semibold">Potential Win</h4>
                 <span className="text-yellow-400 text-xl font-bold">{potentialWinXP} XP</span>
               </div>
+            </div>
             </>
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
@@ -182,13 +180,8 @@ const RightSidebar = () => {
             <p className="text-lg font-semibold mb-2">Redeem your rewards here!</p>
             <p className="text-sm">This section is under construction.</p>
           </div>
-        </>
-      ) : (
-        <div className="flex flex-col items-center justify-center h-full text-center text-gray-400 p-6">
-          <p className="text-lg font-semibold mb-2">No match selected</p>
-          <p className="text-sm">Click on any odds to start predicting!</p>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

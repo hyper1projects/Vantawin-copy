@@ -24,7 +24,7 @@ const Layout = () => {
             <Outlet /> {/* This is where your route components will be rendered */}
           </div>
           {showRightSidebar && (
-            <div className="hidden lg:block h-full w-72 flex-shrink-0">
+            <div className="hidden lg:block h-full w-[400px] flex-shrink-0">
               <RightSidebar />
             </div>
           )}
