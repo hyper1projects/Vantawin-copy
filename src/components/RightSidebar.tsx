@@ -75,7 +75,7 @@ const RightSidebar = () => {
       {/* Predict/Redeem Card */}
       <div className="bg-vanta-blue-medium rounded-[27px] p-4 shadow-sm flex flex-col flex-grow">
         {/* Predict/Redeem Tabs */}
-        <div className="flex space-x-6 mb-6 border-b border-gray-700 pb-4">
+        <div className="flex justify-center space-x-6 mb-6 border-b border-gray-700 pb-4">
           <Button variant="ghost" className={getTabButtonClasses('predict')} onClick={() => setActiveTab('predict')}>
             Predict
           </Button>
@@ -88,13 +88,13 @@ const RightSidebar = () => {
           selectedGame ? (
             <>
               {/* Match Info */}
-              <div className="flex items-center mb-6 mt-4">
+              <div className="flex items-center justify-center mb-6 mt-4">
                 <img
                   src={getLogoSrc(selectedGame.team1.logoIdentifier)}
                   alt={`${selectedGame.team1.name} Logo`}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
+                  className="w-16 h-16 rounded-full object-contain mr-4"
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center">
                   <span className="text-lg font-bold text-vanta-text-light">{selectedGame.team1.name.substring(0,3).toUpperCase()} vs {selectedGame.team2.name.substring(0,3).toUpperCase()}</span>
                   <div className="flex items-center mt-1">
                     <span className="bg-[#017890] text-[#00EEEE] opacity-70 font-semibold text-xs px-2 py-1 rounded-md">{selectedGame.team1.name.substring(0,3).toUpperCase()}</span>
@@ -104,10 +104,10 @@ const RightSidebar = () => {
                  <img
                   src={getLogoSrc(selectedGame.team2.logoIdentifier)}
                   alt={`${selectedGame.team2.name} Logo`}
-                  className="w-16 mx-4 h-16 rounded-full object-cover mr-4"
+                  className="w-16 ml-4 h-16 rounded-full object-contain"
                 />
               </div>
-              <div className="flex gap-1 justify-end">
+              <div className="flex gap-1 justify-end mb-4">
                   <Button
                     className={`flex-1 py-2 text-sm font-semibold ${selectedOutcome === 'team1' ? 'bg-[#015071]' : 'bg-vanta-blue-dark hover:bg-vanta-blue-darker'}`}
                     onClick={() => setSelectedMatch(selectedGame, 'team1')}
@@ -132,8 +132,8 @@ const RightSidebar = () => {
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="text-lg font-semibold">Amount</h4>
-                    <div className="flex items-center bg-vanta-blue-dark rounded-md px-3 py-2">
-                      <span className="text-gray-400 text-2xl font-bold mr-1">₦</span>
+                    <div className="flex items-center bg-vanta-blue-dark rounded-md px-3 py-1">
+                      <span className="text-gray-400 text-xl font-bold mr-1">₦</span>
                       <Input
                         type="number"
                         value={predictionAmount}
@@ -141,16 +141,16 @@ const RightSidebar = () => {
                           const newValue = Number(e.target.value);
                           setPredictionAmount(newValue < 0 ? 0 : newValue); // Ensure amount doesn't go below 0
                         }}
-                        className="w-24 text-right bg-transparent border-none text-gray-400 text-2xl font-bold p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        className="w-24 text-right bg-transparent border-none text-gray-400 text-xl font-bold p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                       />
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 justify-end">
+                  <div className="flex flex-wrap gap-2 justify-between">
                     {quickAddAmountButtons.map((amount) => (
                       <Button
                         key={amount}
                         variant="outline"
-                        className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-xs px-3 py-1 h-auto"
+                        className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-vanta-text-light text-xs px-3 py-1 h-auto flex-1"
                         onClick={() => setPredictionAmount(prevAmount => prevAmount + amount)}
                       >
                         +{amount}

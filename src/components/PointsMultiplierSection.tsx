@@ -96,10 +96,9 @@ const PointsMultiplierSection: React.FC<PointsMultiplierSectionProps> = ({ class
       <div className="w-full"> 
         <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
       </div>
-      {/* Container for cards that allows wrapping */}
-      <div className="w-full">
-        {/* Cards arranged with proper spacing */}
-        <div className="flex flex-wrap gap-6 justify-center items-start">
+      {/* Horizontal scrolling carousel */}
+      <div className="w-full overflow-x-auto pb-2 [-webkit-scrollbar:none] [scrollbar-width:none]">
+        <div className="flex gap-6 px-2 min-w-min">
           {gamesWithBestOdds.map((game) => (
             <div key={game.id} className="flex-shrink-0">
               <MatchCard

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Oddscard from './Oddscard';
 import { Game } from '../types/game'; // Ensure Game type is imported
 import SectionHeader from './SectionHeader';
@@ -10,6 +11,7 @@ import { cn } from '@/lib/utils';
 type GameFilter = 'All' | 'Live' | 'Upcoming';
 
 const TopGamesSection: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedFilter, setSelectedFilter] = useState<GameFilter>('All');
 
   // Define an array of game data, using the logo identifiers from logoMap.ts
@@ -122,10 +124,10 @@ const TopGamesSection: React.FC = () => {
       </div>
 
       {/* Show More Button positioned to bottom right */}
-      <div className="w-full flex justify-end px-1 pt-1">
+      <div className="w-full flex justify-end pt-4 pr-4">
         <Button 
-          className="bg-[#00EEEE] text-[#081028] hover:bg-[#00EEEE] hover:text-[#081028] rounded-[8px] px-2 py-0.5 text-xs"
-          onClick={() => console.log('Show More clicked')} // Placeholder for future functionality
+          className="bg-[#00EEEE] text-[#081028] hover:bg-[#00EEEE] hover:text-[#081028] rounded-[12px] px-6 py-2"
+          onClick={() => navigate('/games')}
         >
           Show More
         </Button>
