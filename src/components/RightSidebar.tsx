@@ -130,10 +130,13 @@ const RightSidebar = () => {
 
                 {/* Amount Selection */}
                 <div className="mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="text-lg font-semibold">Amount</h4>
+                  <div className="flex justify-between items-center px-4 py-3 mb-2">
+                    <div className="flex flex-col">
+                      <h4 className="text-base font-semibold text-white">Amount</h4>
+                      <span className="text-sm text-vanta-neon-blue font-medium">Enter an amount</span>
+                    </div>
                     <div className="flex items-center bg-vanta-blue-dark rounded-md px-3 py-1">
-                      <span className="text-gray-400 text-xl font-bold mr-1">₦</span>
+                      <span className="text-vanta-neon-blue text-xl font-bold mr-1">₦</span>
                       <Input
                         type="number"
                         value={predictionAmount}
@@ -141,7 +144,7 @@ const RightSidebar = () => {
                           const newValue = Number(e.target.value);
                           setPredictionAmount(newValue < 0 ? 0 : newValue); // Ensure amount doesn't go below 0
                         }}
-                        className="w-24 text-right bg-transparent border-none text-gray-400 text-xl font-bold p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        className="w-24 text-right bg-transparent border-none text-vanta-neon-blue text-xl font-bold p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                       />
                     </div>
                   </div>

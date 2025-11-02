@@ -38,7 +38,7 @@ const Sidebar = () => {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent className="pt-4">
-            <SidebarMenu>
+            <SidebarMenu className="space-y-2">
               {primaryNavItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -49,7 +49,7 @@ const Sidebar = () => {
                       className={isActive ? 'bg-vanta-accent-dark-blue' : ''}
                     >
                       <Link to={item.path}>
-                        <item.icon size={24} />
+                        <item.icon size={28} />
                         <span className="text-lg">{item.name}</span>
                       </Link>
                     </SidebarMenuButton>
@@ -68,7 +68,7 @@ const Sidebar = () => {
                 <SidebarMenuButton asChild>
                   <Link to={item.path} className="flex items-center justify-between w-full">
                     <div className="flex items-center gap-2">
-                      <item.icon size={18} />
+                      <item.icon size={20} />
                       <span>{item.name}</span>
                     </div>
                     <ChevronRight size={16} className="text-vanta-text-light" />
