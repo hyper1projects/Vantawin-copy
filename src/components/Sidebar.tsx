@@ -50,7 +50,7 @@ const Sidebar = () => {
                     >
                       <Link to={item.path}>
                         <item.icon size={28} />
-                        <span className="text-lg">{item.name}</span>
+                        <span className="text-lg font-light">{item.name}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
