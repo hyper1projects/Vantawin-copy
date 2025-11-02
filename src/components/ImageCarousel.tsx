@@ -37,7 +37,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ className }) => { // Dest
   }, [goToNext]);
 
   return (
-    <div className={`relative w-full max-w-2xl mx-auto overflow-hidden rounded-lg shadow-lg ${className || ''}`}> {/* Apply className here */}
+    <div className={`relative w-full overflow-hidden rounded-lg shadow-lg ${className || ''}`}> {/* Apply className here */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
