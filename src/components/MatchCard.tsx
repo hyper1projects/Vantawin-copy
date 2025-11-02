@@ -24,30 +24,30 @@ const MatchCard: React.FC<MatchCardProps> = ({ game }) => {
   const team2Odd = game.odds?.team2 !== undefined ? game.odds.team2.toFixed(2) : '-';
 
   return (
-    <div className="relative p-[2px] rounded-[27px] bg-gradient-to-t from-[#9A3FFE] to-[#00EEEE] w-[230px] h-[230px] flex-shrink-0">
-      <div className="bg-[#011B47] rounded-[27px] h-full w-full p-4 flex flex-col justify-between text-white">
+    <div className="relative p-[2px] rounded-[27px] bg-gradient-to-t from-[#9A3FFE] to-[#00EEEE] w-[185px] h-[185px] flex-shrink-0">
+      <div className="bg-[#011B47] rounded-[27px] h-full w-full p-2.5 flex flex-col justify-between text-white">
         
         {/* Date/Time Row */}
-        <p className="text-base font-semibold text-center mt-2">{game.date} - {game.time}</p> 
+        <p className="text-xs font-semibold text-center mt-1">{game.date} - {game.time}</p> 
         
         {/* Team Logos and Names Row */}
-        <div className="flex items-center justify-between w-full px-2"> 
+        <div className="flex items-center justify-between w-full px-1"> 
           <div className="flex flex-col items-center w-1/3"> 
-            <img src={getLogoSrc(game.team1.logoIdentifier)} alt={game.team1.name} className="w-12 h-12 object-contain mb-1" /> 
-            <span className="text-[10px] font-medium text-center">{game.team1.name}</span>
+            <img src={getLogoSrc(game.team1.logoIdentifier)} alt={game.team1.name} className="w-9 h-9 object-contain mb-0.5" /> 
+            <span className="text-[8px] font-medium text-center">{game.team1.name}</span>
           </div>
-          <span className="text-lg font-bold text-gray-400">VS</span>
+          <span className="text-sm font-bold text-gray-400">VS</span>
           <div className="flex flex-col items-center w-1/3"> 
-            <img src={getLogoSrc(game.team2.logoIdentifier)} alt={game.team2.name} className="w-12 h-12 object-contain mb-1" /> 
-            <span className="text-[10px] font-medium text-center">{game.team2.name}</span>
+            <img src={getLogoSrc(game.team2.logoIdentifier)} alt={game.team2.name} className="w-9 h-9 object-contain mb-0.5" /> 
+            <span className="text-[8px] font-medium text-center">{game.team2.name}</span>
           </div>
         </div>
         
         {/* Prediction Buttons Row */}
-        <div className="flex justify-center space-x-2 w-full mb-2">
+        <div className="flex justify-center space-x-1 w-full mb-1">
           <Button
             className={cn(
-              `flex-1 py-1.5 px-3 rounded-md transition-colors duration-300 text-xs font-semibold`,
+              `flex-1 py-0.5 px-1.5 rounded-md transition-colors duration-300 text-[9px] font-semibold`,
               selectedGame?.id === game.id && selectedOutcome === 'team1'
                 ? "bg-vanta-neon-blue text-vanta-blue-dark"
                 : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
@@ -58,7 +58,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ game }) => {
           </Button>
           <Button
             className={cn(
-              `flex-1 py-1.5 px-3 rounded-md transition-colors duration-300 text-xs font-semibold`,
+              `flex-1 py-0.5 px-1.5 rounded-md transition-colors duration-300 text-[9px] font-semibold`,
               selectedGame?.id === game.id && selectedOutcome === 'draw'
                 ? "bg-vanta-neon-blue text-vanta-blue-dark"
                 : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"
@@ -69,7 +69,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ game }) => {
           </Button>
           <Button
             className={cn(
-              `flex-1 py-1.5 px-3 rounded-md transition-colors duration-300 text-xs font-semibold`,
+              `flex-1 py-0.5 px-1.5 rounded-md transition-colors duration-300 text-[9px] font-semibold`,
               selectedGame?.id === game.id && selectedOutcome === 'team2'
                 ? "bg-vanta-neon-blue text-vanta-blue-dark"
                 : "bg-[#01112D] text-gray-300 hover:bg-[#012A5E]"

@@ -79,6 +79,50 @@ const PointsMultiplierSection: React.FC<PointsMultiplierSectionProps> = ({ class
       isLive: false,
       gameView: 'German Derby',
     },
+    {
+      id: 'game-7',
+      time: '4:00 PM',
+      date: 'Today',
+      team1: { name: 'Tottenham', logoIdentifier: 'TOT' },
+      team2: { name: 'Manchester City', logoIdentifier: 'MCI' },
+      odds: { team1: 3.5, draw: 3.3, team2: 1.8 },
+      league: 'Premier League',
+      isLive: false,
+      gameView: 'View Match',
+    },
+    {
+      id: 'game-8',
+      time: '7:30 PM',
+      date: 'Tomorrow',
+      team1: { name: 'Atletico Madrid', logoIdentifier: 'ATM' },
+      team2: { name: 'Sevilla', logoIdentifier: 'SEV' },
+      odds: { team1: 1.9, draw: 3.4, team2: 2.8 },
+      league: 'La Liga',
+      isLive: false,
+      gameView: 'View Game',
+    },
+    {
+      id: 'game-9',
+      time: '9:30 PM',
+      date: 'Today',
+      team1: { name: 'Juventus', logoIdentifier: 'JUV' },
+      team2: { name: 'AC Milan', logoIdentifier: 'MIL' },
+      odds: { team1: 2.2, draw: 3.0, team2: 2.4 },
+      league: 'Serie A',
+      isLive: true,
+      gameView: 'View Details',
+    },
+    {
+      id: 'game-10',
+      time: '6:30 PM',
+      date: 'Tomorrow',
+      team1: { name: 'PSG', logoIdentifier: 'PSG' },
+      team2: { name: 'Marseille', logoIdentifier: 'MAR' },
+      odds: { team1: 1.4, draw: 4.2, team2: 5.5 },
+      league: 'Ligue 1',
+      isLive: false,
+      gameView: 'View Match',
+    },
   ];
 
   // Function to get the highest odd for a game
@@ -86,10 +130,9 @@ const PointsMultiplierSection: React.FC<PointsMultiplierSectionProps> = ({ class
     return Math.max(game.odds.team1, game.odds.draw, game.odds.team2);
   };
 
-  // Sort games by the highest odd in descending order and take only the top 3
+  // Sort games by the highest odd in descending order
   const gamesWithBestOdds = [...allGames]
-    .sort((a, b) => getMaxOdd(b) - getMaxOdd(a))
-    .slice(0, 3);
+    .sort((a, b) => getMaxOdd(b) - getMaxOdd(a));
 
   return (
     <div className={`flex flex-col items-center space-y-6 ${className || ''}`}> {/* Apply className here */}
@@ -97,8 +140,8 @@ const PointsMultiplierSection: React.FC<PointsMultiplierSectionProps> = ({ class
         <SectionHeader title="Points Multiplier" className="w-full" textColor="text-white" />
       </div>
       {/* Horizontal scrolling carousel */}
-      <div className="w-full overflow-x-auto pb-2 [-webkit-scrollbar:none] [scrollbar-width:none]">
-        <div className="flex gap-6 px-2 min-w-min">
+      <div className="w-full overflow-x-auto pb-4 scroll-smooth [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-vanta-blue-dark [&::-webkit-scrollbar-thumb]:bg-vanta-neon-blue [&::-webkit-scrollbar-thumb]:rounded-full">
+        <div className="flex gap-4 px-2 min-w-min">
           {gamesWithBestOdds.map((game) => (
             <div key={game.id} className="flex-shrink-0">
               <MatchCard
