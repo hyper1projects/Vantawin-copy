@@ -37,7 +37,7 @@ const LoginDialog: React.FC<LoginDialogProps> = ({ open, onOpenChange, onSwitchT
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-vanta-blue-medium border-vanta-accent-dark-blue text-vanta-text-light max-w-md">
+      <DialogContent className="bg-vanta-blue-medium border-none text-vanta-text-light max-w-md rounded-3xl">
         <button
           onClick={() => onOpenChange(false)}
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-1 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
@@ -65,7 +65,7 @@ const LoginDialog: React.FC<LoginDialogProps> = ({ open, onOpenChange, onSwitchT
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-white placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-offset-1"
+              className="bg-vanta-blue-dark border-none text-white placeholder:text-gray-500 focus-visible:ring-0 rounded-xl"
             />
           </div>
 
@@ -79,7 +79,7 @@ const LoginDialog: React.FC<LoginDialogProps> = ({ open, onOpenChange, onSwitchT
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-vanta-blue-dark border-vanta-accent-dark-blue text-white placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-offset-1"
+              className="bg-vanta-blue-dark border-none text-white placeholder:text-gray-500 focus-visible:ring-0 rounded-xl"
             />
           </div>
 
